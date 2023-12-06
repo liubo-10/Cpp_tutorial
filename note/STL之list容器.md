@@ -112,7 +112,7 @@ it = list1.end();
 移除所有元素，容器清空
 
 ```C++
-c.clear()
+mylist.clear()
 ```
 
 
@@ -125,8 +125,10 @@ c.clear()
 
 移除iterator位置pos上的元素，返回下一个元素的位置
 
+mylist.size()会减1
+
 ```C++
-c.erase(pos)
+mylist.erase(pos)
 ```
 
 
