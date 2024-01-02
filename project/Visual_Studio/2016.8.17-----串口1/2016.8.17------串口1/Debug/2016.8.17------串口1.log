@@ -1,0 +1,47 @@
+﻿生成启动时间为 2016/8/17 14:20:27。
+     1>项目“E:\软件学习\Visual_Studio\0--VisualStudioProject\2016.8.15-----串口\2016.8.17------串口1\2016.8.17------串口1\2016.8.17------串口1.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\2016.8.17------串口1.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\2016.8.17------串口1.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\2016.8.17------串口1.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt "2016.8.17------串口1.cpp" "2016.8.17------串口1Dlg.cpp" CMSComm.cpp mscomm1.cpp
+         mscomm1.cpp
+         CMSComm.cpp
+         2016.8.17------串口1Dlg.cpp
+     1>e:\软件学习\visual_studio\0--visualstudioproject\2016.8.15-----串口\2016.8.17------串口1\2016.8.17------串口1\2016.8.17------串口1dlg.cpp(213): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+     1>e:\软件学习\visual_studio\0--visualstudioproject\2016.8.15-----串口\2016.8.17------串口1\2016.8.17------串口1\2016.8.17------串口1dlg.cpp(218): error C2593: “operator +=”不明确
+                 d:\program files (x86)\microsoft visual studio 10.0\vc\atlmfc\include\cstringt.h(1311): 可能是“ATL::CStringT<BaseType,StringTraits> &ATL::CStringT<BaseType,StringTraits>::operator +=(const char *)”
+                 with
+                 [
+                     BaseType=wchar_t,
+                     StringTraits=StrTraitMFC_DLL<wchar_t>
+                 ]
+                 d:\program files (x86)\microsoft visual studio 10.0\vc\atlmfc\include\cstringt.h(1296): 或       “ATL::CStringT<BaseType,StringTraits> &ATL::CStringT<BaseType,StringTraits>::operator +=(const wchar_t *)”
+                 with
+                 [
+                     BaseType=wchar_t,
+                     StringTraits=StrTraitMFC_DLL<wchar_t>
+                 ]
+                 尝试匹配参数列表“(CString, _bstr_t)”时
+     1>e:\软件学习\visual_studio\0--visualstudioproject\2016.8.15-----串口\2016.8.17------串口1\2016.8.17------串口1\2016.8.17------串口1dlg.cpp(228): error C2593: “operator +=”不明确
+                 d:\program files (x86)\microsoft visual studio 10.0\vc\atlmfc\include\cstringt.h(1311): 可能是“ATL::CStringT<BaseType,StringTraits> &ATL::CStringT<BaseType,StringTraits>::operator +=(const char *)”
+                 with
+                 [
+                     BaseType=wchar_t,
+                     StringTraits=StrTraitMFC_DLL<wchar_t>
+                 ]
+                 d:\program files (x86)\microsoft visual studio 10.0\vc\atlmfc\include\cstringt.h(1296): 或       “ATL::CStringT<BaseType,StringTraits> &ATL::CStringT<BaseType,StringTraits>::operator +=(const wchar_t *)”
+                 with
+                 [
+                     BaseType=wchar_t,
+                     StringTraits=StrTraitMFC_DLL<wchar_t>
+                 ]
+                 尝试匹配参数列表“(CString, _bstr_t)”时
+         2016.8.17------串口1.cpp
+         正在生成代码...
+     1>已完成生成项目“E:\软件学习\Visual_Studio\0--VisualStudioProject\2016.8.15-----串口\2016.8.17------串口1\2016.8.17------串口1\2016.8.17------串口1.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:27.37
