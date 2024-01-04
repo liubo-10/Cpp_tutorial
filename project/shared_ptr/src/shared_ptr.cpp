@@ -33,8 +33,8 @@ int main() {
     // 打印引用个数：2
     cout << "p1 = " << *p1 << endl; // 输出10
     cout << "p2 = " << *p2 << endl; // 输出10
-    cout << "p1 count = " << p1.use_count() << endl;
-    cout << "p2 count = " << p2.use_count() << endl;
+    cout << "p1 count = " << p1.use_count() << endl; // 输出2
+    cout << "p2 count = " << p2.use_count() << endl; // 输出2
 
     // 比较智能指针，p1等于p2
     if (p1 == p2) {
@@ -58,7 +58,7 @@ int main() {
 
     cout << "\n----------------p1 = nullptr------------------" << endl;
     p1 = nullptr;// 把对象重置为nullptr，引用计数为0
-    cout << "p1 Count = " << p1.use_count() << endl;
+    cout << "p1 Count = " << p1.use_count() << endl; // 输出0
 
     if (!p1) {
         cout << "p1 is NULL" << endl; // 输出
