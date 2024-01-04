@@ -13,8 +13,8 @@ using std::endl;
 using std::shared_ptr;
 using std::make_shared;
 
-int main(){
-    shared_ptr<int> p1 = make_shared<int>();//make_shared 创建空对象，
+int main() {
+    shared_ptr<int> p1 = make_shared<int>(); // make_shared 创建空对象，
 	*p1 = 10;
 	cout << "p1 = " << *p1 << endl; // 输出10
 
