@@ -1,4 +1,4 @@
-# 智能指针
+# 走入smart_pointer
 
 * 👋 Hi, I’m bliu2-10
 * 👀 I’m interested in harmony
@@ -28,79 +28,6 @@ C+ + 里面的四个智能指针：
 智能指针的作用是管理一个指针，因为存在以下这种情况：申请的空间在函数结束
 
 忘记释放，造成内存泄漏 。使用智能指针可以很大程度上的避免这个问题，因为智能指针就是一个类，当超出了类的作用域时，类会自动调用析构函数，析构函数会自动释放资源。 所以智能指针的作用原理就是在函数结束时自动释放内存空间不 需要手动释放内存空间 。
-
-
-
-## shared_ptr
-
-实现原理：
-
-采用引用计数器的方法，允许多个智能指针指向同一个对象，每当多一个指针指向该对象时，指向该对象的所有智能指针内部的引用计数加1，每当减少一个智能指针指向对象时，引用计数会减1，当计数为0的时候会自动的释放动态分配的资源。 
-
-
-
-- 智能指针将一个计数器与类指向的对象相关联，引用计数器跟踪共有多少个类对象共享同一指针
-- 每次创建类的新对象时，初始化指针并将引用计数置为1
-- 当对象作为另一对象的副本而创建时，拷贝构造函数拷贝指针并增加与之相应的引用计数
-- 对一个对象进行赋值时，赋值操作符减少左操作数所指对象的引用计数（如果引用计数为减至0，则删除对象），并增加右操作数所指对象的引用计数
-- 调用析构函数时，构造函数减少引用计数（如果引用计数减至0，则删除基础对象）
-
-
-
-
-
-
-
-
-
-```c++
-template<typename T>
-class SharedPtr
-{ 
-    public:
-    SharedPtr(T* ptr = NULL):_ptr(ptr), _pcount(new int(1))
-    {}
-    SharedPtr(const SharedPtr& s):_ptr(s._ptr), _pcount(s._pcount){
-        (*_pcount)++;
-    }
-    SharedPtr<T>& operator=(const SharedPtr& s){
-        if (this != &s)
-        {
-            if (--(*(this->_pcount)) == 0)
-            {
-                delete this->_ptr;
-                delete this->_pcount;
-            }
-            _ptr = s._ptr;
-            _pcount = s._pcount;
-            *(_pcount)++;
-        }
-        return *this;
-    }
-    T& operator*()
-    {
-        return *(this->_ptr);
-    }
-    T* operator->()
-    {
-        return this->_ptr;
-    }
-    ~SharedPtr()
-    {
-        --(*(this->_pcount));
-        if (*(this->_pcount) == 0)
-        {
-            delete _ptr;
-            _ptr = NULL;
-            delete _pcount;
-            _pcount = NULL;
-        }
-    }
-private:
-    T* _ptr;
-    int* _pcount;//指向引用计数的指针
-};
-```
 
 
 
@@ -146,12 +73,6 @@ auto_ptr不支持拷贝和赋值操作，不能用在STL标准容器中。STL容
 
 
 
-
-智能指针shared_ptr代码实现：
-
-```c++
-
-```
 
 
 
