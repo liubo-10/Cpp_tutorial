@@ -1,9 +1,9 @@
-/*
-
-shared_ptr.cpp
-
-
-*/
+//！ *********************************************************
+//！ file name: shared_ptr.cpp
+//！ author: liubo
+//！ date: 2024.01.11
+//！ describe:  
+//！ *********************************************************
 #include<iostream>
 #include<memory> // 共享指针必须要包含的头文件
 
@@ -18,17 +18,14 @@ int main() {
 
     // 最好使用make_shared创建共享指针
     cout << "\n----------------创建p1------------------" << endl;
-    shared_ptr<int> p1 = make_shared<int>(); // make_shared 创建空对象
+    shared_ptr<int> p1 = make_shared<int>(0);// make_shared 创建空对象
 
-    *p1 = 10; // 取引用
-    cout << "p1 = " << *p1 << endl; // 输出10
-
-    // 打印引用个数：1
-    cout << "p1 count = " << p1.use_count() << endl;
+    *p1 = 10;// 取引用
+    cout << "p1 = " << *p1 << endl;// 输出10
+    cout << "p1 count = " << p1.use_count() << endl;// 打印引用个数：1
     
     cout << "\n----------------创建p2------------------" << endl;
-    // 第2个shared_ptr对象指向同一个指针
-    std::shared_ptr<int> p2(p1);
+    std::shared_ptr<int> p2(p1);// 第2个shared_ptr对象指向同一个指针
 
     // 打印引用个数：2
     cout << "p1 = " << *p1 << endl; // 输出10
