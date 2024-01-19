@@ -1,5 +1,3 @@
-# lambda note
-
 * 👋 Hi, I’m bliu2-10
 * 👀 I’m interested in harmony
 * 🌱 I’m currently learning harmony
