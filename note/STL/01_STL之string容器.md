@@ -148,27 +148,9 @@ string str(s);
 通常，程序员在整个程序中应坚持使用string类对象，直到必须将内容转化为char*时才将其转换为C_string.
 
 
-为了修改string字符串的内容，下标操作符[]和at都会返回字符的引用。但当字符串的内存被重新分配之后，可能发生错误.
 
-```c++
-string s = "abcdefg";
-char& a = s[2];
-char& b = s[3];
 
-a = '1';
-b = '2';
 
-cout << s << endl;
-cout << (int*)s.c_str() << endl;
-
-s = "pppppppppppppppppppppppp";
-
-//a = '1';
-//b = '2';
-
-cout << s << endl;
-cout << (int*)s.c_str() << endl;
-```
 
 
 
