@@ -8,8 +8,7 @@
  * 
  **********************************************************/
 #include<iostream>
-#include<unistd.h>
-
+#include<unistd.h> // pause()头文件
 
 using std::cin;
 using std::cout;
