@@ -1,18 +1,70 @@
 /***********************************************************
- * @file name: 03_STL_vector.cpp
+ * @file name: 04_STL_list.cpp
  * @author: liubo
  * @date: 2024.01.25
- * @describe: 巧用swap，收缩内存空间
+ * @describe: 
  * 
  **********************************************************/
 #include<iostream>
-#include <unistd.h>
+#include<unistd.h>
 #include<vector>
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <iostream>
+#include <list>
+#include <string>
+
+#include "function1.h"
+#include "function2.h"
+
+int main(void)
+{
+	std::list<int> mylist;
+
+    for(int i=0; i<5; i++)
+    {
+        mylist.push_back(i);
+    }
+    
+    std::cout << "mylist:";
+    for (auto iter = mylist.begin(); iter != mylist.end(); iter++) 
+    {
+        std::cout << " " << *iter;
+    }
+    std::cout<<std::endl;
+    std::cout << "mylist.size():" << mylist.size() << std::endl;
+    std::cout<<std::endl;
+
+    // 调用erase()
+    mylist.erase(mylist.begin());
+
+    std::cout << "mylist.begin() erase:" << *mylist.begin() <<std::endl;
+
+    std::cout << "mylist erase:";
+    for (auto iter = mylist.begin(); iter != mylist.end(); iter++) 
+    {
+        std::cout << " " << *iter;
+    }
+    std::cout<<std::endl;
+    std::cout << "mylist.size() erase:" << mylist.size() << std::endl;
+
+    return 0;
+}
+
+
+
+
 
 int main(){
     cout << "----------------begain------------------" << endl;
@@ -60,28 +112,6 @@ int main(){
     cout << "----------------end------------------" << endl;
     return EXIT_SUCCESS;
 }
-
-/**
- @expected output:
------------------begain------------------
-
-----------------大小 容量 测试------------------
-capacity:131072
-size:100000
-
-----------------resize 测试------------------
-capacity:131072
-size:10
-
-----------------swap 测试------------------
-capacity:10
-size:10
-
-----------------reserve 测试------------------
-count:1
-----------------end------------------
-
- */
 
 
 
