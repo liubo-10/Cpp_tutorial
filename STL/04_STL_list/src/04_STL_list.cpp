@@ -7,8 +7,8 @@
  **********************************************************/
 #include<iostream>
 #include<unistd.h>
-#include <string>
-#include <list>
+#include<string>
+#include<list>
 
 using std::cin;
 using std::cout;
