@@ -1,10 +1,14 @@
-/*
-
-bubble_sort.cpp
-
-
-*/
-#include <iostream>
+/***********************************************************
+ * @file name: bubble_sort.cpp
+ * @author: liubo
+ * @date: 2024.01.25
+ * @describe: template
+ * 
+ * @expected output:
+ * 
+ **********************************************************/
+#include<iostream>
+#include <unistd.h>
 
 using std::cin;
 using std::cout;
@@ -24,14 +28,19 @@ void BubbleSort(int* pData,int Count) {
 
 }
 
-int main() {
+int main(){
+    cout << "----------------begain------------------" << endl;
+
     int data[] = {10,9,8,7,6,5,4};
     BubbleSort(data,7);
     for (int i=0;i<7;i++) {
         cout<<data[i]<<" ";
     }
     cout<<"\n";
-    return 0;
+
+    cout << "----------------end------------------" << endl;
+    //pause();
+    return EXIT_SUCCESS;
 }
 
 
@@ -70,9 +79,8 @@ int main() {
 从上面的程序我们可以看出循环的次数是固定的，为1+2+...+n-1。
 写成公式就是1/2*(n-1)*n。现在注意，我们给出O方法的定义：
 
- 若存在一常量K和起点n0，使当n>=n0时，有f(n)<=K*g(n),则f(n) = O(g(n))。
- （呵呵，不要说没学好数学呀，对于编程数学是非常重要的！！！）
-
+若存在一常量K和起点n0，使当n>=n0时，有f(n)<=K*g(n),则f(n) = O(g(n))。
+（呵呵，不要说没学好数学呀，对于编程数学是非常重要的！！！）
 
 现在我们来看1/2*(n-1)*n，当K=1/2，n0=1，g(n)=n*n时，1/2*(n-1)*n<=1/2*n*n=K*g(n)。
 所以f(n)=O(g(n))=O(n*n)。所以我们程序循环的复杂度为O(n*n)。
@@ -84,15 +92,6 @@ int main() {
 正是由于这样的原因，我们通常都是通过循环次数来对比算法。
 
 
-
-
-
-
 */
-
-
-
-
-
 
 
