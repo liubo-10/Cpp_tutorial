@@ -8,13 +8,20 @@
  * 
  **********************************************************/
 #include<iostream>
+#include <unistd.h>
+
 
 using std::cin;
 using std::cout;
 using std::endl;
 
 int main(){
+    cout << "----------------begain------------------" << endl;
+
     cout<<"Hello World"<<endl;
-    return 0;
+
+    cout << "----------------end------------------" << endl;
+    //pause();
+    return EXIT_SUCCESS;
 }
 
