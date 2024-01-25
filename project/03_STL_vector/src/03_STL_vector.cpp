@@ -39,6 +39,24 @@ int main(){
     cout << "capacity:" << v.capacity() << endl; // capacity:10
     cout << "size:" << v.size() << endl;         // size:10
 
+    cout << "\n----------------reserve 测试------------------" << endl;
+	vector<int> v1;
+
+	//预先开辟空间
+	v1.reserve(100000);
+
+	int* pStart = nullptr;
+	int count = 0;
+	for (int i = 0; i < 100000;i ++){
+		v1.push_back(i);
+		if (pStart != &v1[0]){
+			pStart = &v1[0];
+			count++;
+		}
+	}
+
+	cout << "count:" << count << endl;
+
     cout << "----------------end------------------" << endl;
     return EXIT_SUCCESS;
 }
@@ -58,6 +76,9 @@ size:10
 ----------------swap 测试------------------
 capacity:10
 size:10
+
+----------------reserve 测试------------------
+count:1
 ----------------end------------------
 
  */
