@@ -253,7 +253,117 @@ C++中容器的定义如下：
 
 
 
+# 3. STL
 
+STL知识点总结：[快速跳转](https://blog.csdn.net/weixin_44515978/article/details/117562374)
+
+
+
+
+
+## **26.** ***\*3.8 什么情况下用vector，什么情况下用list，什么情况下用deque\****
+
+· vector可以随机存储元素（即可以通过公式直接计算出元素地址，而不需要挨个查找），但在非尾部插入删除数据时，效率很低，适合对象简单，对象数量变化不大，随机访问频繁。除非必要，我们尽可能选择使用vector而非deque，因为deque的迭代器比vector迭代器复杂很多。
+
+· list不支持随机存储，适用于对象大，对象数量变化频繁，插入和删除频繁，比如写多读少的场景。
+
+· 需要从首尾两端进行插入或删除操作的时候需要选择deque。
+
+## **27.** ***\*3.9 priority_queue的底层原理\****
+
+priority_queue：优先队列，其底层是用堆来实现的。在优先队列中，队首元素一定是当前队列中优先级最高的那一个。
+
+## **28.** ***\*3.10 map 、set、multiset、multimap的底层原理\****
+
+· map 、set 、multiset 、multimap的底层实现都是红黑树 ，epoll模型的底层数据结构也是红黑树 ，linux 系统中CFS 进程调度算法，也用到红黑树 。
+
+· 红黑树的特性：
+
+o 每个结点或是红色或是黑色；
+
+o 根结点是黑色；
+
+o 每个叶结点是黑的；
+
+o 如果一个结点是红的，则它的两个儿子均是黑色；
+
+o 每个结点到其子孙结点的所有路径上包含相同数目的黑色结点。
+
+## **29.** ***\*3.11 为何map和set的插入删除效率比其他序列容器高\****
+
+因为不需要内存拷贝和内存移动
+
+## **30.** ***\*3.12 为何map和set每次Insert之后，以前保存的iterator不会失效？\****
+
+因为插入操作只是结点指针换来换去，结点内存没有改变。而iterator就像指向结点的指针，内存没变，指向内存的指针也不会变。
+
+## **31.** ***\*3.13 当数据元素增多时（从10000到20000），map的set的查找速度会怎样变化？\****
+
+RB-TREE用二分查找法，时间复杂度为logn，所以从10000增到20000时，查找次数从log10000=14次到log20000=15次，多了1次而已。
+
+## **32.** ***\*3.14 map 、set、multiset、multimap的特点\****
+
+· set和multiset会根据特定的排序准则自动将元素排序，set中元素不允许重复，multiset可以重复。
+
+· map和multimap将key和value组成的pair作为元素，根据key的排序准则自动将元素排序（因为红黑树也是二叉搜索树，所以map默认是按key排序的），map中元素的key不允许重复，multimap可以重复。
+
+· map和set的增删改查速度为都是logn，是比较高效的。
+
+## **33.** ***\*3.15 为何map和set的插入删除效率比其他序列容器高，而且每次insert之后，以前保存的iterator不会失效？\****
+
+· 存储的是结点，不需要内存拷贝和内存移动。
+
+· 插入操作只是结点指针换来换去，结点内存没有改变。而iterator就像指向结点的指针，内存没变，指向内存的指针也不会变。
+
+## **34.** ***\*3.16 为何map和set不能像vector一样有个reserve函数来预分配数据?\****
+
+· 在map和set内部存储的已经不是元素本身了，而是包含元素的结点。也就是说map内部使用的Alloc并不是map<Key, Data, Compare, Alloc>声明的时候从参数中传入的Alloc。
+
+## **35.** ***\*3.17 set的底层实现实现为什么不用哈希表而使用红黑树？\****
+
+· set中元素是经过排序的，红黑树也是有序的，哈希是无序的
+
+· 如果只是单纯的查找元素的话，那么肯定要选哈希表了，因为哈希表在的最好查找时间复杂度为O(1)，并且如果用到set中那么查找时间复杂度的一直是O（1），因为set中是不允许有元素重复的。而红黑树的查找时间复杂度为O(lgn)
+
+## **36.** ***\*3.18 hash_map与map的区别？什么时候用hash_map，什么时候用map？\****
+
+· 构造函数：hash_map需要hash function和等于函数，而map需要比较函数（大于或小于）。
+
+· 存储结构：hash_map以hashtable为底层，而map以RB-TREE为底层。
+
+· 总的说来，hash_map查找速度比map快，而且查找速度基本和数据量大小无关，属于常数级别。而map的查找速度是logn级别。但不一定常数就比log小，而且hash_map还有hash function耗时。
+
+· 如果考虑效率，特别当元素达到一定数量级时，用hash_map。
+
+· 考虑内存，或者元素数量较少时，用map。
+
+## **37.** ***\*3.19 迭代器失效的问题\****
+
+插入操作：
+
+· 对于vector和string，如果容器内存被重新分配，iterators,pointers,references失效；如果没有重新分配，那么插入点之前的iterator有效，插入点之后的iterator失效；
+
+· 对于deque，如果插入点位于除front和back的其它位置iterators,pointers,references失效；当我们插入元素到front和back时，deque的迭代器失效，但reference和pointers有效；
+
+· 对于list和forward_list，所有的iterator,pointer和refercnce有效。 删除操作：
+
+· 对于vector和string，删除点之前的iterators,pointers,references有效；off-the-end迭代器总是失效的；
+
+· 对于deque，如果删除点位于除front和back的其它位置，iterators,pointers,references失效；当我们插入元素到front和back时，off-the-end失效，其他的iterators,pointers,references有效；
+
+· 对于list和forward_list，所有的iterator,pointer和refercnce有效。
+
+· 对于关联容器map来说，如果某一个元素已经被删除，那么其对应的迭代器就失效了，不应该再被使用，否则会导致程序无定义的行为。
+
+## **38.** ***\*3.20 STL线程不安全的情况\****
+
+· 在对同一个容器进行多线程的读写、写操作时；
+
+· 在每次调用容器的成员函数期间都要锁定该容器；
+
+· 在每个容器返回的迭代器（例如通过调用begin或end）的生存期之内都要锁定该容器；
+
+· 在每个在容器上调用的算法执行期间锁定该容器。
 
 
 
