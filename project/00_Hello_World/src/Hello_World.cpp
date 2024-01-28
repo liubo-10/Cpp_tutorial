@@ -4,7 +4,6 @@
  * @date: 2024.01.05
  * @describe: template
  * 
- * @expected output:
  * 
  **********************************************************/
 #include<iostream>
@@ -24,3 +23,13 @@ int main(){
     return EXIT_SUCCESS;
 }
 
+/**
+ * @expected output:
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */

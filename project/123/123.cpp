@@ -1,42 +1,13 @@
-#include "iostream"
-using namespace std;
-void main()
-  {  char name[10];
-     cout<<"please input your name:";	
-     cin>>name;
-     cout<<"the name is "<<name<<endl;
-  }
-
-  #include "iostream"
-using namespace std;
-void main()
-  {  char name[10];
-  	 int age;
-     cout<<"please input your name:";	
-     cin>>name;
-     cout<<"how old are you:";
-     cin>>age;
-     cout<<"the name is "<<name<<endl;
-     cout<<"the age  is "<<age<<endl;
-  }
 
 
-#include "iostream"
-using namespace std;
-void main()
-  {  
-  	struct student
-  	      {
-  	         int    no;
-  	         float 	math;
-  	      };
-   int n;
-   cin>>n;
-   student wang;
-   wang.no=n;
-   cin>>wang.math;
-   cout<<wang.no<<" "<<wang.math<<endl;
-  }
+
+
+
+
+
+
+
+
 
 
 #include "iostream"
