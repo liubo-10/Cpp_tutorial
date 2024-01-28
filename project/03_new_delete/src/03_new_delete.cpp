@@ -31,7 +31,7 @@ int main(){
     cin>>n;
     if((p=new int[n])==0) {
         cout<<"can't allocate more memory, terminating"<<endl;
-        exit(1);	
+        exit(1);
     }
     for(int i=0;i<n;i++) {
        p[i]=i*2;
@@ -39,8 +39,8 @@ int main(){
 
     cout<<"Now output the array: "<<endl;
 
-    for(i=0;i<n;i++) {
-        cout<<p[i]<<"  "<<endl;
+    for(int i=0;i<n;i++) {
+        cout<< p[i]<<"  "<<endl;
     }
     delete []p;
 
@@ -48,7 +48,6 @@ int main(){
     //pause();
     return EXIT_SUCCESS;
 }
-
 
 /**
  * @expected output:

@@ -4,40 +4,6 @@
 
 
 
-#include "iostream"
-using namespace std;
-void main()
-  {  
-     int *p;
-     int n;
-     cout<<"please input the length of the array: ";
-     cin>>n;
-     if((p=new int[n])==0)
-        {
-           cout<<"can't allocate more memory, terminating"<<endl;
-           exit(1);	
-        }
-    for(int i=0;i<n;i++)
-       p[i]=i*i+1;
-       cout<<"Now output the array: "<<endl;
-       for(i=0;i<n;i++)
-            cout<<p[i]<<"  ";
-            cout<<endl;
-            delete []p;
-  }
-
-
-/* Note:Your choice is C IDE */
-#include <iostream>
-using namespace std;
-float a=2.4;
-void main()
-{
-  int a=8;
-  cout<<a<<endl;
-  cout<<::a<<endl;  
-}
-
 
 /* Note:Your choice is C IDE */
 #include <iostream.h>
@@ -5017,4 +4983,3 @@ void main()
      cout<<theLogicError.what()<<endl;	
   }
 }
-
