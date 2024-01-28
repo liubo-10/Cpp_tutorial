@@ -27,9 +27,4 @@ int main(){
  * @expected output:
  * 
  * 
- * 
- * 
- * 
- * 
- * 
  */

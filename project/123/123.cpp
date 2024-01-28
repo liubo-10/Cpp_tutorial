@@ -4,34 +4,6 @@
 
 
 
-
-
-
-
-
-
-#include "iostream"
-using namespace std;
-void main()
-  {  
-     int *p;
-     int n;
-     cout<<"please input the length of the array: ";
-     cin>>n;
-     if((p=new int[n])==0)
-        {
-           cout<<"can't allocate more memory, terminating"<<endl;
-           exit(1);	
-        }
-    for(int i=0;i<n;i++)
-       p[i]=i*2;
-       cout<<"Now output the array: "<<endl;
-       for(i=0;i<n;i++)
-            cout<<p[i]<<"  "<<endl;
-            delete []p;
-  }
-
-
 #include "iostream"
 using namespace std;
 void main()
