@@ -24,3 +24,14 @@ int main(){
     return EXIT_SUCCESS;
 }
 
+#include "iostream"
+using namespace std;
+void main()
+  {  
+     int *p;
+     p=new int;
+     *p=5;
+     /*p=new int(5);*/
+     cout<<*p;
+     delete p;
+  }
