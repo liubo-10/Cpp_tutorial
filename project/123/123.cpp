@@ -1,38 +1,5 @@
 
 
-/* Note:Your choice is C IDE */
-#include <iostream>
-using namespace std;
-float &fn2(float r)
-{
-   float t;
-   t=3.14*r*r;
-   return t;	
-}
-void main()
-{
- fn2(5.0)=12.4;
- cout<<fn2(5.0)<<endl;   
-}
-
-
-
-
-/* Note:Your choice is C IDE */
-#include <iostream>
-#include <string>
-using namespace std;
-void main()
-{
-  string s,t; 
-  cout<<"please input a zifuchuan:"<<endl;
-  cin>>s;
-  t="I like programming!"; 
-  cout<<"zifuchuan output:"<<endl<<s<<endl<<t<<endl;
-  cout<<s.append(" OK!")<<endl;
-}
-
-
 
 
 /* Note:Your choice is C IDE */
