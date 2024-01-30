@@ -1,5 +1,5 @@
 /***********************************************************
- * @file name: 10_inline_function.cpp
+ * @file name: 11_overload.cpp
  * @author: liubo
  * @date: 2024.01.29
  * @describe: template
@@ -13,24 +13,34 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-inline double circumference(double radius);
+int add(int x,int y);
+int add(int x,int y,int z);
 
 int main() {
     cout << "----------------begain------------------" << endl;
 
-    double r = 3.0,s;
-    s = circumference(r);
-    cout << "the circumference is " << s << "." << endl;  
+    int a,b;
+    a=add(5,10);
+    b=add(5,10,20);
+    cout<<"a="<<a<<endl;
+    cout<<"b="<<b<<endl;
 
     cout << "----------------end------------------" << endl;
     //pause();
     return EXIT_SUCCESS;
 }
 
-inline double circumference(double radius) {
-    return 2*3.1415926*radius;	
+int add(int x,int y) {
+    int sum;
+    sum=x+y;
+    return sum;	
 }
 
+int add(int x,int y,int z) {
+    int sum;
+    sum=x+y+z;
+    return sum;	
+}
 
 /**
  * @expected output:

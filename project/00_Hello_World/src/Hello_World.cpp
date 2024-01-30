@@ -7,7 +7,6 @@
  * 
  **********************************************************/
 #include<iostream>
-#include<unistd.h> // pause()头文件
 
 using std::cin;
 using std::cout;
@@ -19,7 +18,6 @@ int main() {
     cout<<"Hello World!"<<endl;
 
     cout << "----------------end------------------" << endl;
-    //pause();
     return EXIT_SUCCESS;
 }
 
