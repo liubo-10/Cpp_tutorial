@@ -6,49 +6,6 @@
 
 
 
-
-/* Note:Your choice is C IDE */
-#include <iostream.h>
-class test
-{
-	private:
-	int num;
-	float f1;
-	public:
-	test();
-	test(int n,float f);
-	int getint()
-	   {
-	      return num;	
-	   }
-	float getfloat()
-	   {
-	       return f1;	
-	   }
-};
-test::test()
-{
-   cout<<"Initializing default"<<endl;
-   num=0;
-   f1=0.0;	
-}
-test::test(int n,float f)
-{
-    cout<<"Initializing"<<n<<","<<f<<endl;
-    num=n;
-    f1=f;	
-}
-void main()
-{
-   test x;
-   test y(10,21.5); 
-   test *px=new test;
-   test *py=new test(10,21.5);
-}
-
-
-
-
 /* Note:Your choice is C IDE */
 #include <iostream.h>
 class Tdate
