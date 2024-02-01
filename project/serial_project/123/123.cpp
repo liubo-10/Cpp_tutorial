@@ -4,316 +4,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-/* Note:Your choice is C IDE */
-#include<iostream>
-using namespace std;
-class test
-{
-    private:
-    int num;
-    float f1;
-    public:
-    test(int n);	
-    test(int n,float f);
-};
-inline test::test(int n)
-{
-     cout<<"Initializing\t"<<n<<endl;
-     num=n;	
-}
-test::test(int n,float f)
-{
-  cout<<"Initializing\t"<<n<<","<<f<<endl;
-  num=n;
-  f1=f;	
-}
-void main()
-{
- test array1[3]={1,2,3};
- test array2[]={test(2,3.5),test(4)};
- test array3[]={test(5.5,6.5),test(7,8.5)}; 
- test array4[]={test(5.5,6.5),7.5,8.5}; 
-}
-
-
-
-#include<iostream>
-using namespace std;
-int main()
-{
-  for(int i=1;i<=10;i++)
-    {
-     for(int j=1;j<=i;++j)	
-        cout<<"M";
-        cout<<endl;
-    }
-}
-
-
-
-
-#include<iostream.h>
-class Tdate{
-public:
-	Tdate(int m=5,int d=16,int y=1990)
-	{
-		month=m;day=d;year=y;
-		cout<<month<<"/"<<day<<"/"<<year<<endl;
-	}
-	private:
-	 int month;
-	 int day;
-	 int year;
-};
-void main()
-{
-	Tdate aday;
-	Tdate bday(2);
-	Tdate cday(3,12);
-	Tdate dday(1,21,1998);
-}
-
-
-#include<exception>
-#include<iostream>
-using namespace std;
-void main()
-{
-  try
-  {
-    exception theError;
-    throw(theError);	
-  }	
-  catch(const exception &theError)
-  {
-      cout<<theError.what()<<endl;	
-  }
-  try
-  {
-     logic_error theLogicError("Logic Error!");	
-     throw(theLogicError);
-  }
-  catch(const exception & theLogicError)
-  {
-     cout<<theLogicError.what()<<endl;	
-  }
-}
-
-
-#include<iostream>
-#include<string>
-using namespace std;
-class Person
-{
-public:
-	Person(char *na)
-	{
-	    cout<<"call constructor"<<endl;
-	    name=new char[strlen(na)+1];
-	    if(name!=0)
-	    {strcpy(name,na);}
-	}
-	Person(Person&p)
-	{
-	cout<<"call copy constructor"<<endl;
-	name=new char[strlen(p.name)+1];
-	 if(name!=0)
-	    {strcpy(name,p.name);}
-	}
-	void printname()
-	{
-	   cout<<name<<endl;
-	}
-	~Person(){delete name;}
-private:
-	char *name;
-};
-void main()
-{
-	Person wang("wang");
-	Person li(wang);
-	wang.printname();
-	li.printname();
-}
-
-
-
-#include<iostream>
-using namespace std;
-class SillyClass
-{
-public:
-	SillyClass(int&i):ten(10),refI(i)
-	{}
-protected:
-	const int ten;
-	int&refI;
-};
-void main()
-{
-   int i;
-   SillyClass sc(i);
-   cout<<i<<endl;
-}
-
-
-#include<iostream.h>
-class RMB
-{
-public:
-	RMB(double value=0.0);
-	operator double()
-	{return yuan+jf/100.0;}
-	void display()
-	{
-		cout<<(yuan+jf/100.0)<<endl;
-	}
-protected:
-	unsigned int yuan;
-	unsigned int jf;
-};
-RMB::RMB(double value)
-{
-      yuan=value;
-      jf=(value-yuan)*100+0.5;
-}
-void main()
-{
-	RMB d1(2.0),d2(1.5),d3;
-	d3=RMB((double)d1+(double)d2);
-	d3=d1+d2;
-	d3.display();
-}
-
-#include<iostream.h>
-#include<string.h>
-class Student
-{
-public:
-	Student(char *pName="no name",int ssId=0)
-	{
-		strncpy(name,pName,40);
-		name[39]='\0';
-		id=ssId;
-		cout<<"Constructing new student"<<pName<<endl;
-	}
-	Student(Student&s)
-	{
-	    cout<<"Constructing copy of "<<s.name<<endl;
-	    strcpy(name,"copy of");
-	    strcat(name,s.name);
-	    id=s.id;
-	}
-	~Student()
-	{
-	    cout<<"Destructing "<<name<<endl;
-	}
-protected:
-	char name[40];
-	int id;
-};
-void fn(Student s)
-{
-    cout<<"In function fn()\n"<<endl;
-}
-void main()
-{
-	Student randy("Randy",1234);
-	Student wang("wang",5678);
-	cout<<"Calling fn()\n"<<endl;
-	fn(randy);
-	cout<<"Returned from fn()\n"<<endl;
-}
-
-
-
-#include<exception>
-#include<iostream>
-using namespace std;
-void main()
-{
-  try
-  {
-    exception theError;
-    throw(theError);	
-  }	
-  catch(const exception &theError)
-  {
-      cout<<theError.what()<<endl;	
-  }
-  try
-  {
-     logic_error theLogicError("Logic Error!");	
-     throw(theLogicError);
-  }
-  catch(const exception & theLogicError)
-  {
-     cout<<theLogicError.what()<<endl;	
-  }
-}
-
-
-
-#include<iostream.h>
-class Student
-{
-public:
-	Student()
-	{
-	cout<<"constructing student.\n";
-	semesHours=100;
-	gpa=3.5;
-	}
-	~Student()
-	{cout<<"destructing student.\n";}
-protected:
-	int semesHours;
-	float gpa;
-};
-class Teacher
-{
-public:
-	Teacher()
-	{cout<<"constructing teacher.\n";}
-	~Teacher()
-	{cout<<"destructing teacher.\n";}
-};
-class Tutorpair
-{
-public:
-	Tutorpair()
-	{
-	cout<<"constructing tutorpair.\n";
-	nomeeting=0;
-	}
-	~Tutorpair()
-	{
-	cout<<"destructing tutorpair.\n";
-	}
-protected:
-	Student student;
-
-
-
-	Teacher teacher;
-	int nomeeting;
-};
-void main()
-{
-Tutorpair tp;
-cout<<"back main.\n";
-}
-
-
 #include<iostream.h>
 class A
 {
@@ -332,6 +22,10 @@ void main()
 A a1,a2,a3;
 cout<<a1.list()<<","<<a2.list()<<","<<a3.list();	
 }
+
+
+
+
 
 
 
@@ -4278,6 +3972,58 @@ int main()
     return 0;
 }
 
+
+#include<exception>
+#include<iostream>
+using namespace std;
+void main()
+{
+  try
+  {
+    exception theError;
+    throw(theError);	
+  }	
+  catch(const exception &theError)
+  {
+      cout<<theError.what()<<endl;	
+  }
+  try
+  {
+     logic_error theLogicError("Logic Error!");	
+     throw(theLogicError);
+  }
+  catch(const exception & theLogicError)
+  {
+     cout<<theLogicError.what()<<endl;	
+  }
+}
+
+
+
+#include<exception>
+#include<iostream>
+using namespace std;
+void main()
+{
+  try
+  {
+    exception theError;
+    throw(theError);	
+  }	
+  catch(const exception &theError)
+  {
+      cout<<theError.what()<<endl;	
+  }
+  try
+  {
+     logic_error theLogicError("Logic Error!");	
+     throw(theLogicError);
+  }
+  catch(const exception & theLogicError)
+  {
+     cout<<theLogicError.what()<<endl;	
+  }
+}
 
 #include<exception>
 #include<iostream>
