@@ -17,11 +17,11 @@ int main() {
     cout << "----------------begain------------------" << endl;
     max(1,2,3);       // max(const T &a,const T &b,const T &c) max<int>
     max(1.0,2.3);     // max(const T &a,const T &b) max<double>
-    max('a','b');     // max(const T &a,const T &b)  max<char>
-    max(1,2);         // inline int max(const int &a,const int &b)
+    max('a','b');     // max(const T &a,const T &b) max<char>
+    max(1,2);         // max(const int &a,const int &b)
     max<>(1,2);       // max(const T &a,const T &b) max<int>
     max<int>(1,2);    // max(const T &a,const T &b) max<int>
-    max('a',2);       // inline int max(const int &a,const int &b)
+    max('a',2);       // max(const T &a,const T1 &b) max<char,int>
 
     cout << "----------------end------------------" << endl;
     return EXIT_SUCCESS;

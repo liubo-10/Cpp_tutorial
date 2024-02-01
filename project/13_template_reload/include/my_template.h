@@ -14,7 +14,7 @@ using std::endl;
 
 template <typename T> //模板参数由关键字typename（也可以使用class） 定义 定义一个函数模板 返回两个数中数值大的那一个 
 inline T max(const T &a,const T &b) { // 函数有两个参数 ，类型为定义 
-    cout << "\n----------------two value------------------" << endl;
+    cout << "\n----------------two const value------------------" << endl;
     return a>b?a:b;
 }
  
@@ -32,22 +32,15 @@ inline T max(const T &a,const T &b,const T &c) {
 }
 
 inline int max(const int &a,const int &b) {
-    cout << "\n----------------two const value------------------" << endl;
+    cout << "\n----------------two int value------------------" << endl;
     return a>b?a:b;
 }
  
 template <typename T,typename T1=double>
 inline T max(const T &a,const T1 &b) {
-    std::cout<<"template <typename T,typename T1=double> "<<std::endl;
+    cout << "\n----------------T T1 value------------------" << endl;
     return a>b?a:b;
 }
-
-
-
-
-
-
-
 
 
 /**

@@ -3,33 +3,6 @@
 
 
 
-/* Note:Your choice is C IDE */
-#include <iostream.h>
-#define PI 3.1415926535
-#define CS Circle_Square
-template<class T>
-double Circle_Square(T x)
-{
-   return x*x*PI;	
-}
-double Circle_Square(long x)
-{
-   return x*x*PI;	
-}
-void main()
-{
-  int      r1=1;
-  double   r2=2.0;
-  long     r3=3;
-  cout<<"The first cs is "<<CS(r1)<<endl; 
-  cout<<"The second cs is "<<CS(r2)<<endl; 
-  cout<<"The third cs is "<<CS(r3)<<endl; 
-}
-
-
-
-
-
 
 /* Note:Your choice is C IDE */
 #include <iostream.h>
