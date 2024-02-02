@@ -9,7 +9,7 @@
 #include"STL_set.h"
 
 Bool Set::Member(int elem) {
-    for(int i=0;i<card;++i) {
+    for(int i=0; i<card; i++) {
         if(elems[i]==elem) {
             return True;
         }
@@ -29,22 +29,15 @@ ErrCode Set::AddElem(int elem) {
 }
 
 void Set::RmvElem(int elem) {
-    for(int i=0;i<card;++i) {
+    for(int i=0; i<card; i++) {
         if(elems[i]==elem) {
-            for(;i<card-1;++i) {
+            for(;i<card-1; i++) {
                 elems[i]=elems[i+1];
             }
-            --card;
+            card--;
             return;
         }
     }
-}
-
-void Set1::Copy(Set *set) {
-    for(int i=0;i<card;++i) {
-        set->elems[i]=elems[i];
-    }
-    set->card=card;
 }
 
 void Set::Copy(Set *set) { // this -> set
@@ -53,7 +46,7 @@ void Set::Copy(Set *set) { // this -> set
         set->elems=new int[size];	
         set->size=size;
     }
-    for(int i=0;i<card;++i) {
+    for(int i=0; i<card; i++) {
         set->elems[i]=elems[i];
     }
     set->card=card; 
@@ -63,7 +56,7 @@ Bool Set::Equal(Set *set) {
     if(card!=set->card) {
         return False;
     }
-    for(int i=0;i<card;++i) {
+    for(int i=0; i<card; i++) {
         if(!set->Member(elems[i])) {
             return False;
         }
@@ -73,86 +66,41 @@ Bool Set::Equal(Set *set) {
 
 void Set::Print() {
     cout<<"{";
-    for(int i=0;i<card;++i) {
+    for(int i=0; i<card; i++) {
         cout<<elems[i]<<";";
     }
     cout<<"}\n";
 }
 
-void Set2::Print() {
-    cout<<"{";
-    for(int i=0;i<card-1;++i) {
-        cout<<elems[i]<<";";
-    }
-    if(card>0) {
-        cout<<elems[card-1];
-    }
-    cout<<"}\n";
-}
-
-
-
-
-
-
-
-
-
-
-void Set1::Intersect(Set *set,Set *res) {//*this Π *set->*res
+void Set::Intersect(Set *set,Set *res) {
+    if(res->size<size) {
+        delete []res->elems;
+        res->elems=new int[size];
+        res->size=size;	
+    }	
     res->card=0;
-    for(int i=0;i<card;++i) {
-        for(int j=0;j<set->card;++j) {
+    for(int i=0; i<card; i++) {
+        for(int j=0; j<set->card; j++) {
             if(elems[i]==set->elems[j]) {
                 res->elems[res->card++]=elems[i];
-                break;
+                break;	
             }
         }
     }
 }
 
-
-
-void Set::Intersect(Set *set,Set *res)
-{
-  if(res->size<size)
-  {
-    delete []res->elems;
-    res->elems=new int[size];
-    res->size=size;	
-  }	
-  res->card=0;
-  for(int i=0;i<card;++i)
-     for(int j=0;j<set->card;++j)
-        if(elems[i]==set->elems[j])
-          {
-             res->elems[res->card++]=elems[i];
-             break;	
-          }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ErrCode Set::Union(Set *set,Set *res) {
-    set->Copy(res); // set->res
-    for(int i=0;i<card;++i) {
+    if(res->size < size+set->size) {
+        delete []res->elems;
+        res->elems=new int[size+set->size];
+        res->size = size+set->size;	
+    }
+    set->Copy(res);
+    for(int i=0; i<card; i++) {
         if(res->AddElem(elems[i])==overflow) {
             return overflow;
         }
     }
     return noErr;
 }
-
 

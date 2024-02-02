@@ -32,7 +32,7 @@ class Set {
 
   private:
     int elems[maxCard];
-    int card;
+    int card; // 当前已使用的空间
 };
 
 /**
@@ -50,9 +50,9 @@ Bool Set::Member(int elem) {
     return False;
 }
 
-
 /**
  * @brief 
+ *   添加元素
  *   elem在set中存在，什么都不做
  *   容量未满，在末尾添加elem
  *   容量已满返回overflow
@@ -89,6 +89,12 @@ void Set::RmvElem(int elem) {
 }
 
 
+/**
+ * @brief 
+ *   复制到传入的参数
+ * @param set 
+ */
+
 void Set::Copy(Set *set) {
     for(int i=0;i<card;i++) {
         set->elems[i]=elems[i];
@@ -96,11 +102,17 @@ void Set::Copy(Set *set) {
     set->card=card;
 }
 
+/**
+ * @brief 
+ *   包含值一样则为相同
+ * @param set 
+ * @return Bool 
+ */
 Bool Set::Equal(Set *set) {
     if(card!=set->card) {
         return False;
     }
-    for(int i=0;i<card;++i) {
+    for(int i=0;i<card;i++) {
         if(!set->Member(elems[i])) {
             return False;
         }
@@ -108,6 +120,10 @@ Bool Set::Equal(Set *set) {
     return True;
 }
 
+/**
+ * @brief 
+ *   按顺序打印全部元素
+ */
 void Set::Print() {
     cout<<"{";
     for(int i=0;i<card;++i) {
@@ -116,6 +132,12 @@ void Set::Print() {
     cout<<"}\n";
 }
 
+/**
+ * @brief 
+ *   比较this和set相同的值放入res 
+ * @param set 
+ * @param res 
+ */
 void Set::Intersect(Set *set,Set *res) {//*this Π *set->*res
     res->card=0;
     for(int i=0;i<card;++i) {
@@ -128,8 +150,15 @@ void Set::Intersect(Set *set,Set *res) {//*this Π *set->*res
     }
 }
 
+/**
+ * @brief 
+ *   this和set合并到res
+ * @param set 
+ * @param res 
+ * @return ErrCode 
+ */
 ErrCode Set::Union(Set *set,Set *res) {
-    set->Copy(res); // set->res
+    set->Copy(res); // set中的值复制到res
     for(int i=0;i<card;++i) {
         if(res->AddElem(elems[i])==overflow) {
             return overflow;
@@ -142,9 +171,12 @@ int main() {
     cout << "----------------begain------------------" << endl;
 
     Set s1,s2,s3;
+    // 初始化
     s1.EmptySet();
     s2.EmptySet();
     s3.EmptySet();
+
+    // 添加元素
     s1.AddElem(10);
     s1.AddElem(20);
     s1.AddElem(30);
@@ -153,22 +185,31 @@ int main() {
     s2.AddElem(50);
     s2.AddElem(10);
     s2.AddElem(60);
+
+    // 打印全部元素
     cout<<"s1=";s1.Print();
     cout<<"s2=";s2.Print();
 
+    // 删除elem
     s2.RmvElem(50);
-    cout<<"s2-{50}";s2.Print();
-
+    cout<<"s2-{50}";
+    s2.Print();
+    
+    // 判断元素
     if(s1.Member(20)) {
         cout<<"20 is in s1\n";
     }
-
+    
+    // 求交集 s1 s2 交集放到s3
     s1.Intersect(&s2,&s3);
-    cout<<"s1 intsec s2=";s3.Print();
+    cout<<"s1 intsec s2=";
+    s3.Print();
 
-    s1.Union(&s2,&s3); // s1 s2 合并到s3
+    // 求并集 s1 s2 合并到s3
+    s1.Union(&s2,&s3);
     cout<<"s1 union s2";s3.Print();
 
+    // 比较
     if(!s1.Equal(&s2)) {
         cout<<"s1!=s2\n";
     }
@@ -176,8 +217,6 @@ int main() {
     cout << "----------------end------------------" << endl;
     return EXIT_SUCCESS;
 }
-
-
 
 /**
  * @expected output:
