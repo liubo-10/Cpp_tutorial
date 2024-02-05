@@ -21,8 +21,10 @@ int main() {
     s2.AddElem(50);
     s2.AddElem(10);
     s2.AddElem(60);
-    cout<<"s1=";s1.Print();
-    cout<<"s2=";s2.Print();
+    cout<<"s1=";
+    s1.Print();
+    cout<<"s2=";
+    s2.Print();
 
     s2.RmvElem(50);
     cout<<"s2-{50}=";
@@ -48,7 +50,8 @@ int main() {
     for(int i=0; i<16; i++){
         s1.AddElem(i);
     }
-    cout<<"s1=";s1.Print();
+    cout<<"s1=";
+    s1.Print();
     
     s1.Union(&s2,&s3);
     cout<<"s1 union s2=";
