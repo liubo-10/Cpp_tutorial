@@ -4,75 +4,18 @@
 
 
 
-#include<iostream.h>
-class Tx
-{
-  public:
-  Tx(int i,int j);
-  ~Tx();
-  void display();
-  private:
-  int num1,num2;	
-};
-Tx::Tx(int i,int j=10)
-{
-  num1=i;
-  num2=j;
-  cout<<"Constructing"<<num1<<" "<<num2<<endl;	
-}
-void Tx::display()
-{
-  cout<<"display:"<<num1<<" "<<num2<<endl;	
-}
-Tx::~Tx()
-{
-  cout<<"Destructing"<<num1<<" "<<num2<<endl;	
-}
-void main()
-{
-  Tx t1(22,11);
-  Tx t2(20);
-  t1.display();
-  t2.display();	
-}
 
 
 
 
-#include<iostream.h>
-#include<string.h>
-class Student
-{
-	char name[10],num[10];
-public:
-	Student(char *s1,char *s2)
-	{
-		strcpy(name,s1);
-		strcpy(num,s2);
-	}
-	void dsp()
-	{
-	  cout<<"Name:"<<name<<endl<<"Number:"<<num<<endl;
-	}
-};
-class Score
-{
-  unsigned int mat,phy,eng;
- public:
-  Score(unsigned int i1,unsigned int i2,unsigned int i3):mat(i1),phy(i2),eng(i3)
-  {}
-  void show()
-  {
-    cout<<"Mathematics:"<<mat<<"\nPhyics:"<<phy<<"\nEnglish:"<<eng<<endl;
-  }
-};
-void main()
-{
-	Student a("Wang","123456789");
-	Score a1(72,82,92);
-	a.dsp();
-	a1.show();
-}
+
+
+
+
+
+
+
+
 
 
 
