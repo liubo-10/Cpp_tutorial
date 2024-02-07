@@ -35,6 +35,21 @@ Increase Increase::operator ++(int) {
     value++;
     return temp;
 }
+
+
+// Increase & operator ++(Increase& a)
+// {
+//      a.value++;
+//      return a;
+// }
+// Increase operator ++(Increase& a,int)
+// {
+// 	Increase temp(a);
+// 	a.value++;
+// 	return temp;
+// }
+
+
 int main() {
     cout << "----------------begain------------------" << endl;
 
