@@ -12,7 +12,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-template<class T>
+template< typename  T>
 class tem {
   public :
     tem(int);

@@ -12,7 +12,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-int main() {
+int main()
+{
     cout << "----------------begain------------------" << endl;
 
     cout<<"Hello World!"<<endl;

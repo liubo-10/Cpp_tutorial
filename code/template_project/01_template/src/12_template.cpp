@@ -13,7 +13,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-template<class T>
+template<typename T>
 T min(T a[],int n) {
     int i;
     T minv=a[0];
@@ -27,12 +27,12 @@ T min(T a[],int n) {
 
 int main() {
     cout << "----------------begain------------------" << endl;
-    int a[]={1,3,0,2,7,6,4,5,2};
+    int    a[]={1,3,0,2,7,6,4,5,2};
     double b[]={1.2,-3.4,6.8,9.8};
-    int c[]={1,9,5,-6,7,8};
-    cout<<"a de shuzu zhong min zhi wei:"<<min(a,9)<<endl; // 隐式指定T的类型
-    cout<<"b de shuzu zhong min zhi wei:"<<min(b,4)<<endl; 
-    cout<<"c de shuzu zhong min zhi wei:"<<min(c,6)<<endl; 
+    int    c[]={1,9,5,-6,7,8};
+    cout<<"the min value of a is:"<<min(a,9)<<endl; // 隐式指定T的类型
+    cout<<"the min value of b is:"<<min(b,4)<<endl; 
+    cout<<"the min value of c is:"<<min(c,6)<<endl; 
 
     cout << "----------------end------------------" << endl;
     //pause();

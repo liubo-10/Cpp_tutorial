@@ -13,7 +13,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-int main(){
+int main()
+{
     cout << "----------------begain------------------" << endl;
     {
         int num=50;
@@ -38,6 +39,7 @@ int main(){
 
     cout << "----------------end------------------" << endl;
     //pause();
+    cin.get();
     return EXIT_SUCCESS;
 }
 
