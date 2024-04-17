@@ -16,6 +16,11 @@ int main()
 {
     cout << "----------------begain------------------" << endl;
 
+    /**
+     * In this example a single XML contains multiple <BehaviorTree>
+     * To determine which one is the "main one", we should first register
+     * the XML and then allocate a specific tree, using its ID */
+
     cout<<"Hello World!"<<endl;
 
     cout << "----------------end------------------" << endl;
