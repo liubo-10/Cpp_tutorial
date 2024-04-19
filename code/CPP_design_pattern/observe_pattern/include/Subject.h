@@ -18,9 +18,16 @@ class Subject
   public:
     void addObserver(Observer* obser, int msgid)
     {
+        /**
+         * _subMap[msgid].push_back(obser) 
+         * 当_subMap[msgid]不存在时等价于
+         * list<Observer*> mylist;
+         * mylist.push_back(obser)
+         * _subMap[msgid] = mylist */
         _subMap[msgid].push_back(obser);
+
         /*
-        auto it = _subMap.find(msgid);
+        auto it = _subMap.find(msgid); //
         if (it != _subMap.end())
         {
             it->second.push_back(obser);
