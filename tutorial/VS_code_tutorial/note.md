@@ -43,8 +43,12 @@ C_Cpp: Clang_format_fallback Style
 
 ```json
 { BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Attach,     AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }
+
 { BasedOnStyle: LLVM,   UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Linux,      AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }
+
 { BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Stroustrup, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }
+
+{ BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: Never, IndentCaseLabels: false, ColumnLimit: 120, AlignConsecutiveMacros: AcrossEmptyLinesAndComments, AlignConsecutiveBitFields: AcrossEmptyLines, SortIncludes: Never, AllowShortEnumsOnASingleLine: false, AlignConsecutiveAssignments: None, AlignArrayOfStructures: Left, AllowShortBlocksOnASingleLine: Empty, AllowShortFunctionsOnASingleLine: Empty }
 
 ```
 
