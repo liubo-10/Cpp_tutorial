@@ -9,33 +9,12 @@
 * 🍥
 * ✨
 * 🍰
-* ![:octocat:](/home/liubo/00-liubo/learning/Cpp_tutorial/picture/octocat.png) 
-
-
-
-
 
 # VS code tutorial
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## 设置代码风格
 
-
-
 设置-->扩展-->C/C++-->formatting
-
-
 
 C_Cpp: Clang_format_fallback Style
 
@@ -54,37 +33,6 @@ C_Cpp: Clang_format_fallback Style
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 ---
@@ -124,17 +72,3 @@ C_Cpp: Clang_format_fallback Style
 ---
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
