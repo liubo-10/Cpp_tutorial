@@ -15,16 +15,17 @@ using std::cout;
 using std::endl;
 using std::list;
 
-int main(){
+int main()
+{
     cout << "----------------begain------------------" << endl;
-    
+
     cout << "\n----------------list 测试------------------" << endl;
     list<int> mylist;
 
-    for(int i=0; i<5; i++) {
+    for (int i = 0; i < 5; i++) {
         mylist.push_back(i);
     }
-    
+
     cout << "mylist:";
     for (auto iter = mylist.begin(); iter != mylist.end(); iter++) {
         cout << " " << *iter;
@@ -55,4 +56,3 @@ int main(){
     cout << "----------------end------------------" << endl;
     return EXIT_SUCCESS;
 }
-

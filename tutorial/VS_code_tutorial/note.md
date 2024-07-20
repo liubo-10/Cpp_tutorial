@@ -29,9 +29,11 @@ C_Cpp: Clang_format_fallback Style
 
 { BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: Never, IndentCaseLabels: false, ColumnLimit: 120, AlignConsecutiveMacros: AcrossEmptyLinesAndComments, AlignConsecutiveBitFields: AcrossEmptyLines, SortIncludes: Never, AllowShortEnumsOnASingleLine: false, AlignConsecutiveAssignments: None, AlignArrayOfStructures: Left, AllowShortBlocksOnASingleLine: Empty, AllowShortFunctionsOnASingleLine: Empty }
 
+电调板
+{ BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: Never, IndentCaseLabels: false, ColumnLimit: 120, AlignConsecutiveMacros: AcrossEmptyLinesAndComments, AlignConsecutiveBitFields: AcrossEmptyLines, SortIncludes: Never, AllowShortEnumsOnASingleLine: false, AlignConsecutiveAssignments: None, AlignArrayOfStructures: Left, AllowShortBlocksOnASingleLine: Empty, AllowShortFunctionsOnASingleLine: Empty }
+
+
 ```
-
-
 
 ---
 

@@ -9,21 +9,22 @@
  * 
  **********************************************************/
 #include<iostream>
-#include<string>
+#include <string>
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
 
-int main(){
+int main()
+{
     cout << "----------------begain------------------" << endl;
     cout << "\n----------------s.c_str()内存 测试------------------" << endl;
     string s = "abcdefg";
-    const char* char_str = s.c_str(); // 传地址
+    const char* char_str = s.c_str();  // 传地址
 
-    cout << s << endl;        // abcdefg
-    cout << char_str << endl; // abcdefg
+    cout << s << endl;         // abcdefg
+    cout << char_str << endl;  // abcdefg
 
     cout << (int*)s.c_str() << endl;      // 输出首地址
     cout << (int*)char_str << endl;       // 输出首地址 与s.c_str()相同
@@ -78,4 +79,3 @@ int main(){
     cout<<"Hello World"<<endl;
     return 0;
 }
-

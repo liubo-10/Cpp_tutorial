@@ -3,10 +3,10 @@
  * @author: liubo
  * @date: 2024.01.05
  * @describe: template
- * 
- * 
+ *
+ *
  **********************************************************/
-#include<iostream>
+#include <iostream>
 
 using std::cin;
 using std::cout;

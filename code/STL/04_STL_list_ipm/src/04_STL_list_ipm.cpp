@@ -13,18 +13,19 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-template<class T>
-class List {
-  public:
+template <class T>
+class List
+{
+   public:
     List();
     ~List();
 
-    void Add(T&);
-    void Remove(T&);
-    T *Find(T&);
+    void Add(T &);
+    void Remove(T &);
+    T *Find(T &);
     void PrintList();
 
-  protected:
+   protected:
     struct Node {
         Node *pNext;
         T *Pt;
