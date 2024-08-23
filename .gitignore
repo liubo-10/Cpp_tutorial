@@ -32,6 +32,6 @@
 *.app
 
 
-build/
-bin/
-protobuf/lib/
+# build/
+# bin/
+# protobuf/lib/
