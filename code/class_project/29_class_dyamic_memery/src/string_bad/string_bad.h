@@ -14,7 +14,7 @@
 
 using std::ostream;
 
-class StingBad
+class StringBad
 {
    private:
     char* str;               // pointer to string

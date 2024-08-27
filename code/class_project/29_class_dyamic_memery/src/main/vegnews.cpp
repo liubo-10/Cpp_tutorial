@@ -18,27 +18,27 @@ void callme2(StringBad);   // pass by value
 
 int main()
 {
-    using std::endle;
+    using std::endl;
     {
         cout << "String an inner block.\n";
         StringBad headline1("Celery Stalks at Midnight");
         StringBad headline2("Lenttuce Prey");
         StringBad sports("Spinach Leave Bowl for Dollars");
-        cout << "headline1:" << headline1 << endle;
-        cout << "headline2:" << headline2 << endle;
-        cout << "sports:" << sports << endle;
+        cout << "headline1:" << headline1 << endl;
+        cout << "headline2:" << headline2 << endl;
+        cout << "sports:" << sports << endl;
         callme1(headline1);
-        cout << "headline1:" << headline1 << endle;
+        cout << "headline1:" << headline1 << endl;
 
         callme1(headline2);
-        cout << "headline2:" << headline2 << endle;
+        cout << "headline2:" << headline2 << endl;
         cout << "Initialize one object to another:\n";
         StringBad sailor = sports;
-        cout << "sailor:" << sailor << endle;
+        cout << "sailor:" << sailor << endl;
         cout << "Assign one object to another:\n";
         StringBad knot;
         knot = headline1;
-        cout << "knot" << knot << endle;
+        cout << "knot" << knot << endl;
         cout << "Exiting the block.\n";
     }
     cout << "End od main()\n";

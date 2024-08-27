@@ -9,7 +9,7 @@
  ******************************************************************************/
 
 #include <cstring>  // string.h for some
-#include "stringbad.h"
+#include "string_bad.h"
 
 using std::cin;
 using std::cout;
@@ -23,21 +23,18 @@ int StringBad::num_strings = 0;
 
 // construct StringBad from C string
 
-
-StirngBad::StringBad(const char * s)
+StringBad::StringBad(const char* s)
 {
 len = std::strlen(s); // set size
 
 str = new char[len + 1]; //allot storage
 std::strcpy(str,s); //initialize pointer
 
-num_strings++; ..set object count
+num_strings++; //set object count
 cout << num_strings << ": \" "<< str << "\" object created\n"; // For Your Information
-
-
 }
 
-StringBad::StirngBad()  // default constructor
+StringBad::StringBad()  // default constructor
 
 {
 len = 4;
@@ -50,27 +47,18 @@ cout << num_strings << ": \"" << str << "\" default object created\n"; //FYI
 
 StringBad::~StringBad()
 {
-
-cout << "\""<< str << "\" object delete, "; //FYI
---num_strings; //required
-cout << num_strings << "left\n"; // FYI
-delete [] str;
-
+    cout << "\"" << str << "\" object delete, ";  // FYI
+    --num_strings;                                // required
+    cout << num_strings << "left\n";              // FYI
+    delete[] str;
 }
 
-std::ostream & operator << (std::ostream & os, const StringBad & st){
-
-os << st.str;
-return os;
-
-
+std::ostream& operator<<(std::ostream& os, const StringBad& st)
+{
+    os << st.str;
+    return os;
 }
 
-
-
-
-
-
-    /***********************************************************
-     * end of file
-     **********************************************************/
+/***********************************************************
+ * end of file
+ **********************************************************/
