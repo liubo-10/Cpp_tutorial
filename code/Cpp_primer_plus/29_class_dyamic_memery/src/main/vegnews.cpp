@@ -33,7 +33,7 @@ int main()
         callme1(headline2);
         cout << "headline2:" << headline2 << endl;
         cout << "Initialize one object to another:\n";
-        StringBad sailor = sports;
+        StringBad sailor = sports;  // 复制构造函数
         cout << "sailor:" << sailor << endl;
         cout << "Assign one object to another:\n";
         StringBad knot;
@@ -51,7 +51,7 @@ void callme1(StringBad& rsb)
     cout << "    \"" << rsb << "\"\n";
 }
 
-void callme2(StringBad& rsb)
+void callme2(StringBad rsb)
 {
     cout << "String passed by value:\n";
     cout << "    \"" << rsb << "\"\n";
