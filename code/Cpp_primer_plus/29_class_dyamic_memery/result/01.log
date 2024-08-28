@@ -1,0 +1,25 @@
+liubo@thinkpad:~/00-liubo/my_github/Cpp_tutorial/code/class_project/29_class_dyamic_memery/Cmake$ ../bin/myname 
+String an inner block.
+1: " Celery Stalks at Midnight" object created
+2: " Lenttuce Prey" object created
+3: " Spinach Leave Bowl for Dollars" object created
+headline1:Celery Stalks at Midnight
+headline2:Lenttuce Prey
+sports:Spinach Leave Bowl for Dollars
+String passed by reference:
+    "Celery Stalks at Midnight"
+headline1:Celery Stalks at Midnight
+String passed by reference:
+    "Lenttuce Prey"
+headline2:Lenttuce Prey
+Initialize one object to another:
+sailor:Spinach Leave Bowl for Dollars
+Assign one object to another:
+4: "C++" default object created
+knotCelery Stalks at Midnight
+Exiting the block.
+"Celery Stalks at Midnight" object delete, 3left
+"Spinach Leave Bowl for Dollars" object delete, 2left
+"�A��V" object delete, 1left
+free(): double free detected in tcache 2
+Aborted (core dumped)
