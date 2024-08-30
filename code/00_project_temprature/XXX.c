@@ -19,6 +19,18 @@
 
 bool enable_battery_awake = false;
 bool enable_battery_activate = false;
+
+/*****************************************************************************
+ * | @fn     : send_request_to_battery
+ * | @param  : - cmd 命令码
+ * |           - dataPtr 发送的数据
+ * |           - Len 发送的数据长度
+ * | @return :
+ * --------------
+ * | @brief  : 发送请求到智能电池
+ * |           通过串口2发送
+ ******************************************************************************/
+
 void battery_awake_activate(void)
 {
     // 有与电池的通信且没有电池内部通信故障，电池已启动，不用处理
