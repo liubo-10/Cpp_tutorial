@@ -1,13 +1,13 @@
 /*****************************************************************************
- * | @file    : battery_awake_activate.h
+ * | @file    : XXX.h
  * | @author  : liubo
- * | @version : V1.0.0
- * | @date    : 2024-08-22
+ * | @version : V1.0.0     |V1.0.1     |V1.0.2
+ * | @date    : 2024-01-05 |2024-08-22 |2024-09-01
  * --------------
- * | @brief   : battery awakev and activate
+ * | @brief   : CPP template
  ******************************************************************************/
-#ifndef _BATTERY_AWAKE_ACTIVATE_H_
-#define _BATTERY_AWAKE_ACTIVATE_H_
+#ifndef _XXX_H_
+#define _XXX_H_
 
 #include "stdbool.h"
 
@@ -18,7 +18,7 @@ void battery_awake_activate(void);
 bool battery_awake(void);
 bool battery_activate(void);
 
-#endif  // #ifndef _BATTERY_AWAKE_ACTIVATE_H_
+#endif  // #ifndef _XXX_H_
 
 /***********************************************************
  * end of file
