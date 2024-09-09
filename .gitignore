@@ -31,7 +31,11 @@
 *.out
 *.app
 
+CMakeFiles/
+cmake_install*
+CMakeCache*
 
-build/
-bin/
-protobuf/lib/
+
+# build/
+# bin/
+# protobuf/lib/
