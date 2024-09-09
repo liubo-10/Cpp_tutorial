@@ -8,14 +8,6 @@
 
 # 观察者模式（Observer Pattern）
 
-
-
-## 设计模式背景
-
-
-
-
-
 观察者模式（Observer Pattern）和发布-订阅模式（Publish-Subscribe Pattern）都是用于处理对象之间的一对多依赖关系，但它们在实现方式和应用场景上有一些异同。
 
 ## 观察者模式（Observer Pattern）
@@ -276,6 +268,28 @@ https://blog.csdn.net/weixin_68266812/article/details/136182188?spm=1001.2101.30
 链接：https://blog.csdn.net/weixin_45712636/article/details/124328504
 
 链接：https://blog.csdn.net/qq_41721746/article/details/120448698
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

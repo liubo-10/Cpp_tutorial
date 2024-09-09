@@ -3,8 +3,12 @@
 * 🌱 I’m currently learning harmony
 * 💞️ I’m looking to collaborate on ...
 * 📫 How to reach me ...
-
-
+* 📇
+* 🎃
+* 🍺
+* 🍥
+* ✨
+* 🍰
 
 # c++ unordered_map
 
@@ -150,7 +154,7 @@ cend	返回unordered_map最后一个元素下一个位置的const迭代器
 
 4、unordered_map的查询
 
-    
+​    
 
 函数声明	功能介绍
 iterator find(const K& key)	返回key在哈希桶中的位置

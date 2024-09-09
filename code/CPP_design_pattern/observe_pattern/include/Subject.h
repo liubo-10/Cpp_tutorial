@@ -48,7 +48,7 @@ class Subject
         auto it = _subMap.find(msgid);
         if (it != _subMap.end())
         {
-            for (Observer* pObser : it->second)
+            for (Observer* pObser : it->second)  // 基于范围的for循环
             {
                 pObser->handle(msgid);
             }
