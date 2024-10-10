@@ -1,7 +1,5 @@
 ----------------begain------------------
-The ASCII code for M is 77
-Add one to the character code :
-The ASCII code for N is 78
-Displaying char ch using cout.put(ch):N!
-done
-----------------end------------------
+a1.a=1
+a2.a=3
+a3.a=5
+-----------------end-------------------

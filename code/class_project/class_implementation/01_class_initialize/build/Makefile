@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/Cmake
+CMAKE_SOURCE_DIR = /home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/Cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/build
+CMAKE_BINARY_DIR = /home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/build/CMakeFiles /home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/build/CMakeFiles /home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,53 +129,29 @@ myname/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/build
 .PHONY : myname/fast
 
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.o: home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.o
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.o
+home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.o: home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.o
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.o
 
 # target to build an object file
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.o
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.o
+home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.o
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.o
 
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.i: home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.i
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.i
-
-# target to preprocess a source file
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.i
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.i
-
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.s: home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.s
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.s
-
-# target to generate assembly for a file
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.s
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.c.s
-
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.o: home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.o
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.o
-
-# target to build an object file
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.o
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.o
-
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.i: home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.i
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.i
+home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.i: home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.i
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.i
 
 # target to preprocess a source file
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.i
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.i
+home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.i
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.i
 
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.s: home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.s
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.s
+home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.s: home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.s
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.s
 
 # target to generate assembly for a file
-home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.s
-.PHONY : home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.c.s
+home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.s
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.cpp.s
 
 # Help Target
 help:
@@ -186,12 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... myname"
-	@echo "... home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.o"
-	@echo "... home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.i"
-	@echo "... home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/CRC32/CRC32.s"
-	@echo "... home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.o"
-	@echo "... home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.i"
-	@echo "... home/liubo/00-liubo/my_github/Cmake_tutorial/test/CRC_test/src/main.s"
+	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.o"
+	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.i"
+	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/code/class_project/class_implementation/01_class_initialize/src/main.s"
 .PHONY : help
 
 

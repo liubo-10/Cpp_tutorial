@@ -2,14 +2,27 @@
  * | @file    : main.c
  * | @author  : liubo
  * | @version : V1.0.0
- * | @date    : 2024-09-01
+ * | @date    : 2024-10-10
  * --------------
  * | @brief   : main
  ******************************************************************************/
-#include <stdio.h>
-#include <stdint.h>
+#include<iostream>
 
-#include "CRC32.h"
+using std::cin;
+using std::cout;
+using std::endl;
+class A
+{
+   public:
+    int a = 1;
+    A() {}
+    A(int a_) : a(a_) {}  // 初始化列表初始化的变量值会覆盖掉声明时初始化的值
+    A(int a_, bool b) : a(4)
+    {
+        a = a_;  // 构造函数中初始化的值又会覆盖掉初始化列表的
+    }
+};
+
 /*****************************************************************************
  * | @fn     : XXXX
  * | @param  : - cmd 命令码
@@ -23,23 +36,14 @@
 int main()
 {
     printf("----------------begain------------------\n");
-    uint8_t array[10] = {0x00, 0x08, 0xA5, 0x21, 0x00, 0x08, 0xA5, 0x21, 0x00, 0x08}; //AEA417BD
-    uint32_t result1 = 0;
-    uint32_t result2 = 0;
-    printf("result1 :%8X\r\n", result1);
-    printf("result2 :%8X\r\n", result2);
 
-    result1 = CRC32(0, array, 10);
-
-    printf("result1 :%8X\r\n", result1);
-    printf("result2 :%8X\r\n", result2);
-
-    result2 = calcMsgCRC(array, 10);
-
-    printf("result1 :%8X\r\n", result1);
-    printf("result2 :%8X\r\n", result2);
+    A a1, a2(3), a3(5, true);
+    cout << "a1.a=" << a1.a << endl;
+    cout << "a2.a=" << a2.a << endl;
+    cout << "a3.a=" << a3.a << endl;
 
     printf("-----------------end-------------------\n");
+    return EXIT_SUCCESS;
 }
 
 /***********************************************************
