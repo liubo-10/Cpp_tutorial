@@ -6,10 +6,13 @@
  * --------------
  * | @brief   : main
  ******************************************************************************/
-#include <stdio.h>
-#include <stdint.h>
+#include "XXX.h"
 
-#include "CRC32.h"
+#include <iostream>
+
+using std::cin;
+using std::cout;
+using std::endl;
 /*****************************************************************************
  * | @fn     : XXXX
  * | @param  : - cmd 命令码
@@ -40,6 +43,7 @@ int main()
     printf("result2 :%8X\r\n", result2);
 
     printf("-----------------end-------------------\n");
+    return EXIT_SUCCESS;
 }
 
 /***********************************************************
