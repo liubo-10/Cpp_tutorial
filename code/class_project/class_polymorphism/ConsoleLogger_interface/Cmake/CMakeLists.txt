@@ -10,7 +10,7 @@ set(PROJECT_MAIN_PATH   ${PROJECT_SOURCE_DIR}/..)
 
 # include 路径
 include_directories(
-    ${PROJECT_MAIN_PATH}/src
+    ${PROJECT_MAIN_PATH}/src/CRC32
 )
 
 # src 源文件

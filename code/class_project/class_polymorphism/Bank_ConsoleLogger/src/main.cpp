@@ -7,15 +7,16 @@
  * | @brief   : main
  ******************************************************************************/
 #include <stdio.h>
+#include <stdexcept>
 
-struct FilLogger {
+struct FileLogger {
     void log_transfer(long from, long to, double amount)
     {
         // --snip--
         printf("[file] %ld,%ld,%f\n", from, to, amount);
     }
 
-}
+};
 
 struct ConsoleLogger {
     void log_transfer(long from, long to, double amount)
@@ -48,7 +49,7 @@ struct Bank {
             fileLogger.log_transfer(from, to, amount);
             break;
         default:
-            throw std::logic_error("Unknown Logger type encountered.")
+            throw std::logic_error("Unknown Logger type encountered.");
         }
     };
 
