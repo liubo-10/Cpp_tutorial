@@ -1,7 +1,6 @@
 ----------------begain------------------
-The ASCII code for M is 77
-Add one to the character code :
-The ASCII code for N is 78
-Displaying char ch using cout.put(ch):N!
-done
-----------------end------------------
+constructing base,x=1
+constructing base1,y=2
+constructing base2,z=3
+constrcting derived xyz=4
+-----------------end-------------------
