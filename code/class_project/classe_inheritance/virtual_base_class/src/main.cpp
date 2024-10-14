@@ -4,7 +4,7 @@
  * | @version : V1.0.0
  * | @date    : 2024-10-13
  * --------------
- * | @brief   : main
+ * | @brief   : test the order of virtual class build 
  ******************************************************************************/
 #include <iostream>
 
