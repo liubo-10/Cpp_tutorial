@@ -53,9 +53,8 @@ class Time  // 定义类Time
     }
     string80& GetStringTime(string80& Time)  // 定义公有成员函数
     {
-        sprintf(Time, "%d:%d:%d", Hours, Minutes, Seconds);
-        // 输出字符串
-        return Time;  // 返回结果
+        sprintf(Time, "%d:%d:%d", Hours, Minutes, Seconds);  // 输出字符串
+        return Time;                                         // 返回结果
     }
 
    protected:                     // 定义保护成员
@@ -69,14 +68,13 @@ class TimeDate : public Date, public Time  // 定义派生类
     TimeDate(int y, int mo, int d, int h, int mi, int s) : Date(y, mo, d), Time(h, mi, s) {}  // 重载构造函数
     string80& GetStringDT(string80& DTstr)  // 定义派生类成员函数
     {
-        sprintf(DTstr, "%d/%d/%d;%d:%d:%d", Year, Month, Day, Hours, Minutes,
-                Seconds)   // 输出
-            return DTstr;  // 返回结果
+        sprintf(DTstr, "%d/%d/%d;%d:%d:%d", Year, Month, Day, Hours, Minutes, Seconds);  // 输出
+        return DTstr;                                                                    // 返回结果
     }
 };
 
 #endif  // #ifndef _TIMEDATE_HPP_
 
-/***********************************************************
+/*****************************************************************************
  * end of file
- **********************************************************/
+ ******************************************************************************/
