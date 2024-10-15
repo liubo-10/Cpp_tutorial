@@ -68,3 +68,32 @@ int main()
  
     return 0;
 }
+
+#include <iostream.h>
+class animal  // 定义基类animal
+{
+   public:
+    void sleep()  // 定义成员函数
+    {
+        cout << "animal sleep" << endl;
+    }
+    void breathe()  // 定义成员函数
+    {
+        cout << "animal breathe" << endl;
+    }
+};
+class fish : public animal  // 定义animal的公有派生类fish
+{
+   public:
+    void breathe()  // 定义同名成员函数
+    {
+        cout << "fish bubble" << endl;
+    }
+};
+void main()
+{
+    fish fh;             // 创建对象
+    animal *pAn = &fh;  // 定义对象指针指向对象fh
+    pAn->breathe();      // 调用breathe函数
+}
+

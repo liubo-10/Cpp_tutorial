@@ -9,7 +9,7 @@
 #ifndef _TIMEDATE_HPP_
 #define _TIMEDATE_HPP_
 
-#include <iostream.h>  //包含输入/输出头文件
+#include <iostream>  //包含输入/输出头文件
 
 typedef char string80[80];  // 重定义字符串数据类型
 

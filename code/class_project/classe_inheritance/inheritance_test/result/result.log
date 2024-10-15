@@ -1,7 +1,6 @@
 ----------------begain------------------
-The ASCII code for M is 77
-Add one to the character code :
-The ASCII code for N is 78
-Displaying char ch using cout.put(ch):N!
-done
-----------------end------------------
+The date1 date and time is:2008/9/10;19:7:30
+The date1 date is:2008/9/10
+The date1 time is:19:7:30
+The date2 date and time is:2008/6/5;10:15:5
+-----------------end-------------------
