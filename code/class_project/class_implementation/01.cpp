@@ -92,8 +92,9 @@ class fish : public animal  // 定义animal的公有派生类fish
 };
 void main()
 {
-    fish fh;             // 创建对象
+    fish fh;            // 创建对象
     animal *pAn = &fh;  // 定义对象指针指向对象fh
-    pAn->breathe();      // 调用breathe函数
+    pAn->breathe();     // 调用breathe函数
 }
+
 

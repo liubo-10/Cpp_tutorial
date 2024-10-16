@@ -81,3 +81,47 @@ int main()
 /***********************************************************
  * end of file
  **********************************************************/
+
+
+
+
+
+        1   #include<iostream.h>
+        2   class base                                           //定义基类base
+        3   {
+        4   private:                                             //定义基类私有成员
+        5        int x,y;
+        6   public:
+        7        base(int xx=0,int yy=0)                         //定义构造函数
+        8        {
+        9            x=xx;
+        10           y=yy;
+        11       }
+        12       void disp()                                     //定义成员函数
+        13       {
+        14           cout<<"base: "<<x<<"   "<<y<<endl;
+        15       }
+        16  };
+        17  class base1:public base                              //定义公有派生类base1
+        18  {
+        19  private:                                             //定义派生类base1私有成员
+        20       int z;
+        21  public:
+        22       base1(int xx,int yy,int zz):base(xx,yy)         //定义派生类的构造函数
+        23       {
+        24           z=zz;
+        25       }
+        26       void disp()                                     //定义同名函数
+        27       {
+        28           cout<<"base1:"<<z<<endl;
+        29       }
+        30  };
+        31  void main()
+        32  {
+        33       base obj(3,4),＊objp;                           //创建基类的对象和对象指针
+        34       base1 obj1(1,2,3);                              //创建派生类的对象
+        35       objp=&obj;                                      //对象指针指向基类
+        36       objp->disp();                                   //调用基类成员函数
+        37       objp=&obj1;                                     //对象指针指向派生类
+        38       objp->disp();                                   //调用派生类成员函数
+        39  }
