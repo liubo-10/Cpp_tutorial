@@ -1,10 +1,16 @@
 ----------------begain------------------
+
+自定义duration测试---------------------------------
+duration (in periods) time1: 2 1/25秒.
+duration (in periods) time2: 2.5 1/25秒.
+
+count()函数测试---------------------------------
 duration (in periods) foo: 60000 milliseconds.
 duration (in periods) twentySeconds: 20 seconds.
 duration (in periods) aDay: 24 hours.
 duration (in periods) oneMillisecond: 1 milliseconds.
+
+duration测试---------------------------------
 milliseconds::period::num: 1
 milliseconds::period::den: 1000
 -----------------end-------------------
-
-

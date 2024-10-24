@@ -67,7 +67,7 @@ int main()
     cout << "duration (in periods) oneMillisecond: ";
     cout << oneMillisecond.count() << " milliseconds." << endl;
 
-    printf("\nduration测试---------------------------------\n");
+    printf("\nduration的成员period测试---------------------------------\n");
     // den表示分母，num表示分子，ratio 的基本单位是秒
     // milliseconds::period::num=1,milliseconds::period::den = 1000;
     // num/den表示千分之一秒

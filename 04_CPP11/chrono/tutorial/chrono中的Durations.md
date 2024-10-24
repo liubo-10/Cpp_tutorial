@@ -10,7 +10,7 @@
 * ✨ xcvxcvxcvxcvdasdaasd
 * 🍰 dazdsxasxsaxsaasdsa
 
-# chrono
+# chrono中的Durations
 
 chrono是在std下，属于C++11的标准，它的头文件为#include\<chrono\>，是一个处理时间的元素。主要包括三个概念：
 
@@ -192,6 +192,39 @@ duration可以进行的大多数算术运算。
 
 
 注意事项：duration的加减运算有一定的规则，当两个duration时钟周期不相同的时候，会先统一成一种时钟，然后再进行算术运算，统一的规则如下：假设有ratio<x1,y1> 和 ratio<x2,y2>两个时钟周期，首先需要求出x1，x2的最大公约数X，然后求出y1，y2的最小公倍数Y，统一之后的时钟周期ratio为ratio<X,Y>。
+
+
+
+
+
+
+## duration的成员period
+
+在duration的成员period中，den表示分母，num表示分子，ratio 的基本单位是秒
+
+比如milliseconds::period::num=1,milliseconds::period::den = 1000
+
+num/den表示千分之一秒。同理hours::period::num = 3600，hours::period::den = 1
+
+
+
+```c++
+cout << "milliseconds::period::num: ";
+cout << milliseconds::period::num << endl;
+
+cout << "milliseconds::period::den: ";
+cout << milliseconds::period::den << endl;
+```
+
+
+
+```tex
+milliseconds::period::num: 1
+milliseconds::period::den: 1000
+```
+
+
+
 
 
 
