@@ -1,0 +1,10 @@
+----------------begain------------------
+duration (in periods) foo: 60000 milliseconds.
+duration (in periods) twentySeconds: 20 seconds.
+duration (in periods) aDay: 24 hours.
+duration (in periods) oneMillisecond: 1 milliseconds.
+milliseconds::period::num: 1
+milliseconds::period::den: 1000
+-----------------end-------------------
+
+
