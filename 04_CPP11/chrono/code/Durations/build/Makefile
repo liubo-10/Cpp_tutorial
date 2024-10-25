@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/Cmake
+CMAKE_SOURCE_DIR = /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/Cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/build
+CMAKE_BINARY_DIR = /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/build/CMakeFiles /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/build/CMakeFiles /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ myname/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/build
 .PHONY : myname/fast
 
-home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.o: home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.o
-.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.o
+home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.o: home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.o
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.o
 
 # target to build an object file
-home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.o
-.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.o
+home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.o
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.o
 
-home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.i: home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.i
-.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.i
+home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.i: home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.i
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.i
 
 # target to preprocess a source file
-home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.i
-.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.i
+home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.i
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.i
 
-home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.s: home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.s
-.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.s
+home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.s: home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.s
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.s
 
 # target to generate assembly for a file
-home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.s
-.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.cpp.s
+home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.s
+.PHONY : home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... myname"
-	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.o"
-	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.i"
-	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/code/src/main.s"
+	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.o"
+	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.i"
+	@echo "... home/liubo/00-liubo/my_github/CPP_tutorial/04_CPP11/chrono/Durations/src/main.s"
 .PHONY : help
 
 
