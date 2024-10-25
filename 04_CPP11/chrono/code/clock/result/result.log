@@ -1,7 +1,7 @@
 ----------------begain------------------
-The ASCII code for M is 77
-Add one to the character code :
-The ASCII code for N is 78
-Displaying char ch using cout.put(ch):N!
-done
-----------------end------------------
+今天的日期是:    Fri Oct 25 10:04:34 2024
+明天的日期是:    Sat Oct 26 10:04:34 2024
+新纪元时间:      Thu Jan  1 08:00:00 1970
+新纪元时间+1天:  Fri Jan  2 08:00:00 1970
+新纪元时间+10天: Sun Jan 11 08:00:00 1970
+-----------------end-------------------

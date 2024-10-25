@@ -14,16 +14,20 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-using namespace std::chrono;
+// using namespace std::chrono;
+using std::ratio;
 
-// using std::ratio;
-// using std::chrono::duration;
-// using std::chrono::duration_cast;
-// using std::chrono::hours;         // 以秒为单位的时间长度
-// using std::chrono::microseconds;  // 以微秒为单位的时间长度
-// using std::chrono::milliseconds;  // 以毫秒为单位的时间长度
-// using std::chrono::nanoseconds;   // 以纳秒为单位的时间长度
-// using std::chrono::seconds;       // 以秒为单位的时间长度
+using std::chrono::duration;
+using std::chrono::duration_cast;
+using std::chrono::system_clock;
+using std::chrono::time_point;
+
+
+using std::chrono::microseconds;  // 以微秒为单位的时间长度
+using std::chrono::milliseconds;  // 以毫秒为单位的时间长度
+using std::chrono::nanoseconds;   // 以纳秒为单位的时间长度
+using std::chrono::seconds;       // 以秒为单位的时间长度
+using std::chrono::hours;         // 以秒为单位的时间长度
 
 /*****************************************************************************
  * | @fn     : XXXX
@@ -42,6 +46,22 @@ int main()
     // 新纪元1970.1.1时间
     system_clock::time_point epoch;
 
+    time_t tm2 = system_clock::to_time_t(epoch);
+    cout << "新纪元时间:      " << ctime(&tm2);
+
+    system_clock::time_point endTime;
+    endTime = system_clock::now();
+
+    hours aDay(24);  // 24小时
+
+    cout << "消耗时间为:" << duration_cast<milliseconds>(endTime - epoch).count()<< "毫秒" << endl;
+    cout << "消耗时间为:" << duration_cast<seconds>(endTime - epoch).count()<< "秒" << endl;
+    cout << "消耗时间为:" << duration_cast<hours>(endTime - epoch).count()<< "时" << endl;
+    cout << "消耗时间为:" << duration_cast<hours>(endTime - epoch).count()<< "天" << endl;
+
+
+
+
     duration<int, ratio<60 * 60 * 24>> day(1);
     // 新纪元1970.1.1时间 + 1天
     system_clock::time_point ppt(day);
@@ -59,9 +79,6 @@ int main()
 
     time_t tm1 = system_clock::to_time_t(today + day);
     cout << "明天的日期是:    " << ctime(&tm1);
-
-    time_t tm2 = system_clock::to_time_t(epoch);
-    cout << "新纪元时间:      " << ctime(&tm2);
 
     time_t tm3 = system_clock::to_time_t(ppt);
     cout << "新纪元时间+1天:  " << ctime(&tm3);
