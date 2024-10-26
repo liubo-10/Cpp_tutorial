@@ -52,7 +52,9 @@ int main()
     system_clock::time_point endTime;
     endTime = system_clock::now();
 
-    hours aDay(24);  // 24小时
+
+
+        hours aDay(24);  // 24小时
 
     cout << "消耗时间为:" << duration_cast<milliseconds>(endTime - epoch).count()<< "毫秒" << endl;
     cout << "消耗时间为:" << duration_cast<seconds>(endTime - epoch).count()<< "秒" << endl;
@@ -65,6 +67,12 @@ int main()
     duration<int, ratio<60 * 60 * 24>> day(1);
     // 新纪元1970.1.1时间 + 1天
     system_clock::time_point ppt(day);
+
+    cout << "消耗时间为:" << ppt.time_since_epoch().count() << "时" << endl;
+
+    
+
+
 
     using dday = duration<int, ratio<60 * 60 * 24>>;
     // 新纪元1970.1.1时间 + 10天
