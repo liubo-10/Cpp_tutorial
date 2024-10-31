@@ -9,6 +9,7 @@
 #include <iostream>  // 包含输入/输出头文件 std::cout
 #include <chrono>    // std::chrono::seconds, std::chrono::milliseconds
                      // std::chrono::duration_cast
+// #include <ctime>  //将时间格式的数据转换成字符串
 
 using std::cin;
 using std::cout;
@@ -45,8 +46,9 @@ int main()
 
     // 新纪元1970.1.1时间
     system_clock::time_point epoch;
-
+    // 将获取的时间转换成time_t类型
     time_t tm2 = system_clock::to_time_t(epoch);
+    // ctime()函数将time_t类型的时间转化成字符串格式,这个字符串自带换行符
     cout << "新纪元时间:      " << ctime(&tm2);
 
     system_clock::time_point endTime;
@@ -78,7 +80,7 @@ int main()
     // 新纪元1970.1.1时间 + 10天
     time_point<system_clock, dday> t(dday(10));
 
-    // 系统当前时间
+    //  获取系统的当前时间
     system_clock::time_point today = system_clock::now();
 
     // 转换为time_t时间类型
