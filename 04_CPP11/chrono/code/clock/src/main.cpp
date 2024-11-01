@@ -44,6 +44,11 @@ int main()
 {
     printf("----------------begain------------------\n");
 
+    time_t timep;
+
+    time(&timep); /*获取time_t类型的当前时间*/
+    printf("------%ld\n", timep);
+
     // 新纪元1970.1.1时间
     system_clock::time_point epoch;
     // 将获取的时间转换成time_t类型
