@@ -44,9 +44,14 @@ int main()
 {
     printf("----------------begain------------------\n");
 
-    time_t timep;
+    time_t time(time_t * t);
 
-    time(&timep); /*获取time_t类型的当前时间*/
+    ctime(&timer)
+
+        time_t timep;
+
+    time(&timep); // 获取time_t类型的当前时间 取得从1970年1月1日至今的秒数。
+    
     printf("------%ld\n", timep);
 
     // 新纪元1970.1.1时间
