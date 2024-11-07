@@ -32,7 +32,7 @@ int main()
 
     time_t my_time;
     time(&my_time); /*获取从1970至当前时间过了多少秒，存为time_t类型*/
-    printf("my_time = %d \n", my_time);
+    printf("my_time = %ld \n", my_time);
 
     char* data;
     data = ctime(&my_time);
