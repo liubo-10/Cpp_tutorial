@@ -36,14 +36,18 @@ int main()
 
     char* data;
     data = ctime(&my_time);
-    printf("%s", data); // 用ctime将秒数转化成字符串格式，输出：Thu Feb 28 14:14:17 2019
+    printf("%s", data);  // 用ctime将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
 
+    struct tm* p;
+    p = localtime(&my_time);  // 用localtime将秒数转化为struct tm结构体
+
+    printf("%d/%d/%d %02d:%02d:%02d\n",
+    1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);  // 2024/11/8 11:24:34
 
     // /*用gmtime将time_t类型的时间转换为struct tm类型的时间按，／／没有经过时区转换的UTC时间
     //   然后再用asctime转换为我们常见的格式 Fri Jan 11 17:25:24 2008
     // */
     // printf("%s", asctime(gmtime(&my_time)));
-
 
     printf("-----------------end-------------------\n");
     // getchar();
