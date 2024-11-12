@@ -37,7 +37,7 @@ int main()
     char* date1;
     date1 = ctime(&my_time);
     printf("\nctime swich\n");
-    printf("%s", datdate1a);  // 用ctime将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
+    printf("%s", date1);  // 用ctime将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
 
     struct tm* p;
     p = localtime(&my_time);  // 用localtime将秒数转化为struct tm结构体
