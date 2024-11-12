@@ -116,6 +116,8 @@ stuct tm* localtime(const time_t *timep);
 
 它接受一个指向 time_t 类型的指针作为参数，并返回一个指向 tm 结构体的指针
 
+优点是可以自行控制输出格式，缺点是不能直接当作字符串输出，得用指针访问结构体内部输出。
+
 
 
 示例
@@ -136,6 +138,48 @@ printf("%d/%d/%d %02d:%02d:%02d\n",
 
 
 
+## gmtime()
+
+函数原型
+
+```c++
+struct tm* gmtime(const time_t *timep);
+```
+
+用于将时间戳（time_t 类型）转换为本地时间的结构体(struct tm)。
+
+它接受一个指向 time_t 类型的指针作为参数，并返回一个指向 tm 结构体的指针
+
+优点是可以自行控制输出格式，缺点是不能直接当作字符串输出，得用指针访问结构体内部输出。
+和localtime类似，区别是gmtime不加地方时。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## asctime()
 
 函数原型
@@ -145,6 +189,10 @@ char * asctime(const struct tm* timeptr);
 ```
 
 将struct tm结构体转化为字符串,传入一个struct tm结构体类型的指针，返回一个字符数组指针。
+
+和ctime输出格式一致
+
+
 
 
 

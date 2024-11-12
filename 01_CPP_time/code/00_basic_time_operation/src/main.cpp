@@ -35,22 +35,28 @@ int main()
     printf("my_time = %ld \n", my_time);
 
     char* date1;
-    date1 = ctime(&my_time);
+    date1 = ctime(&my_time);  // 将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
     printf("\nctime swich\n");
-    printf("%s", date1);  // 用ctime将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
+    printf("%s", date1);  
 
     struct tm* p;
     p = localtime(&my_time);  // 用localtime将秒数转化为struct tm结构体
-    printf("\nstruct tm print\n");
+    printf("\nlocaltime swich struct tm print\n");
     printf("%d/%d/%d %02d:%02d:%02d\n",
     1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);  // 2024/11/8 11:24:34
 
+    struct tm* p1;
+    p1 = gmtime(&timep);
+    printf("\ngmtime swich struct tm print\n");
+    printf("%d/%d/%d %02d:%02d:%02d\n",
+    1900 + p1->tm_year, 1 + p1->tm_mon, p1->tm_mday, p1->tm_hour, p1->tm_min, p1->tm_sec);
+
     // 输出星期
-    char* wday[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    char* wday[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     printf("%s\n", wday[p->tm_wday]);
 
     char* date2;
-    date2 = asctime(p);
+    date2 = asctime(p);  // 将struct tm转化成字符串格式和ctime输出格式一致，输出：Fri Nov  8 11:24:34 2024
     printf("\nasctime swich\n");
     printf("%s", date2);
 
