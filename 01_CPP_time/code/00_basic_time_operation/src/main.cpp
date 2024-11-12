@@ -46,7 +46,7 @@ int main()
     1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);  // 2024/11/8 11:24:34
 
     struct tm* p1;
-    p1 = gmtime(&timep);
+    p1 = gmtime(&my_time);
     printf("\ngmtime swich struct tm print\n");
     printf("%d/%d/%d %02d:%02d:%02d\n",
     1900 + p1->tm_year, 1 + p1->tm_mon, p1->tm_mday, p1->tm_hour, p1->tm_min, p1->tm_sec);
