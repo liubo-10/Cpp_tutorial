@@ -44,6 +44,10 @@ int main()
     printf("%d/%d/%d %02d:%02d:%02d\n",
     1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);  // 2024/11/8 11:24:34
 
+    // 输出星期
+    char* wday[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    printf("%s", wday[p->tm_wday]);
+
     // /*用gmtime将time_t类型的时间转换为struct tm类型的时间按，／／没有经过时区转换的UTC时间
     //   然后再用asctime转换为我们常见的格式 Fri Jan 11 17:25:24 2008
     // */
