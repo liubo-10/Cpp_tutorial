@@ -136,6 +136,33 @@ printf("%d/%d/%d %02d:%02d:%02d\n",
 
 
 
+## asctime()
+
+函数原型
+
+```c++
+char * asctime(const struct tm* timeptr);
+```
+
+将struct tm结构体转化为字符串,传入一个struct tm结构体类型的指针，返回一个字符数组指针。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
