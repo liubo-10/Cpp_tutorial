@@ -1,16 +1,16 @@
 ----------------begain------------------
-my_time = 1731595419 
+my_time = 1731595688 
 
-ctime swich
-Thu Nov 14 22:43:39 2024
+ctime swich time_t to char*
+Thu Nov 14 22:48:08 2024
 
-localtime swich struct tm print
-2024/11/14 22:43:39
+localtime swich time_t to struct tm
+2024/11/14 22:48:08
 
-gmtime swich struct tm print
-2024/11/14 14:43:39
+gmtime swich time_t to struct tm
+2024/11/14 14:48:08
 Thursday
 
-asctime swich
-Thu Nov 14 14:43:39 2024
+asctime swich struct tm to char*
+Thu Nov 14 14:48:08 2024
 -----------------end-------------------

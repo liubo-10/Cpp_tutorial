@@ -350,77 +350,112 @@ printf("%s", date2);
 
 
 
+## 三、完整测试用例
+
+code
+
+```c++
+/*****************************************************************************
+ * | @file    : main.c
+ * | @author  : liubo
+ * | @version : V1.0.0
+ * | @date    : 2024-11-12
+ * --------------
+ * | @brief   : main
+ ******************************************************************************/
+#include <iostream>  // 包含输入和输出操作
+#include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
+#include <string.h>  // C语言的标准库，包含字符串处理操作 strcpy等
+
+#include <time.h>
+
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+    printf("----------------begain------------------\n");
+
+    time_t my_time;
+    time(&my_time); /*获取从1970至当前时间过了多少秒，存为time_t类型*/
+    printf("my_time = %ld \n", my_time);
+
+    char* date1;
+    date1 = ctime(&my_time);  // 将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
+    printf("\nctime swich time_t to char*\n");
+    printf("%s", date1);
+
+    struct tm* p;
+    p = localtime(&my_time);  // 用localtime将秒数转化为struct tm结构体
+    printf("\nlocaltime swich time_t to struct tm\n");
+    printf("%d/%d/%d %02d:%02d:%02d\n",
+    1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);  // 2024/11/8 11:24:34
+
+    struct tm* p1;
+    p1 = gmtime(&my_time);
+    printf("\ngmtime swich time_t to struct tm\n");
+    printf("%d/%d/%d %02d:%02d:%02d\n",
+    1900 + p1->tm_year, 1 + p1->tm_mon, p1->tm_mday, p1->tm_hour, p1->tm_min, p1->tm_sec);
+
+    // 输出星期
+    char* wday[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    printf("%s\n", wday[p->tm_wday]);
+
+    char* date2;
+    date2 = asctime(p);  // 将struct tm转化成字符串格式和ctime输出格式一致，输出：Fri Nov  8 11:24:34 2024
+    printf("\nasctime swich struct tm to char*\n");
+    printf("%s", date2);
+
+    printf("-----------------end-------------------\n");
+    // getchar();
+    return EXIT_SUCCESS;
+}
+
+/*****************************************************************************
+ * end of file
+ ******************************************************************************/
+
+```
+
+
+
+结果:
+
+```tex
+----------------begain------------------
+my_time = 1731595688 
+
+ctime swich time_t to char*
+Thu Nov 14 22:48:08 2024
+
+localtime swich time_t to struct tm
+2024/11/14 22:48:08
+
+gmtime swich time_t to struct tm
+2024/11/14 14:48:08
+Thursday
+
+asctime swich struct tm to char*
+Thu Nov 14 14:48:08 2024
+-----------------end-------------------
+```
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 六、总结
+## 四、总结
 
 以上就是今天要讲的内容，本文仅仅简单介绍了lwIP的官网主页，后续会有更多内容。
 
 
 
-
-
-# 七、参考资料
+## 五、参考资料
 
 版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
 一、https://blog.csdn.net/weixin_44032878/article/details/87939039
 
 二、https://blog.csdn.net/water_cow/article/details/7521567
-
-三、 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
