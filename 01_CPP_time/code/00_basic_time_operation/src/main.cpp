@@ -36,18 +36,18 @@ int main()
 
     char* date1;
     date1 = ctime(&my_time);  // 将秒数转化成字符串格式，输出：Fri Nov  8 11:24:34 2024
-    printf("\nctime swich\n");
+    printf("\nctime swich time_t to char*\n");
     printf("%s", date1);
 
     struct tm* p;
     p = localtime(&my_time);  // 用localtime将秒数转化为struct tm结构体
-    printf("\nlocaltime swich struct tm print\n");
+    printf("\nlocaltime swich time_t to struct tm\n");
     printf("%d/%d/%d %02d:%02d:%02d\n",
     1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);  // 2024/11/8 11:24:34
 
     struct tm* p1;
     p1 = gmtime(&my_time);
-    printf("\ngmtime swich struct tm print\n");
+    printf("\ngmtime swich time_t to struct tm\n");
     printf("%d/%d/%d %02d:%02d:%02d\n",
     1900 + p1->tm_year, 1 + p1->tm_mon, p1->tm_mday, p1->tm_hour, p1->tm_min, p1->tm_sec);
 
@@ -57,7 +57,7 @@ int main()
 
     char* date2;
     date2 = asctime(p);  // 将struct tm转化成字符串格式和ctime输出格式一致，输出：Fri Nov  8 11:24:34 2024
-    printf("\nasctime swich\n");
+    printf("\nasctime swich struct tm to char*\n");
     printf("%s", date2);
 
     printf("-----------------end-------------------\n");
