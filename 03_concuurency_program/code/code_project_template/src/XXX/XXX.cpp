@@ -1,20 +1,19 @@
 /*****************************************************************************
- * | @file    : main.c
+ * | @file    : XXX.c
  * | @author  : liubo
- * | @version : V1.0.0
- * | @date    : 2024-09-01
+ * | @version : V1.0.0     |V1.0.1     |V1.0.2
+ * | @date    : 2024-01-05 |2024-08-22 |2024-09-01
  * --------------
- * | @brief   : main
+ * | @brief   : CPP template
  ******************************************************************************/
-#include <iostream>  // 包含输入和输出操作
-#include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
-#include <pthread.h>
+#include "XXX.h"
+
+#include <iostream>
 
 using std::cin;
 using std::cout;
 using std::endl;
 
-pthread_cond_t cond;  // 全局 pthread_cond_t 变量
 /*****************************************************************************
  * | @fn     : XXXX
  * | @param  : - XXX XXX
@@ -23,28 +22,15 @@ pthread_cond_t cond;  // 全局 pthread_cond_t 变量
  * | @return :
  * --------------
  * | @brief  : XXX
- * |           XXX
+ * |           
  ******************************************************************************/
 int main()
 {
-    printf("----------------begain------------------\n");
+    cout << "----------------begain------------------" << endl;
 
-    int rc;
 
-    // 显式初始化全局 pthread_cond_t 变量
-    rc = pthread_cond_init(&cond, NULL);
-    if (rc != 0) {
-        printf("Cond init failed: %d\n", rc);
-        return 1;
-    }
 
-    // ... 其他代码，包括线程创建和同步 ...
-
-    // 在不再需要条件变量时销毁它
-    //...
-
-    printf("-----------------end-------------------\n");
-    // getchar();
+    cout << "----------------end------------------" << endl;
     return EXIT_SUCCESS;
 }
 
