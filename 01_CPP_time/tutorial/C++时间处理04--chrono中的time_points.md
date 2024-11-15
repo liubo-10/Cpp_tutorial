@@ -10,18 +10,14 @@
 * ✨ xcvxcvxcvxcvdasdaasd
 * 🍰 dazdsxasxsaxsaasdsa
 
-# chrono中的Time_points
+# C++时间处理04--chrono中的time_points
+### 一、time_point
+
 在时钟类中，时间点由类模板std::chrono::time_point<>的实例表示，
 
 
 
 时间点是一个时间跨度，始于一个称为时钟纪元的特定时刻，终于该时间点本身。跨度的值表示某具体时长的倍数。
-
-
-
-
-
-
 
 
 
@@ -31,23 +27,7 @@
 
 
 
-
-
-
-
-
-
-
-
 chrono库中提供了一个表示时间点的类 time_point
-
-
-
-
-
-
-
-
 
 
 
@@ -69,25 +49,11 @@ struct time_point
 
 
 
-
-
-
-
 在这个类中除了构造函数还提供了另外一个time_since_epoch()函数，用来获得1970年1月1日到time_point对象中记录的时间经过的时间间隔（duration），函数原型如下：
 
 
 
-
-
-
-
 除此之外，时间点time_point对象和时间段对象duration之间还支持直接进行算术运算（即加减运算），时间点对象之间可以进行逻辑运算
-
-
-
-
-
-
 
 
 
@@ -110,7 +76,18 @@ time_point( const time_point<Clock,Duration2>& t );
 
 
 
+## 二、总结
 
+以上就是今天要讲的内容
+
+
+
+## 三、参考资料
+
+版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
+一、https://blog.csdn.net/f593256/article/details/134833814
+
+二、
 
 
 

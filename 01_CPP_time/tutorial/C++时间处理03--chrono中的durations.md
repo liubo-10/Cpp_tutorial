@@ -10,7 +10,7 @@
 * ✨ xcvxcvxcvxcvdasdaasd
 * 🍰 dazdsxasxsaxsaasdsa
 
-# chrono中的Durations
+# C++时间处理03--chrono中的durations
 
 chrono是在std下，属于C++11的标准，它的头文件为#include\<chrono\>，是一个处理时间的元素。主要包括三个概念：
 
@@ -20,11 +20,11 @@ chrono是在std下，属于C++11的标准，它的头文件为#include\<chrono\>
 
 
 
-## 1. 时间段 Durations
+## 一、时间段 Durations
 
 duration表示一段时间间隔，用来记录时间长度，可以表示几秒、几分钟、几个小时的时间间隔。
 
-## duration的原型
+### 1.1、duration的原型
 
 duration的原型如下：
 
@@ -41,7 +41,7 @@ struct duration;
 
 
 
-## ratio的原型
+### 1.2、ratio的原型
 
 ratio的原型如下：
 
@@ -79,32 +79,32 @@ duration (in periods) time2: 2.5 1/25秒.
 
 
 
-## 常用的ratio
+### 1.3、常用的ratio
 
 常用的ratio在文件\<ratio\>定义如下：
 
 ```c++
-typedef ratio<1,      1000000000000000000> atto;  // attosecond 阿托秒 10的18次方
-typedef ratio<1,         1000000000000000> femto; // femtosecond 飞秒 10的15次方
-typedef ratio<1,            1000000000000> pico;  // picosecond 皮秒 10的12次方
-typedef ratio<1,               1000000000> nano;  // nanosecond 纳秒 10的9次方
-typedef ratio<1,                  1000000> micro; // microsecond 微秒 10的6次方
-typedef ratio<1,                     1000> milli; // millisecond 毫秒 10的3次方
-typedef ratio<1,                      100> centi; // centisecond 厘秒
-typedef ratio<1,                       10> deci;  // decisecond  分秒
-typedef ratio<                      10, 1> deca;
-typedef ratio<                     100, 1> hecto;
-typedef ratio<                    1000, 1> kilo;
-typedef ratio<                 1000000, 1> mega;
-typedef ratio<              1000000000, 1> giga;
-typedef ratio<           1000000000000, 1> tera;
-typedef ratio<        1000000000000000, 1> peta;
-typedef ratio      1000000000000000000, 1> exa;
+typedef ratio<1,   1000000000000000000> atto;  // attosecond 阿托秒 10的18次方
+typedef ratio<1,      1000000000000000> femto; // femtosecond 飞秒 10的15次方
+typedef ratio<1,         1000000000000> pico;  // picosecond 皮秒 10的12次方
+typedef ratio<1,            1000000000> nano;  // nanosecond 纳秒 10的9次方
+typedef ratio<1,               1000000> micro; // microsecond 微秒 10的6次方
+typedef ratio<1,                  1000> milli; // millisecond 毫秒 10的3次方
+typedef ratio<1,                   100> centi; // centisecond 厘秒
+typedef ratio<1,                    10> deci;  // decisecond  分秒
+typedef ratio<10,                    1> deca;
+typedef ratio<100,                   1> hecto;
+typedef ratio<1000,                  1> kilo;
+typedef ratio<1000000,               1> mega;
+typedef ratio<1000000000,            1> giga;
+typedef ratio<1000000000000,         1> tera;
+typedef ratio<1000000000000000,      1> peta;
+typedef ratio<1000000000000000000,   1> exa;
 ```
 
 
 
-## 常用的duration
+### 1.4、常用的duration
 
 ratio配合duration定义常用时间单位
 
@@ -127,7 +127,13 @@ chrono::hours        aDay(24);          //24小时
 chrono::milliseconds oneMillisecond(1); //1毫秒
 ```
 
-## count函数
+
+
+## 二、duration的成员
+
+
+
+### 2.1、count函数
 
 duration类还提供了获取时间间隔的时钟周期数的方法count()
 
@@ -178,7 +184,7 @@ duration (in periods) oneMillisecond: 1 milliseconds.
 
 
 
-## duration的算术运算
+### 2.2、duration的算术运算
 
 duration可以进行的大多数算术运算。
 
@@ -197,7 +203,7 @@ duration可以进行的大多数算术运算。
 
 
 
-## duration的成员period
+### 2.3、duration的成员period
 
 在duration的成员period中，den表示分母，num表示分子，ratio 的基本单位是秒
 
@@ -221,10 +227,6 @@ cout << milliseconds::period::den << endl;
 milliseconds::period::num: 1
 milliseconds::period::den: 1000
 ```
-
-
-
-
 
 
 
@@ -287,57 +289,18 @@ int main()
 
 
 
+## 三、总结
+
+以上就是今天要讲的内容
 
 
 
+## 四、参考资料
 
+版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
+一、https://blog.csdn.net/f593256/article/details/134833814
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-原文链接：https://blog.csdn.net/f593256/article/details/134833814
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+二、
 
 
 
