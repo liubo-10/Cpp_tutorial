@@ -16,11 +16,11 @@ using std::endl;
 
 void threadFunctionA()
 {
-    std::cout << "Run New thread: 1" << std::endl;
+    cout << "Run New thread: 1" << endl;
 }
 void threadFunctionB(int n)
 {
-    std::cout << "Run New thread: " << n << std::endl;
+    cout << "Run New thread: " << n << endl;
 }
 
 /*****************************************************************************
@@ -37,7 +37,7 @@ int main()
 {
     printf("----------------begain------------------\n");
 
-    std::cout << "Run Main Thread" << std::endl;
+    cout << "Run Main Thread" << endl;
 
     std::thread newThread1(threadFunctionA);
     std::thread newThread2(threadFunctionB, 2);
