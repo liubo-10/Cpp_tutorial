@@ -9,53 +9,15 @@
 #include <iostream>  // 包含输入和输出操作
 #include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
 #include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 using std::cin;
 using std::cout;
 using std::endl;
 
 pthread_cond_t cond;  // 全局 pthread_cond_t 变量
-/*****************************************************************************
- * | @fn     : XXXX
- * | @param  : - XXX XXX
- * |           - XXX XXX
- * |           - XXX XXX
- * | @return :
- * --------------
- * | @brief  : XXX
- * |           XXX
- ******************************************************************************/
-int main()
-{
-    printf("----------------begain------------------\n");
 
-    int rc;
-
-    // 显式初始化全局 pthread_cond_t 变量
-    rc = pthread_cond_init(&cond, NULL);
-    if (rc != 0) {
-        printf("Cond init failed: %d\n", rc);
-        return 1;
-    }
-
-    // ... 其他代码，包括线程创建和同步 ...
-
-    // 在不再需要条件变量时销毁它
-    //...
-
-    printf("-----------------end-------------------\n");
-    // getchar();
-    return EXIT_SUCCESS;
-}
-
-/*****************************************************************************
- * end of file
- ******************************************************************************/
-
-#include <stdio.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
 // 初始化互斥锁
 pthread_mutex_t myMutex = PTHREAD_MUTEX_INITIALIZER;
 // 初始化条件变量
@@ -102,6 +64,58 @@ void *doneForTrue(void *args)
     }
     return NULL;
 }
+
+/*****************************************************************************
+ * | @fn     : XXXX
+ * | @param  : - XXX XXX
+ * |           - XXX XXX
+ * |           - XXX XXX
+ * | @return :
+ * --------------
+ * | @brief  : XXX
+ * |           XXX
+ ******************************************************************************/
+int main()
+{
+    printf("----------------begain------------------\n");
+
+    int rc;
+
+    // 显式初始化全局 pthread_cond_t 变量
+    rc = pthread_cond_init(&cond, NULL);
+    if (rc != 0) {
+        printf("Cond init failed: %d\n", rc);
+        return 1;
+    }
+
+    // ... 其他代码，包括线程创建和同步 ...
+
+    // 在不再需要条件变量时销毁它
+    //...
+
+    printf("-----------------end-------------------\n");
+    // getchar();
+    return EXIT_SUCCESS;
+}
+
+/*****************************************************************************
+ * end of file
+ ******************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
     int res;

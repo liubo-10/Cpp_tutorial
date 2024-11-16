@@ -43,8 +43,8 @@ int main()
     printf("----------------begain------------------\n");
 
     std::vector<std::thread> threads;
-
-    std::chrono::system_clock::time_point startTime;
+    std::thread fff;
+     std::chrono::system_clock::time_point startTime;
     startTime = std::chrono::system_clock::now();
 
     for (int i = 0; i < 10; ++i) {
