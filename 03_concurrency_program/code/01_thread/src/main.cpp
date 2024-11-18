@@ -19,13 +19,10 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void threadFunctionA()
+void pauseThread(int n)
 {
-    cout << "Run New thread: 1" << endl;
-}
-void threadFunctionB(int n)
-{
-    cout << "Run New thread: " << n << endl;
+    sleep(n);
+    std::cout << "pause of " << n << " seconds ended" << std::endl;
 }
 
 /*****************************************************************************
@@ -44,42 +41,6 @@ int main()
 
     cout << "Run Main Thread" << endl;
 
-    /*****************1.使用函数指针启动线程********************/
-
-    // 函数指针可以是可调用对象，传递给 std::thread 构造函数以初始化线程。
-    void foo(param){...}  // The parameters to the function are put after the comma
-    std::thread thread_obj(foo, params);
-    /********************************************************/
-
-
-                               std::thread newThread1(threadFunctionA);
-    std::thread newThread2(threadFunctionB, 2);
-
-    newThread1.join();
-    newThread2.join();
-    printf("-----------------end-------------------\n");
-    // getchar();
-    return EXIT_SUCCESS;
-}
-
-/*****************************************************************************
- * end of file
- ******************************************************************************/
-
-
-
-
-
-
-
-
-void pauseThread(int n)
-{
-    sleep(n);
-    std::cout << "pause of " << n << " seconds ended" << std::endl;
-}
-int main()
-{
     cout << "spawing 3 threads..." << endl;
     std::thread t1(pauseThread, 1);
     std::thread t2(pauseThread, 2);
@@ -89,7 +50,13 @@ int main()
     t2.join();
     t3.join();
     cout << "All threads joined!" << endl;
-    return 0;
+
+    printf("-----------------end-------------------\n");
+    // getchar();
+    return EXIT_SUCCESS;
 }
 
+/*****************************************************************************
+ * end of file
+ ******************************************************************************/
 
