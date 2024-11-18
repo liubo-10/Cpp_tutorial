@@ -42,16 +42,15 @@ int main()
     cout << "Run Main Thread" << endl;
 
     cout << "spawing 3 threads..." << endl;
-    std::thread t1(pauseThread, 5);
-    std::thread t2(pauseThread, 10);
-    std::thread t3(pauseThread, 15);
+    std::thread t1(pauseThread, 5);   // 线程这时候就已经开始启动
+    std::thread t2(pauseThread, 10);  // 线程这时候就已经开始启动
+    std::thread t3(pauseThread, 15);  // 线程这时候就已经开始启动
     cout << "Done spawning threads. Now wait for them to join: " << endl;
     t1.join();
     t2.join();
-    sleep(20);
-    std::cout << "pause of " << 20 << " seconds ended" << std::endl;
     t3.join();
-    cout << "All threads joined!" << endl;
+    // 等待 threads 结束
+    cout << "All all threads finished !" << endl;
 
     printf("-----------------end-------------------\n");
     // getchar();
