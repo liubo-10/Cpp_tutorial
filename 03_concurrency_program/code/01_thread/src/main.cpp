@@ -49,6 +49,7 @@ int main()
     t1.join();
     t2.join();
     sleep(20);
+    std::cout << "pause of " << 20 << " seconds ended" << std::endl;
     t3.join();
     cout << "All threads joined!" << endl;
 
