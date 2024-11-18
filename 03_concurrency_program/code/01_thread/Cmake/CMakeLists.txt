@@ -25,5 +25,14 @@ set (EXECUTABLE_OUTPUT_PATH ${PROJECT_MAIN_PATH}/bin)
 set(CMAKE_CXX_FLAGS -pthread)
 message(STATUS "CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
 
+#find_package(Threads) # 引入外部依赖包
+#add_executable(ProjectName main.cpp)
+ 
+#target_link_libraries (${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT}) # 链接Thread库
+# 或者下面这种方式
+# target_link_libraries (${PROJECT_NAME} pthread)
+# 注：使用 target_link_libraries 链接库时，需要在 add_executable 之后
+
+
 # 生成可执行文件 myname可执行文件名字与源文件名无关
 add_executable(myname  ${SRC_LIST1} ${SRC_LIST2})
