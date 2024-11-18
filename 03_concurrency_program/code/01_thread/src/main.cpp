@@ -48,7 +48,7 @@ int main()
     cout << "Done spawning threads. Now wait for them to join: " << endl;
     t1.join();
     t2.join();
-    sleep(10);
+    sleep(20);
     t3.join();
     cout << "All threads joined!" << endl;
 
