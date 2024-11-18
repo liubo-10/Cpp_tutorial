@@ -84,7 +84,7 @@
     // 控制是否在打开文件时，基于文件内容自动检测 Editor: Tab Size 和 Editor: Insert Spaces。如果设置为true则.editorconfi文件中的indent_size会失效
     "editor.detectIndentation": false,
     "editor.fontSize": 16, //设置字体大小
-    "editor.tabSize": 2, // 因为设置了 "editor.detectIndentation": false 所以该设置仅对settings.json文件缩进起作用
+    "editor.tabSize": 4, // 因为设置了 "editor.detectIndentation": false 所以该设置仅对settings.json文件缩进起作用
     // 显示 markdown 中英文切换时产生的特殊字符
     "editor.renderControlCharacters": true,
     // 设置 eslint 保存时自动修复 【可修复function关键字后不带空格】
@@ -104,7 +104,7 @@
     // prettier部分----------------------
     // "prettier.eslintIntegration": true, //让prettier使用eslint的代码格式进行校验   // 注释后面加空格
     "prettier.semi": false, //去掉代码结尾的分号
-    "prettier.tabWidth": 2, // tab 大小为4个空格
+    "prettier.tabWidth": 4, // tab 大小为4个空格
     "prettier.singleQuote": true, //  #使用单引号替代双引号
     // vetur部分------------------------
     // vetur处理单文件组件格式化    支持格式化嵌入的html/css/scss/less/postcss/stylus/js/ts
@@ -119,7 +119,7 @@
     "vetur.format.defaultFormatter.scss": "prettier",
     // "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
     "vetur.format.defaultFormatter.ts": "prettier",
-    "vetur.format.options.tabSize": 2, // tab 大小为4个空格
+    "vetur.format.options.tabSize": 4, // tab 大小为4个空格
     "vetur.format.defaultFormatterOptions": {
         //项目中如果有prettierrc、.prettierrc.js等配置文件，否则会覆盖掉vscode上面的配置
         // 处理单文件中的js文件 继承自 prettier
@@ -187,5 +187,5 @@
         "wxml": "html"
     },
     "minapp-vscode.disableAutoConfig": true,
-    "cmake.sourceDirectory": "/home/liubo/00-liubo/my_github/CPP_tutorial/code/00_project_template/Cmake" //禁用自动配置 //微信小程序标签、属性的智能补全（同时支持原生小程序、mpvue 和 wepy 框架，并提供 snippets）
+    "cmake.sourceDirectory": "E:/my_github/Cpp_tutorial/00_document_template/code_project_template/Cmake" //禁用自动配置 //微信小程序标签、属性的智能补全（同时支持原生小程序、mpvue 和 wepy 框架，并提供 snippets）
 }
