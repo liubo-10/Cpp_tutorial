@@ -42,9 +42,9 @@ int main()
     cout << "Run Main Thread" << endl;
 
     cout << "spawing 3 threads..." << endl;
-    std::thread t1(pauseThread, 1);
-    std::thread t2(pauseThread, 2);
-    std::thread t3(pauseThread, 3);
+    std::thread t1(pauseThread, 5);
+    std::thread t2(pauseThread, 10);
+    std::thread t3(pauseThread, 15);
     cout << "Done spawning threads. Now wait for them to join: " << endl;
     t1.join();
     t2.join();
