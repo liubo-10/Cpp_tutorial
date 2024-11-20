@@ -21,5 +21,9 @@ aux_source_directory (${PROJECT_MAIN_PATH}/src/CRC32 SRC_LIST2)
 # output 路径
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_MAIN_PATH}/bin)
 
+# pthread 库不是 Linux 系统默认的库
+set(CMAKE_CXX_FLAGS -pthread)
+message(STATUS "CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
+
 # 生成可执行文件 myname可执行文件名字与源文件名无关
 add_executable(myname  ${SRC_LIST1} ${SRC_LIST2})
