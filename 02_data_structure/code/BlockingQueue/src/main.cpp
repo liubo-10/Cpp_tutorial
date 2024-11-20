@@ -21,10 +21,6 @@ int ticket = 1000;
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t cond = PTHREAD_COND_INITIALIZER;  // 全局 pthread_cond_t 变量
 
-
-
-
-
 using namespace std;
 
 void * GetTicket(void * args)

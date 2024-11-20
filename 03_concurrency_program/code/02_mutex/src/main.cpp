@@ -8,15 +8,27 @@
  ******************************************************************************/
 #include <iostream>  // 包含输入和输出操作
 #include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
-#include <string.h>  // C语言的标准库，包含字符串处理操作 strcpy等
-
-#include <stdio.h>
-#include <pthread.h>
-#include <unistd.h>
+#include <mutex>
+#include <thread>
 
 using std::cin;
 using std::cout;
 using std::endl;
+
+std::mutex mtx;       // 全局互斥量
+int shared_data = 0;  // 共享数据
+
+void increment()
+{
+    mtx.lock();  // 尝试获取互斥量
+    for (size_t i = 0; i < 5; i++) {
+        ++shared_data;  // 访问和修改共享数据
+        std::cout << "Thread " << std::this_thread::get_id() << " incremented shared_data to " << shared_data
+                  << std::endl;
+    }
+    mtx.unlock();  // 释放互斥量
+}
+
 /*****************************************************************************
  * | @fn     : XXXX
  * | @param  : - XXX XXX
@@ -31,6 +43,13 @@ int main()
 {
     printf("----------------begain------------------\n");
 
+    std::thread t1(increment);
+    std::thread t2(increment);
+
+    t1.join();
+    t2.join();
+
+    std::cout << "Final value of shared_data: " << shared_data << std::endl;
 
     printf("-----------------end-------------------\n");
     // getchar();
@@ -40,50 +59,3 @@ int main()
 /*****************************************************************************
  * end of file
  ******************************************************************************/
-
-
-
-
-
-int shared_data = 0;
-pthread_mutex_t mutex;
-
-void *threadFoo(void *arg)
-{
-    pthread_mutex_lock(&mutex);  // 加锁
-    while (1) {
-        shared_data++;
-        printf("threadFoo:shared_data=%d\n", shared_data);
-        if (shared_data == 10) {
-            pthread_mutex_unlock(&mutex);  // 执行完之后解锁
-            pthread_exit(NULL);
-        }
-        sleep(1);
-    }
-}
-void *threadBar(void *arg)
-{
-    pthread_mutex_lock(&mutex);  // 加锁
-    while (1) {
-        shared_data++;
-        printf("___threadBar:shared_data=%d\n", shared_data);
-        if (shared_data == 20) {
-            pthread_mutex_unlock(&mutex);  // 执行完之后解锁
-            pthread_exit(NULL);
-        }
-        sleep(1);
-    }
-}
-
-int main()
-{
-    pthread_t threadID1;
-    pthread_t threadID2;
-    pthread_mutex_init(&mutex, NULL);
-    pthread_create(&threadID1, NULL, (void *)threadFoo, NULL);
-    pthread_create(&threadID2, NULL, (void *)threadBar, NULL);
-    pthread_join(threadID1, NULL);
-    pthread_join(threadID2, NULL);
-    pthread_mutex_destroy(&mutex);
-    return 0;
-}
