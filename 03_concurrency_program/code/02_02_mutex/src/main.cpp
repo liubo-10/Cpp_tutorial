@@ -21,7 +21,7 @@ std::mutex mtx;       // 全局互斥量
 int count1 = 0;
 int count2 = 0;
 
-void running_5_times(int &count)
+void running_5_times(int& count)
 {
     for (size_t i = 0; i < 5; i++) {
         count++;

@@ -1,13 +1,23 @@
 ----------------begain------------------
-Thread 140401944184576 incremented shared_data to 1
-Thread 140401944184576 incremented shared_data to 2
-Thread 140401944184576 incremented shared_data to 3
-Thread 140401944184576 incremented shared_data to 4
-Thread 140401944184576 incremented shared_data to 5
-Thread 140401935791872 incremented shared_data to 6
-Thread 140401935791872 incremented shared_data to 7
-Thread 140401935791872 incremented shared_data to 8
-Thread 140401935791872 incremented shared_data to 9
-Thread 140401935791872 incremented shared_data to 10
-Final value of shared_data: 10
+Thread 139768415364864 running Thread 1 times139768406972160 running 1 times
+
+Thread 139768415364864 running 2 times
+Thread 139768406972160 running 2 times
+Thread 139768415364864 running 3 times
+Thread 139768406972160 running 3 times
+Thread 139768415364864 running 4 timesThread 
+139768406972160 running 4 times
+Thread 139768415364864 running 5 times
+Thread 139768406972160 running 5 times
+Thread 139768415364864 running 6 times
+Thread 139768415364864 running 7 times
+Thread 139768415364864 running 8 times
+Thread 139768415364864 running 9 times
+Thread 139768415364864 running 10 times
+Thread 139768406972160 running 6 times
+Thread 139768406972160 running 7 times
+Thread 139768406972160 running 8 times
+Thread 139768406972160 running 9 times
+Thread 139768406972160 running 10 times
+main function running
 -----------------end-------------------
