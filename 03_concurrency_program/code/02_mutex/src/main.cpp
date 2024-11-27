@@ -30,7 +30,7 @@ void increment()
 
         cout << "Thread " << std::this_thread::get_id() << " unlock" << shared_data << endl;
 
-        for (int count = 0; count++; count < 3) {
+        for (int count = 0; count < 3; count++) {
             std::this_thread::sleep_for(std::chrono::seconds(1));
             cout << "Thread " << std::this_thread::get_id() << "run "<< count << endl;
         }
