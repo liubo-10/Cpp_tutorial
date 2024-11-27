@@ -1,7 +1,13 @@
 ----------------begain------------------
-The ASCII code for M is 77
-Add one to the character code :
-The ASCII code for N is 78
-Displaying char ch using cout.put(ch):N!
-done
-----------------end------------------
+Thread 140401944184576 incremented shared_data to 1
+Thread 140401944184576 incremented shared_data to 2
+Thread 140401944184576 incremented shared_data to 3
+Thread 140401944184576 incremented shared_data to 4
+Thread 140401944184576 incremented shared_data to 5
+Thread 140401935791872 incremented shared_data to 6
+Thread 140401935791872 incremented shared_data to 7
+Thread 140401935791872 incremented shared_data to 8
+Thread 140401935791872 incremented shared_data to 9
+Thread 140401935791872 incremented shared_data to 10
+Final value of shared_data: 10
+-----------------end-------------------
