@@ -18,14 +18,14 @@ using std::endl;
 
 std::mutex mtx;       // 全局互斥量
 // int shared_data = 0;  // 共享数据
-int count1 = 1;
-int count2 = 1;
+int count1 = 0;
+int count2 = 0;
 
 void running_5_times(int count)
 {
     for (size_t i = 0; i < 5; i++) {
         count++;
-        cout << "Thread " << std::this_thread::get_id() << "running" << count << "times" << endl;
+        cout << "Thread " << std::this_thread::get_id() << " running " << count << " times" << endl;
         // 当前线程休眠1毫秒
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
