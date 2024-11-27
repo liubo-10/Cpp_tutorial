@@ -21,7 +21,6 @@ int shared_data = 0;  // 共享数据
 
 void increment()
 {
-
     for (size_t i = 0; i < 5; i++) {
         mtx.lock();     // 尝试获取互斥量
         ++shared_data;  // 访问和修改共享数据
@@ -30,7 +29,6 @@ void increment()
         cout << "dwlay 3 seconds " << endl;
         mtx.unlock();  // 释放互斥量
     }
-
 }
 
 /*****************************************************************************
