@@ -10,6 +10,7 @@
 #include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
 #include <mutex>
 #include <thread>
+#include <chrono>
 
 using std::cin;
 using std::cout;
@@ -20,13 +21,16 @@ int shared_data = 0;  // 共享数据
 
 void increment()
 {
-    mtx.lock();  // 尝试获取互斥量
+
     for (size_t i = 0; i < 5; i++) {
+        mtx.lock();     // 尝试获取互斥量
         ++shared_data;  // 访问和修改共享数据
-        std::cout << "Thread " << std::this_thread::get_id() << " incremented shared_data to " << shared_data
-                  << std::endl;
+        cout << "Thread " << std::this_thread::get_id() << " incremented shared_data to " << shared_data << endl;
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        cout << "dwlay 3 seconds " << endl;
+        mtx.unlock();  // 释放互斥量
     }
-    mtx.unlock();  // 释放互斥量
+
 }
 
 /*****************************************************************************
