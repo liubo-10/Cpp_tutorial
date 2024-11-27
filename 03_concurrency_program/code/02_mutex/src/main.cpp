@@ -22,12 +22,15 @@ int shared_data = 0;  // 共享数据
 void increment()
 {
     for (size_t i = 0; i < 5; i++) {
+        cout << "try get mtx  " << endl;
         mtx.lock();     // 尝试获取互斥量
         ++shared_data;  // 访问和修改共享数据
         cout << "Thread " << std::this_thread::get_id() << " incremented shared_data to " << shared_data << endl;
+
+        mtx.unlock();  // 释放互斥量
+
         std::this_thread::sleep_for(std::chrono::seconds(3));
         cout << "dwlay 3 seconds " << endl;
-        mtx.unlock();  // 释放互斥量
     }
 }
 
