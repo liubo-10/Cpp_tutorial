@@ -22,6 +22,7 @@ sdfgsgfg
 
 
 
+C++多线程： unique_lock
 
 
 
@@ -35,9 +36,19 @@ sdfgsgfg
 # 七、参考资料
 
 版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
-一、 https://blog.csdn.net/as480133937/article/details/123740365
-二、 https://blog.csdn.net/weibo1230123/article/details/80210097
-三、 LwIP应用开发实战指南：基于STM32
+一、 https://blog.csdn.net/c_base_jin/article/details/89741247
+二、 https://blog.csdn.net/qq_39277419/article/details/99544724
+三、 https://blog.csdn.net/qq_31442743/article/details/131381992
+
+
+
+
+
+
+
+
+
+
 
 
 
