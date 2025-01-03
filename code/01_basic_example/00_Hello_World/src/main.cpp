@@ -1,11 +1,12 @@
-/***********************************************************
- * @file name: Hello_World.cpp
- * @author: liubo
- * @date: 2024.01.05
- * @describe: template
- * 
- * 
- **********************************************************/
+/*****************************************************************************
+ * | @file    : Hello_World.c
+ * | @author  : liubo
+ * | @version : V1.0.0     |V1.0.1     |
+ * | @date    : 2024-01-05 |2025-01-03 |
+ * --------------
+ * | @brief   : first C++ code
+ ******************************************************************************/
+
 #include<iostream>
 
 using std::cin;
@@ -14,16 +15,12 @@ using std::endl;
 
 int main()
 {
-    cout << "----------------begain------------------" << endl;
-
-    /**
-     * In this example a single XML contains multiple <BehaviorTree>
-     * To determine which one is the "main one", we should first register
-     * the XML and then allocate a specific tree, using its ID */
+    printf("--------------------begain-------------------\n");
 
     cout<<"Hello World!"<<endl;
 
-    cout << "----------------end------------------" << endl;
+    printf("--------------------end----------------------\n");
+
     return EXIT_SUCCESS;
 }
 
