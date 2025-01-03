@@ -1,0 +1,111 @@
+C51 COMPILER V8.16   MAIN                                                                  03/31/2010 13:57:36 PAGE 1   
+
+
+C51 COMPILER V8.16, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Output\main.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE UserCode\main.c BROWSE INCDIR(..\..\LCD_Driver) DEBUG OBJECTEXTEND PRINT(.\
+                    -main.lst) OBJECT(.\Output\main.obj)
+
+line level    source
+
+   1          //========================================================================
+   2          //  工程名称：BaseDraw
+   3          //  作    者: xinqiang Zhang(小丑)  (email: xinqiang@Mzdesign.com.cn)    
+   4          //  联系方式：QQ 644272644
+   5          //      版权所有：北京铭正同创科技有限公司   www.mzdesign.com.cn
+   6          //  适应芯片: MCS51 （本例选择AT89S52）
+   7          //  编程环境: Keil C51
+   8          //  实现功能: MzLH08模块的基本显示功能演示程序,实现绘点\直线\矩形
+   9          //
+  10          //  系统要求: PC with CPU 233MHz,128MB RAM,
+  11          //                      Keil uVision3（or later）
+  12          //  组成文件:
+  13          //      main.c          ----主程序文件
+  14          //              LCD_Dis.c
+  15          //      LCD_Dis.h
+  16          //                                      ----MzLH08模块的基本驱动程序
+  17          //      硬件连接:
+  18          //              LCD CS              ---P1.0
+  19          //              LCD SCK                 ---P1.2
+  20          //              LCD SDA                 ---P1.1
+  21          //              LCD RST                 ---P1.3
+  22          //  端口定义请参考LCD_Config.h文件中的定义
+  23          //
+  24          //      CPU运行频率11.0592MHz   (每个指令为12周期)
+  25          //
+  26          //              LCD 供电请参考具体的模块是3.3V的还是5V模块
+  27          //
+  28          //  当前版本:  V1.00
+  29          //  日期:  2009-02-10
+  30          //  
+  31          //  参考文件: 
+  32          //  维护记录:
+  33          //-------------------------------------------------------------------
+  34          //  Version   2010-03-10-V10   Modified By    Xinqiang Zhang(小丑)
+  35          //
+  36          //========================================================================
+  37          
+  38          #include "LCD_Dis.h"
+  39          
+  40          int main(void)
+  41          {
+  42   1              LCD_Init();
+  43   1              SetBackLight(0);                                //设置背光的亮度等级为0
+  44   1              ClrScreen();
+  45   1              
+  46   1              SetPaintMode(1,1);                              //设置绘图前景色为黑色
+  47   1              PutPixel(0,0);                                  //绘制点
+  48   1              PutPixel(0,1);
+  49   1              PutPixel(0,3);
+  50   1              PutPixel(2,0);
+  51   1              PutPixel(4,0);
+  52   1              PutPixel(6,0);
+  53   1              PutPixel(3,3);
+  54   1      
+C51 COMPILER V8.16   MAIN                                                                  03/31/2010 13:57:36 PAGE 2   
+
+  55   1              Line(0,6,127,6);                                //绘制直线
+  56   1              Line(8,8,120,8);
+  57   1              Line(3,10,3,30);
+  58   1              Line(10,10,30,30);
+  59   1              Line(10,30,30,10);
+  60   1      
+  61   1              Rectangle(35,10,65,30,0);               //绘制矩形
+  62   1              Rectangle(70,10,100,30,1);
+  63   1      
+  64   1              Circle(30,48,15,0);
+  65   1              Circle(30,48,13,1);
+  66   1              SetBackLight(100);                              //设置背光亮度
+  67   1              
+  68   1              TimeDelay(2000);
+  69   1              SetLCDSleep(0x55);
+  70   1              TimeDelay(2000);
+  71   1              SetLCDWakeup();  
+  72   1              TimeDelay(2000);
+  73   1              SetLCDSleep(0xaa);
+  74   1              TimeDelay(2000);
+  75   1              SetLCDWakeup();
+  76   1              
+  77   1              PutString(60,32,"Mzdesign");     
+  78   1               
+  79   1      
+  80   1              while(1)
+  81   1              {
+  82   2              }
+  83   1      }
+  84          
+  85          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    244    ----
+   CONSTANT SIZE    =      9    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

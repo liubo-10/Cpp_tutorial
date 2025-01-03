@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Project\MzLH08_BaseDraw\MzLH08_BaseDraw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Project\MzLH08_Bitmap\MzLH08_Bitmap.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Project\MzLH08_CharShow\MzLH08_CharShow.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Project\MzLH08_DirectNumber\MzLH08_DirectNumber.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

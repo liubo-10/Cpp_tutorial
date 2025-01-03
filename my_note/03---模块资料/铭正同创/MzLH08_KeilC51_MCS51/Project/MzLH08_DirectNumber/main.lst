@@ -1,0 +1,99 @@
+C51 COMPILER V8.16   MAIN                                                                  03/31/2010 14:09:48 PAGE 1   
+
+
+C51 COMPILER V8.16, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Output\main.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE UserCode\main.c BROWSE INCDIR(..\..\LCD_Driver) DEBUG OBJECTEXTEND PRINT(.\
+                    -main.lst) OBJECT(.\Output\main.obj)
+
+line level    source
+
+   1          //========================================================================
+   2          //  工程名称：DirectNumber
+   3          //  作    者: xinqiang Zhang(小丑)  (email: xinqiang@Mzdesign.com.cn)    
+   4          //  联系方式：QQ 644272644
+   5          //      版权所有：北京铭正同创科技有限公司   www.mzdesign.com.cn
+   6          //  适应芯片: MCS51 （本例选择AT89S52）
+   7          //  编程环境: Keil C51
+   8          //  实现功能: MzLH08模块的直接数字显示功能演示
+   9          //
+  10          //  系统要求: PC with CPU 233MHz,128MB RAM,
+  11          //                      Keil uVision3（or later）
+  12          //  组成文件:
+  13          //      main.c          ----主程序文件
+  14          //              LCD_Dis.c
+  15          //      LCD_Dis.h
+  16          //                                      ----MzLH08模块的基本驱动程序
+  17          //      硬件连接:
+  18          //              LCD CS              ---P1.0
+  19          //              LCD SCK                 ---P1.2
+  20          //              LCD SDA                 ---P1.1
+  21          //              LCD RST                 ---P1.3
+  22          //  端口定义请参考LCD_Config.h文件中的定义
+  23          //
+  24          //      CPU运行频率11.0592MHz   (每个指令为12周期)
+  25          //
+  26          //              LCD 供电请参考具体的模块是3.3V的还是5V模块
+  27          //
+  28          //  当前版本:  V1.00
+  29          //  日期:  2010-02-10
+  30          //  
+  31          //  参考文件: 
+  32          //  维护记录:
+  33          //-------------------------------------------------------------------
+  34          //  Version   2010-02-10-V10   Modified By    Xinqiang Zhang(小丑)
+  35          //
+  36          //========================================================================
+  37          
+  38          #include "LCD_Dis.h"
+  39          
+  40          int main(void)
+  41          {
+  42   1              unsigned char ucTemp=12;
+  43   1              unsigned short usTemp=2009;
+  44   1              LCD_Init();
+  45   1              SetBackLight(0);                                //设置背光的亮度等级为0
+  46   1              ClrScreen();
+  47   1              FontSet(0,1);
+  48   1              ShowChar(10,0,ucTemp,0);                        //在指定位区域显示一个无符字符型变量
+  49   1              ShowShort(50,0,usTemp,0);                       //在指定位区域显示一个无符短整型变量
+  50   1              
+  51   1              ShowChar(10,10,ucTemp,1);                       //在指定位区域显示一个无符字符型变量
+  52   1              ShowShort(50,10,usTemp,1);                      //在指定位区域显示一个无符短整型变量
+  53   1              
+  54   1              ShowChar(10,20,ucTemp,2);                       //在指定位区域显示一个无符字符型变量
+C51 COMPILER V8.16   MAIN                                                                  03/31/2010 14:09:48 PAGE 2   
+
+  55   1              ShowShort(50,20,usTemp,2);                      //在指定位区域显示一个无符短整型变量
+  56   1                      
+  57   1              FontSet(1,1);
+  58   1              FontMode(1,0);    
+  59   1      
+  60   1              SetBackLight(100);                                      //设置背光打开   
+  61   1      
+  62   1              while(1)
+  63   1              {
+  64   2      
+  65   2                      TimeDelay(200);
+  66   2                      ShowChar(10,45,ucTemp,1);                       //在指定位区域显示一个无符字符型变量
+  67   2                      ShowShort(50,45,usTemp,0);                      //在指定位区域显示一个无符短整型变量
+  68   2                      ucTemp++;
+  69   2                      usTemp+=3;              
+  70   2              }
+  71   1      }
+  72          
+  73          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    170    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
