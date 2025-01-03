@@ -1,0 +1,603 @@
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 1   
+
+
+C51 COMPILER V8.16, COMPILATION OF MODULE LCD_DIS
+OBJECT MODULE PLACED IN .\Output\LCD_Dis.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ..\..\LCD_Driver\LCD_Dis.c BROWSE INCDIR(..\..\LCD_Driver) DEBUG OBJECTEXTE
+                    -ND PRINT(.\LCD_Dis.lst) OBJECT(.\Output\LCD_Dis.obj)
+
+line level    source
+
+   1          //========================================================================
+   2          // 文件名:  LCD_Dis.c
+   3          // 作  者: xinqiang Zhang(小丑)  (email: xinqiang@Mzdesign.com.cn)
+   4          // 日  期: 2009/02/10
+   5          // 描  述: MzLH08-12864 LCD显示模块驱动V1.0版
+   6          //                      基本功能接口函数集
+   7          //
+   8          // 参  考: 无
+   9          // 版  本:
+  10          //      2010/02/10      First version    Mz Design
+  11          //========================================================================
+  12          
+  13          #include "LCD_Config.h"
+  14          
+  15          unsigned char X_Witch=6;
+  16          unsigned char Y_Witch=10;
+  17          unsigned char X_Witch_cn=16;
+  18          unsigned char Y_Witch_cn=16;
+  19          unsigned char Dis_Zero=0;
+  20          //========================================================================
+  21          // 函数: void LCD_Init(void)
+  22          // 描述: LCD初始化程序，主要在里面完成端口初始化以及LCD模块的复位
+  23          // 参数: 无 
+  24          // 返回: 无
+  25          // 备注:
+  26          // 版本:
+  27          //      2009/02/10      First version    Mz Design
+  28          //========================================================================
+  29          void TimeDelay(unsigned int Timers)
+  30          {
+  31   1              unsigned int i;
+  32   1              while(Timers)
+  33   1              {
+  34   2                      Timers--;
+  35   2                      for(i=0;i<100;i++) ;
+  36   2              }
+  37   1      }
+  38          void LCD_Init(void)
+  39          {
+  40   1              //SS和SCK预先设置为高电平
+  41   1              SPI_SCK = 1;
+  42   1              SPI_CS = 1;
+  43   1              
+  44   1              //复位LCD模块
+  45   1              SPI_RES = 0;
+  46   1              TimeDelay(50);                  
+  47   1              //保持低电平大概2ms左右
+  48   1              SPI_RES = 1;
+  49   1              TimeDelay(80);                                  //延时大概10ms左右
+  50   1      }
+  51          //========================================================================
+  52          // 函数: void SPI_SSSet(unsigned char Status)
+  53          // 描述: 置SS线状态
+  54          // 参数: Status   =1则置高电平，=0则置低电平  
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 2   
+
+  55          // 返回: 无
+  56          // 版本:
+  57          //      2009/02/10      First version    Mz Design
+  58          //========================================================================
+  59          void SPI_SSSet(unsigned char Status)
+  60          {
+  61   1              if(Status)                              //判断是要置SS为低还是高电平？//SS置高电平
+  62   1                      SPI_CS = 1;
+  63   1              else   //SS置低电平
+  64   1                      SPI_CS = 0;
+  65   1      }
+  66          //========================================================================
+  67          // 函数: void SPI_Send(unsigned char Data)
+  68          // 描述: 通过串行SPI口输送一个byte的数据置模组
+  69          // 参数: Data 要传送的数据 
+  70          // 返回: 无
+  71          // 版本:
+  72          //      2007/07/17      First version
+  73          //              2007/07/24              V1.2 for MCS51 Keil C
+  74          //========================================================================
+  75          void SPI_Send(unsigned char Data)
+  76          {
+  77   1              unsigned char i=0;
+  78   1              for(i=0;i<8;i++)
+  79   1              {
+  80   2                      //SCK置低
+  81   2                      SPI_SCK = 0;
+  82   2                      if(Data&0x0080)
+  83   2                              SPI_SDA = 1;                    
+  84   2                      else SPI_SDA = 0;//
+  85   2                      //SCK上升沿触发串行数据采样
+  86   2                      SPI_SCK = 1;
+  87   2                      Data = Data<<1;                                                 //数据左移一位
+  88   2              }
+  89   1      }
+  90          //========================================================================
+  91          // 函数: void FontSet(unsigned char Font_NUM,unsigned char Color)
+  92          // 描述: ASCII字符字体设置
+  93          // 参数: Font_NUM 字体选择,以驱动所带的字库为准
+  94          //               Color  文本颜色,仅作用于ASCII字库  
+  95          // 返回: 无
+  96          // 备注: 
+  97          // 版本:
+  98          //      2007/07/19      First version
+  99          //========================================================================
+ 100          void FontSet(unsigned char Font_NUM,unsigned char Color)
+ 101          {
+ 102   1              unsigned char ucTemp=0;
+ 103   1              if(Font_NUM==0)
+ 104   1              {
+ 105   2                      X_Witch = 6;//7;
+ 106   2                      Y_Witch = 10;
+ 107   2              }
+ 108   1              else
+ 109   1              {
+ 110   2                      X_Witch = 8;
+ 111   2                      Y_Witch = 16;
+ 112   2              }
+ 113   1              ucTemp = (Font_NUM<<4)|Color;
+ 114   1              //设置ASCII字符的字型
+ 115   1              SPI_SSSet(0);                                   //SS置低电平                    
+ 116   1              SPI_Send(0x81);                                 //传送指令0x81
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 3   
+
+ 117   1              SPI_Send(ucTemp);                               //选择8X16的ASCII字体,字符色为黑色
+ 118   1              SPI_SSSet(1);                                   //完成操作置SS高电平    
+ 119   1      }
+ 120          //========================================================================
+ 121          // 函数: void FontMode(unsigned char Cover,unsigned char Color)
+ 122          // 描述: 设置字符显示覆盖模式
+ 123          // 参数: Cover  字符覆盖模式设置，0或1
+ 124          //               Color 覆盖模式为1时字符显示时的背景覆盖色 
+ 125          // 返回: 无
+ 126          // 备注: 
+ 127          // 版本:
+ 128          //      2008/11/27      First version
+ 129          //========================================================================
+ 130          void FontMode(unsigned char Cover,unsigned char Color)
+ 131          {
+ 132   1              unsigned char ucTemp=0;
+ 133   1              ucTemp = (Cover<<4)|Color;
+ 134   1              //设置ASCII字符的字型
+ 135   1              SPI_SSSet(0);                                   //SS置低电平                    
+ 136   1              SPI_Send(0x89);                                 //传送指令0x81
+ 137   1              SPI_Send(ucTemp);                               //选择8X16的ASCII字体,字符色为黑色
+ 138   1              SPI_SSSet(1);                                   //完成操作置SS高电平    
+ 139   1      }
+ 140          //========================================================================
+ 141          // 函数: void FontSet_cn(unsigned char Font_NUM,unsigned char Color)
+ 142          // 描述: 汉字库字符字体设置
+ 143          // 参数: Font_NUM 字体选择,以驱动所带的字库为准
+ 144          //               Color  文本颜色,仅作用于汉字库  
+ 145          // 返回: 无
+ 146          // 备注: 
+ 147          // 版本:
+ 148          //      2007/07/19      First version
+ 149          //========================================================================
+ 150          void FontSet_cn(unsigned char Font_NUM,unsigned char Color)
+ 151          {
+ 152   1              unsigned char ucTemp=0;
+ 153   1              if(Font_NUM==0)
+ 154   1              {
+ 155   2                      X_Witch_cn = 12;
+ 156   2                      Y_Witch_cn = 12;
+ 157   2              }
+ 158   1              else
+ 159   1              {
+ 160   2                      X_Witch_cn = 16;
+ 161   2                      Y_Witch_cn = 16;
+ 162   2              }
+ 163   1              ucTemp = (Font_NUM<<4)|Color;
+ 164   1              //设置ASCII字符的字型
+ 165   1              SPI_SSSet(0);                                   //SS置低电平                    
+ 166   1              SPI_Send(0x82);                                 //传送指令0x81
+ 167   1              SPI_Send(ucTemp);                               //选择8X16的ASCII字体,字符色为黑色
+ 168   1              SPI_SSSet(1);                                   //完成操作置SS高电平    
+ 169   1      }
+ 170          //========================================================================
+ 171          // 函数: void PutChar(unsigned char x,unsigned char y,unsigned char a) 
+ 172          // 描述: 写入一个标准ASCII字符
+ 173          // 参数: x  X轴坐标     y  Y轴坐标
+ 174          //               a  要显示的字符在字库中的偏移量  
+ 175          // 返回: 无
+ 176          // 备注: ASCII字符可直接输入ASCII码即可
+ 177          // 版本:
+ 178          //      2007/07/19      First version
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 4   
+
+ 179          //========================================================================
+ 180          void PutChar(unsigned char x,unsigned char y,unsigned char a) 
+ 181          {
+ 182   1              //显示ASCII字符
+ 183   1              SPI_SSSet(0);                                   //SS置低电平    
+ 184   1              SPI_Send(7);                                    //传送指令0x07
+ 185   1              SPI_Send(x);                                    //要显示字符的左上角的X轴位置
+ 186   1              SPI_Send(y);                                    //要显示字符的左上角的Y轴位置
+ 187   1              SPI_Send(a);                                    //要显示字符ASCII字符的ASCII码值
+ 188   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 189   1      }
+ 190          //========================================================================
+ 191          // 函数: void PutString(int x,int y,char *p)
+ 192          // 描述: 在x、y为起始坐标处写入一串标准ASCII字符
+ 193          // 参数: x  X轴坐标     y  Y轴坐标
+ 194          //               p  要显示的字符串  
+ 195          // 返回: 无
+ 196          // 备注: 仅能用于自带的ASCII字符串显示
+ 197          // 版本:
+ 198          //      2007/07/19      First version
+ 199          //========================================================================
+ 200          void PutString(unsigned char x,unsigned char y,unsigned char *p)
+ 201          {
+ 202   1              while(*p!=0)
+ 203   1              {
+ 204   2                      PutChar(x,y,*p);
+ 205   2                      x += X_Witch;
+ 206   2                      if((x + X_Witch) > Dis_X_MAX)
+ 207   2                      {
+ 208   3                              x = Dis_Zero;
+ 209   3                              if((Dis_Y_MAX - y) < Y_Witch) break;
+ 210   3                              else y += Y_Witch;
+ 211   3                      }
+ 212   2                      p++;
+ 213   2              }
+ 214   1      }
+ 215          //========================================================================
+ 216          // 函数: void PutChar_cn(unsigned char x,unsigned char y,unsigned short * GB) 
+ 217          // 描述: 写入一个二级汉字库汉字
+ 218          // 参数: x  X轴坐标     y  Y轴坐标
+ 219          //               a  GB码  
+ 220          // 返回: 无
+ 221          // 备注: 
+ 222          // 版本:
+ 223          //      2007/07/19      First version
+ 224          //              2007/07/24              V1.2 for MCS51 Keil C
+ 225          //========================================================================
+ 226          void PutChar_cn(unsigned char x,unsigned char y,unsigned char * GB) 
+ 227          {
+ 228   1              //显示ASCII字符
+ 229   1              SPI_SSSet(0);                                   //SS置低电平    
+ 230   1              SPI_Send(8);                                    //传送指令0x08
+ 231   1              SPI_Send(x);                                    //要显示字符的左上角的X轴位置
+ 232   1              SPI_Send(y);                                    //要显示字符的左上角的Y轴位置
+ 233   1              
+ 234   1              SPI_Send(*(GB++));      //传送二级字库中汉字GB码的高八位值
+ 235   1              SPI_Send(*GB);          //传送二级字库中汉字GB码的低八位值
+ 236   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 237   1      }
+ 238          //========================================================================
+ 239          // 函数: void PutString_cn(unsigned char x,unsigned char y,unsigned short *p)
+ 240          // 描述: 在x、y为起始坐标处写入一串汉字字符
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 5   
+
+ 241          // 参数: x  X轴坐标     y  Y轴坐标
+ 242          //               p  要显示的字符串  
+ 243          // 返回: 无
+ 244          // 备注: 同PutChar_cn中的解释
+ 245          // 版本:
+ 246          //      2007/07/19      First version
+ 247          //              2007/07/24              V1.2 for MCS51 Keil C
+ 248          //========================================================================
+ 249          void PutString_cn(unsigned char x,unsigned char y,unsigned char *p)
+ 250          {
+ 251   1              while(*p!=0)
+ 252   1              {
+ 253   2                      if(*p<128)
+ 254   2                      {
+ 255   3                              PutChar(x,y,*p);
+ 256   3                              x += X_Witch+1;
+ 257   3                      if((x/* + X_Witch*/) > Dis_X_MAX)
+ 258   3                      {
+ 259   4                              x = Dis_Zero;
+ 260   4                              if((Dis_Y_MAX - y) < Y_Witch) break;
+ 261   4                              else y += Y_Witch_cn;
+ 262   4                      }
+ 263   3                      p+=1;
+ 264   3                      }
+ 265   2                      else
+ 266   2                      {
+ 267   3                      PutChar_cn(x,y,p);
+ 268   3                      x += X_Witch_cn+1;
+ 269   3                      if((x/* + X_Witch_cn*/) > Dis_X_MAX)
+ 270   3                      {
+ 271   4                              x = Dis_Zero;
+ 272   4                              if((Dis_Y_MAX - y) < Y_Witch_cn) break;
+ 273   4                              else y += Y_Witch_cn;
+ 274   4                      }
+ 275   3                      p+=2;
+ 276   3                      }
+ 277   2              }
+ 278   1      }
+ 279          //========================================================================
+ 280          // 函数: void SetPaintMode(unsigned char Mode,unsigned char Color)
+ 281          // 描述: 绘图模式设置
+ 282          // 参数: Mode 绘图模式    Color  像素点的颜色,相当于前景色  
+ 283          // 返回: 无
+ 284          // 备注: Mode无效
+ 285          // 版本:
+ 286          //      2007/07/19      First version
+ 287          //========================================================================
+ 288          void SetPaintMode(unsigned char Mode,unsigned char Color)
+ 289          {
+ 290   1              unsigned char ucTemp=0;
+ 291   1              ucTemp = (Mode<<4)|Color;
+ 292   1              //设置绘图模式
+ 293   1              SPI_SSSet(0);                                   //SS置低电平                    
+ 294   1              SPI_Send(0x83);                                 //传送指令0x83
+ 295   1              SPI_Send(ucTemp);                               //选择8X16的ASCII字体,字符色为黑色
+ 296   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 297   1      }
+ 298          //========================================================================
+ 299          // 函数: void PutPixel(unsigned char x,unsigned char y)
+ 300          // 描述: 在x、y点上绘制一个前景色的点
+ 301          // 参数: x  X轴坐标     y  Y轴坐标
+ 302          // 返回: 无
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 6   
+
+ 303          // 备注: 使用前景色
+ 304          // 版本:
+ 305          //      2007/07/19      First version
+ 306          //========================================================================
+ 307          void PutPixel(unsigned char x,unsigned char y)
+ 308          {
+ 309   1              //绘点操作      
+ 310   1              SPI_SSSet(0);                                   //SS置低电平
+ 311   1              SPI_Send(1);                                    //送指令0x01
+ 312   1              SPI_Send(x);                                    //送第一个数据,即设置点的X轴位置
+ 313   1              SPI_Send(y);                                    //点的Y轴位置
+ 314   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 315   1      }
+ 316          //========================================================================
+ 317          // 函数: void Line(unsigned char s_x,unsigned char  s_y,
+ 318          //                                      unsigned char  e_x,unsigned char  e_y)
+ 319          // 描述: 在s_x、s_y为起始坐标，e_x、e_y为结束坐标绘制一条直线
+ 320          // 参数: x  X轴坐标     y  Y轴坐标
+ 321          // 返回: 无
+ 322          // 备注: 使用前景色
+ 323          // 版本:
+ 324          //      2007/07/19      First version
+ 325          //========================================================================
+ 326          void Line(unsigned char s_x,unsigned char  s_y,unsigned char  e_x,unsigned char  e_y)
+ 327          {  
+ 328   1              //绘制直线
+ 329   1              SPI_SSSet(0);                                   //SS置低电平
+ 330   1              SPI_Send(2);                                    //送指令0x02
+ 331   1              SPI_Send(s_x);                                  //起点X轴坐标
+ 332   1              SPI_Send(s_y);                                  //起点Y轴坐标
+ 333   1              SPI_Send(e_x);                                  //终点X轴坐标
+ 334   1              SPI_Send(e_y);                                  //终点Y轴坐标
+ 335   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 336   1      }
+ 337          //========================================================================
+ 338          // 函数: void Circle(unsigned char x,unsigned char y,
+ 339          //                                      unsigned char r,unsigned char mode)
+ 340          // 描述: 以x,y为圆心R为半径画一个圆(mode = 0) or 圆面(mode = 1)
+ 341          // 参数: 
+ 342          // 返回: 无
+ 343          // 备注: 画圆函数执行较慢，如果MCU有看门狗，请作好清狗的操作
+ 344          // 版本:
+ 345          //      2007/07/19      First version
+ 346          //========================================================================
+ 347          void Circle(unsigned char x,unsigned char y,unsigned char r,unsigned char mode)
+ 348          {
+ 349   1              SPI_SSSet(0);
+ 350   1              if(mode)
+ 351   1                      SPI_Send(6);
+ 352   1              else
+ 353   1                      SPI_Send(5);
+ 354   1              SPI_Send(x);
+ 355   1              SPI_Send(y);
+ 356   1              SPI_Send(r);
+ 357   1              SPI_SSSet(1);
+ 358   1      }
+ 359          //========================================================================
+ 360          // 函数: void Rectangle(unsigned char left, unsigned char top, unsigned char right,
+ 361          //                               unsigned char bottom, unsigned char mode)
+ 362          // 描述: 以x,y为圆心R为半径画一个圆(mode = 0) or 圆面(mode = 1)
+ 363          // 参数: left - 矩形的左上角横坐标，范围0到126
+ 364          //               top - 矩形的左上角纵坐标，范围0到62
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 7   
+
+ 365          //               right - 矩形的右下角横坐标，范围1到127
+ 366          //               bottom - 矩形的右下角纵坐标，范围1到63
+ 367          //               Mode - 绘制模式，可以是下列数值之一：
+ 368          //                              0:      矩形框（空心矩形）
+ 369          //                              1:      矩形面（实心矩形）
+ 370          // 返回: 无
+ 371          // 备注: 画圆函数执行较慢，如果MCU有看门狗，请作好清狗的操作
+ 372          // 版本:
+ 373          //      2007/07/19      First version
+ 374          //========================================================================
+ 375          void Rectangle(unsigned char left, unsigned char top, unsigned char right,
+ 376                                           unsigned char bottom, unsigned char mode)
+ 377          {
+ 378   1              SPI_SSSet(0);
+ 379   1              if(mode)
+ 380   1                      SPI_Send(4);
+ 381   1              else
+ 382   1                      SPI_Send(3);
+ 383   1              SPI_Send(left);
+ 384   1              SPI_Send(top);
+ 385   1              SPI_Send(right);
+ 386   1              SPI_Send(bottom);
+ 387   1              SPI_SSSet(1);
+ 388   1      }
+ 389          //========================================================================
+ 390          // 函数: void ClrScreen(void)
+ 391          // 描述: 清屏函数，执行全屏幕清除
+ 392          // 参数: 
+ 393          // 返回: 无
+ 394          // 备注: 
+ 395          // 版本:
+ 396          //      2007/07/19      First version
+ 397          //========================================================================
+ 398          void ClrScreen(void)
+ 399          {
+ 400   1              //清屏操作
+ 401   1              SPI_SSSet(0);                                   //SS置低电平
+ 402   1              SPI_Send(0x80);                                 //送指令0x80
+ 403   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 404   1      }
+ 405          //========================================================================
+ 406          // 函数: void PutBitmap(unsigned char x,unsigned char y,unsigned char width,
+ 407          //                                              unsigned char high,unsigned char *p)
+ 408          // 描述: 在x、y为起始坐标显示一个单色位图
+ 409          // 参数: x  X轴坐标     y  Y轴坐标
+ 410          //               width 位图的宽度  
+ 411          //               high  位图的高度
+ 412          //               p  要显示的位图的字模首地址  
+ 413          // 返回: 无
+ 414          // 备注: 无
+ 415          // 版本:
+ 416          //      2008/11/27      First version
+ 417          //========================================================================
+ 418          void PutBitmap(unsigned char x,unsigned char y,unsigned char width,unsigned char high,unsigned char *p)
+ 419          {
+ 420   1              unsigned short Dat_Num;
+ 421   1              //unsigned short i;
+ 422   1              unsigned char ucTemp=0;
+ 423   1              SPI_SSSet(0);                                   //SS置低电平
+ 424   1              SPI_Send(0x0e); 
+ 425   1              SPI_Send(x);
+ 426   1              SPI_Send(y);
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 8   
+
+ 427   1              SPI_Send(width);
+ 428   1              SPI_Send(high);
+ 429   1              
+ 430   1              width = width+0x07;
+ 431   1              Dat_Num = (width>>3)*high;
+ 432   1              while(Dat_Num--)
+ 433   1              {
+ 434   2                      ucTemp++;
+ 435   2                      SPI_Send(*p);
+ 436   2                      if(ucTemp>250)                          //如果改换别的MCU时,这里可能需要适当的调整
+ 437   2                      {
+ 438   3                              TimeDelay(28);                  //以及此处,以保证前面传送到LCD模块中的数据已被处理完
+ 439   3                              ucTemp = 0;
+ 440   3                      }
+ 441   2                      p++;
+ 442   2              }
+ 443   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 444   1      }
+ 445          
+ 446          //========================================================================
+ 447          // 函数: void ShowChar(unsigned char x,unsigned char y,unsigned char Num,unsigned char type)
+ 448          // 描述: 在x、y的位置为显示区域的左上角，显示一个unsigned char型数
+ 449          // 参数: x  X轴坐标     y  Y轴坐标    Num  要显示的8位宽度的数据  type  显示特性(0,1,2)
+ 450          // 返回: 无
+ 451          // 备注: 
+ 452          // 版本:
+ 453          //      2008/11/27      First version
+ 454          //========================================================================
+ 455          void ShowChar(unsigned char x,unsigned char y,unsigned char a,unsigned char type) 
+ 456          {
+ 457   1              //显示ASCII字符
+ 458   1              SPI_SSSet(0);                                   //SS置低电平    
+ 459   1              SPI_Send(11);                                   //传送指令0x0B
+ 460   1              SPI_Send(x);                                    //要显示字符的左上角的X轴位置
+ 461   1              SPI_Send(y);                                    //要显示字符的左上角的Y轴位置
+ 462   1              SPI_Send(a);                                    //要显示的数据
+ 463   1              SPI_Send(type);
+ 464   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 465   1      }
+ 466          //========================================================================
+ 467          // 函数: void ShowShort(unsigned char x,unsigned char y,unsigned short Num,unsigned char type)
+ 468          // 描述: 在x、y的位置为显示区域的左上角，显示一个unsigned short型数（16位宽度）
+ 469          // 参数: x  X轴坐标     y  Y轴坐标    Num  要显示的16位宽度的数据  type  显示特性(0,1,2)
+ 470          // 返回: 无
+ 471          // 备注: 
+ 472          // 版本:
+ 473          //      2008/11/27      First version
+ 474          //========================================================================
+ 475          void ShowShort(unsigned char x,unsigned char y,unsigned short a,unsigned char type) 
+ 476          {
+ 477   1              //显示ASCII字符
+ 478   1              SPI_SSSet(0);                                   //SS置低电平    
+ 479   1              SPI_Send(12);                                   //传送指令0x0C
+ 480   1              SPI_Send(x);                                    //要显示字符的左上角的X轴位置
+ 481   1              SPI_Send(y);                                    //要显示字符的左上角的Y轴位置
+ 482   1              SPI_Send((unsigned char)(a>>8));
+ 483   1              SPI_Send((unsigned char)a);
+ 484   1              SPI_Send(type);                                 //要显示字符ASCII字符的ASCII码值
+ 485   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 486   1      }
+ 487          //========================================================================
+ 488          // 函数: void SetBackLight(unsigned char Deg)
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 9   
+
+ 489          // 描述: 设置背光亮度等级
+ 490          // 参数: Grade  0~127的等级
+ 491          // 返回: 无
+ 492          // 备注: 
+ 493          // 版本:
+ 494          //      2008/11/27      First version
+ 495          //========================================================================
+ 496          void SetBackLight(unsigned char Deg) 
+ 497          {
+ 498   1              //显示ASCII字符
+ 499   1              SPI_SSSet(0);                                   //SS置低电平    
+ 500   1              SPI_Send(0x8a);                                 //传送指令0x07
+ 501   1              SPI_Send(Deg);                                  //要显示字符的左上角的X轴位置
+ 502   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 503   1      }
+ 504          
+ 505          //=====================================================================
+ 506          // 函数: void SetLCDGra(unsigned char Dat)
+ 507          // 描述: LCD整屏显示灰度调节
+ 508          // 参数:  Dat   要调成的灰度值,0~0x3f
+ 509          //                
+ 510          // 返回: 无
+ 511          // 备注: 调节后的灰度将会保持到下一将从 LCD复位之前,或者下一次重新调整灰度之前
+ 512          // 版本:
+ 513          //      2010/02/10      First version
+ 514          //=====================================================================
+ 515          void SetLCDGra(unsigned char Dat)
+ 516          {
+ 517   1              //显示ASCII字符
+ 518   1              SPI_SSSet(0);                                   //SS置低电平    
+ 519   1              SPI_Send(0x8c);                                 //传送指令0x8a
+ 520   1              SPI_Send(Dat);                                  //传送数值
+ 521   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 522   1      }
+ 523          //=====================================================================
+ 524          // 函数: void SetLCDSleep(void)
+ 525          // 描述: 设置模块进入低功耗模式
+ 526          // 参数:  Dat   0xaa 进入低功耗模式后,屏上保留显示
+ 527          //                              0x55 进入低功耗模式后,屏上关闭显示
+ 528          //                
+ 529          // 返回: 无
+ 530          // 备注: 模块将会在进入低功耗模式后,SS引脚上的电平变化后恢复正常工作模式
+ 531          // 版本:
+ 532          //      2010/02/10      First version
+ 533          //=====================================================================
+ 534          void SetLCDSleep(unsigned char Dat)
+ 535          {
+ 536   1              //
+ 537   1              SPI_SSSet(0);                                   //SS置低电平    
+ 538   1              SPI_Send(0x8b);                                 //传送指令0x8b
+ 539   1              SPI_Send(Dat);                                  //传送数值
+ 540   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 541   1              TimeDelay(30);                                  //待模块完成低功耗模式
+ 542   1      }
+ 543          //=====================================================================
+ 544          // 函数: void SetLCDWakeup(void)
+ 545          // 描述: 设置模块退出低功耗模式
+ 546          // 参数:  无
+ 547          //                
+ 548          // 返回: 无
+ 549          // 备注: 模块将会在进入低功耗模式后,SS引脚上的电平变化后恢复正常工作模式
+ 550          // 版本:
+C51 COMPILER V8.16   LCD_DIS                                                               03/31/2010 14:07:51 PAGE 10  
+
+ 551          //      2010/02/10      First version
+ 552          //=====================================================================
+ 553          void SetLCDWakeup(void)
+ 554          {
+ 555   1              //
+ 556   1              SPI_SSSet(0);                                   //SS置低电平    
+ 557   1              TimeDelay(100);                                 //待模块完全退出低功耗模式
+ 558   1              SPI_SSSet(1);                                   //完成操作置SS高电平
+ 559   1      }
+ 560          
+ 561          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    872    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5      45
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
