@@ -19,12 +19,12 @@ int main(){
 
     char name[10];
     int age;
-    cout<<"please input your name:";	
-    cin>>name;
-    cout<<"how old are you:";
-    cin>>age;
-    cout<<"the name is "<<name<<endl;
-    cout<<"the age  is "<<age<<endl;
+    cout << "please input your name:";
+    cin >> name;
+    cout << "how old are you:";
+    cin >> age;
+    cout << "the name is " << name << endl;
+    cout << "the age  is " << age << endl;
 
     printf("--------------------end----------------------\n");
     // getchar();
