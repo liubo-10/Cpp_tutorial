@@ -3,25 +3,27 @@
 * 🌱 I’m currently learning harmony
 * 💞️ I’m looking to collaborate on ...
 * 📫 How to reach me ...
-* 📇
-* 🎃
-* 🍺
-* 🍥
-* ✨
-* 🍰
+* 📇 sssssdsdsdsdsdsdasd
+* 🎃 dsdsdsdsdsddfsgdgasd
+* 🍺 jyukyuiyuiyuigkasd
+* 🍥 fsdfgdsgsdgdgadsa
+* ✨ xcvxcvxcvxcvdasdaasd
+* 🍰 dazdsxasxsaxsaasdsa
+* 🚨 gdfgdshdfhfhygjtyu
 
 # code 使用说明
 
-源代码的适用说明
-
+源代码的使用说明
 
 
 ## code compile 
 
 ```shell
-cmake  --version   #查看cmake 版本
+#查看cmake 版本
+cmake  --version
 cmake version 3.16.3
 
+#编译源码
 mkdir bin
 mkdir build
 cd build/
@@ -33,8 +35,6 @@ make
 ```
 
 
-
-
 ## 项目结构
 
 .
@@ -42,49 +42,32 @@ make
 ├── build
 ├── Cmake
 │   ├── CMakeLists.txt
-├── note
-│   ├── note.md
+├── readme
+│   ├── readme.md
+├── result
+|   ├──result.log
 └── src
     └── main.c
 
 
 
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
-
 ---
