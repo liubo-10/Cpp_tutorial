@@ -6,9 +6,10 @@
  * --------------
  * | @brief   : main
  ******************************************************************************/
-#include <iostream>  // 包含输入和输出操作
 #include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
-#include<unistd.h> // pause()头文件
+#include <unistd.h>  // pause()头文件
+
+#include <iostream>  // 包含输入和输出操作
 
 using std::cin;
 using std::cout;
@@ -28,8 +29,7 @@ int main(){
 
     printf("--------------------end----------------------\n");
     // getchar();
-
-    pause();
+    // pause();
     return EXIT_SUCCESS;
 }
 

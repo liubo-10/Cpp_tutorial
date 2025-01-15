@@ -47,7 +47,7 @@ make
 ├── result
 |   ├──result.log
 └── src
-    └── main.c
+    └── input.c
 
 
 
