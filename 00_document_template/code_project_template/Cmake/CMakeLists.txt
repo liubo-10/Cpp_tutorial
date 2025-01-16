@@ -22,4 +22,4 @@ aux_source_directory(${PROJECT_MAIN_PATH}/src  SRC_LIST1)
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_MAIN_PATH}/bin)
 
 # 生成可执行文件 myname可执行文件名字与源文件名无关
-add_executable(myname  ${SRC_LIST1} ${SRC_LIST2})
+add_executable(myname  ${SRC_LIST1})
