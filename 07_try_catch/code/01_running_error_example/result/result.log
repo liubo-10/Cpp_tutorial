@@ -1,7 +1,5 @@
-----------------begain------------------
-The ASCII code for M is 77
-Add one to the character code :
-The ASCII code for N is 78
-Displaying char ch using cout.put(ch):N!
-done
-----------------end------------------
+--------------------begain-------------------
+
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  basic_string::at: __n (which is 100) >= this->size() (which is 19)
+Aborted (core dumped)
