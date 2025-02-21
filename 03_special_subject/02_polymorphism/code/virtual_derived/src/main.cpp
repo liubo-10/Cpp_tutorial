@@ -12,6 +12,10 @@
 
 #include <iostream>  // 包含输入和输出操作
 
+using std::cin;
+using std::cout;
+using std::endl;
+
 class Base
 {
    public:
@@ -29,10 +33,6 @@ class Derived : public Base
         cout << "Derived destructor called!" << endl;
     }
 };
-
-using std::cin;
-using std::cout;
-using std::endl;
 
 int main()
 {
