@@ -37,8 +37,11 @@ class Derived : public Base
 int main()
 {
     printf("--------------------begain-------------------\n");
-    Base* b = new Derived();  // 基类指针指向派生类对象
-    delete b;                 // 调用 Derived 的析构函数，然后调用 Base 的析构函数
+    Base* a = new Derived();  // 基类指针指向派生类对象
+    Derived* b = new Derived();
+
+    delete a;         // 之调用 Base 的析构函数
+    delete b;
 
     printf("--------------------end----------------------\n");
     // cin.get();
