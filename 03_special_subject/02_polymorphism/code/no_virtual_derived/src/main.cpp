@@ -19,7 +19,7 @@ using std::endl;
 class Base
 {
    public:
-    virtual ~Base()
+    ~Base()
     {  // 虚析构函数
         cout << "Base destructor called!" << endl;
     }
@@ -28,7 +28,7 @@ class Base
 class Derived : public Base
 {
    public:
-    virtual  ~Derived()
+    ~Derived()
     {
         cout << "Derived destructor called!" << endl;
     }
