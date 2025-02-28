@@ -50,3 +50,34 @@ int main()
 /*****************************************************************************
  * end of file
  ******************************************************************************/
+
+class Base
+{
+   public:
+    ~Base()
+    {  // 虚析构函数
+        cout << "Base destructor called!" << endl;
+    }
+};
+
+class Derived : public Base
+{
+   public:
+    ~Derived()
+    {
+        cout << "Derived destructor called!" << endl;
+    }
+};
+
+int main()
+{
+    printf("--------------------begain-------------------\n");
+    Base* a = new Derived();  // 基类指针指向派生类对象
+    Derived* b = new Derived();
+
+    delete a;  // 只调用 Base 的析构函数，无法调用子类虚构函数
+    delete b;  // 调用 Derived 的析构函数，然后调用 Base 的析构函数
+
+    printf("--------------------end----------------------\n");
+    return EXIT_SUCCESS;
+}

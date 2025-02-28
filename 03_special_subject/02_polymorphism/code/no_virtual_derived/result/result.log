@@ -1,3 +1,5 @@
 --------------------begain-------------------
 Base destructor called!
+Derived destructor called!
+Base destructor called!
 --------------------end----------------------
