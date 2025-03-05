@@ -122,7 +122,25 @@ restrict是c99标准引入的，它只可以用于限定和约束指针，并表
 
 
 
+```
 
+using namespace std;
+int main ()
+{
+    float* pvalue  = NULL;
+    // 初始化为 null 的指针
+    pvalue = new float;
+    // 为变量请求内存
+    *pvalue = 29.0;
+    // 在分配的地址存储值
+    cout << "变量值: " << * pvalue << endl;
+    delete pvalue;
+    // 释放内存
+    return 0;
+}
+
+
+```
 
 
 

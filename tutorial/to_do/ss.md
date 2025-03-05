@@ -8,6 +8,69 @@
 
 
 
+
+
+
+
+
+
+
+
+```
+int *p = new int;  //创建了一个整形对象 返回指向该内存的首地址
+int *p = new int();//和上面相同 只使将下指向的整形变量的值初始化为0
+int *p = new int(1);//初始为1
+
+
+int *p=new int[];              //指针p所指向的数组未初始化
+int *p=new int[m];             //指针p指向长度为m的数组，未初始化
+int *p=new int[]();            //指针p所指向的地址初始化为0
+delete [] p;                   //回收p所指向的数组
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://www.kancloud.cn/wangshubo1989/new-characteristics/99704
 
 
