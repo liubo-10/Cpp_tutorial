@@ -104,14 +104,14 @@ std::shared_ptr<int> ptr(new int(123));
 不能将原始指针直接赋给一个智能指针。下面这种方法是错误的：
 
 ```c++
-std::shared_ptr<int> sp=new int(1);
+std::shared_ptr<int> sp = new int(1);
 ```
 
 2. 赋值初始化
 
 ```c++
 std::shared_ptr<int> ptr1(new int(1));
-std::shared_ptr<int> ptr2=ptr1;
+std::shared_ptr<int> ptr2 = ptr1;
 ```
 
 3. 调用拷贝构造函数初始化
@@ -133,7 +133,7 @@ ptr.reset(new int(1));
 
 ```c++
 auto ptr=make_shared<int>(100);
-shared_ptr<int> ptr=make_shared<int>(100);
+shared_ptr<int> ptr = make_shared<int>(100);
 // 相当于
 shared_ptr<int> ptr(new int(100));
 ```
