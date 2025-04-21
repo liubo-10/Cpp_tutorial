@@ -38,15 +38,10 @@ int main()
 {
     printf("--------------------begain-------------------\n");
 
-    std::cout << "t1 create." << std::endl;
     std::thread t1(increment,10);
-    std::cout << "t2 create." << std::endl;
     std::thread t2(increment,10);
 
-    std::cout << "t1 join." << std::endl;
     t1.join();
-
-    std::cout << "t2 join." << std::endl;
     t2.join();
 
     std::cout << "Final value of shared_data: " << shared_data << std::endl;
