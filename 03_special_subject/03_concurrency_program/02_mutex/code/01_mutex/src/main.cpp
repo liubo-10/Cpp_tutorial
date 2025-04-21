@@ -21,29 +21,32 @@ using std::endl;
 std::mutex mtx;      // 全局互斥量
 int shared_data = 0; // 共享数据
 
-void increment()
+void increment(int loop)
 {
-
-    for (size_t i = 0; i < 5; i++)
+    for (int i = 0; i < loop; i++)
     {
-        mtx.lock();    // 尝试获取互斥量
+        mtx.lock(); // 获取互斥量
         shared_data++; // 访问和修改共享数据
         cout << "Thread id:" << std::this_thread::get_id() << " incremented shared_data to " << shared_data << endl;
         mtx.unlock(); // 释放互斥量
     }
 }
 
+
+
 int main()
 {
     printf("--------------------begain-------------------\n");
 
-    std::thread t1(increment);
-    std::thread t2(increment);
+    std::cout << "t1 create." << std::endl;
+    std::thread t1(increment,10);
+    std::cout << "t2 create." << std::endl;
+    std::thread t2(increment,10);
 
+    std::cout << "t1 join." << std::endl;
     t1.join();
-    
-    std::cout << "main running." << std::endl;
 
+    std::cout << "t2 join." << std::endl;
     t2.join();
 
     std::cout << "Final value of shared_data: " << shared_data << std::endl;
