@@ -6,8 +6,9 @@
  * --------------
  * | @brief   : main
  ******************************************************************************/
-#include <iostream>  // 包含输入和输出操作
-#include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
+#include <iostream> // 包含输入和输出操作
+#include <stdio.h>  // C语言的标准库，包含C语言流操作 printf等
+#include <stdlib.h>
 #include <mutex>
 #include <thread>
 #include <chrono>
@@ -15,8 +16,9 @@
 using std::cin;
 using std::cout;
 using std::endl;
+using std::mutex;
 
-std::mutex mtx;       // 全局互斥量
+mutex mtx; // 全局互斥量
 // int shared_data = 0;  // 共享数据
 int count1 = 0;
 int count2 = 0;
@@ -82,3 +84,77 @@ int main()
 /*****************************************************************************
  * end of file
  ******************************************************************************/
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+
+using namespace std;
+
+int number;
+mutex mutex_number;
+
+const int MAXNUM = 10;
+
+// 打印奇数
+void add_1()
+{
+    while (1)
+    {
+        mutex_number.lock();
+        if (number >= MAXNUM)
+        {
+            mutex_number.unlock();
+            break;
+        }
+        if (number % 2 == 0)
+        {
+            number++;
+            cout << "mythread_1: " << number << endl; // 输出
+        }
+
+        mutex_number.unlock();
+    }
+    cout << "mythread_1 finish" << endl; // mythread_1完成
+}
+
+// 打印偶数
+void add_2()
+{
+    while (1)
+    {
+        mutex_number.lock();
+
+        if (number >= MAXNUM)
+        {
+            mutex_number.unlock();
+            break;
+        }
+        if (number % 2 == 1)
+        {
+            number++;
+            cout << "mythread_2: " << number << endl; // 输出
+        }
+
+        mutex_number.unlock();
+    }
+    cout << "mythread_2 finish" << endl; // mythread_2完成
+}
+
+int main()
+{
+    number = 0;
+
+    cout << endl
+         << "Create and Start!" << endl;
+
+    thread mythread_1(add_1);
+    thread mythread_2(add_2);
+
+    mythread_1.join();
+    mythread_2.join();
+
+    cout << endl
+         << "Finish and Exit!" << endl;
+    return 0;
+}
