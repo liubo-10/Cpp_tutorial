@@ -28,7 +28,7 @@ void increment()
     {
         mtx.lock();    // 尝试获取互斥量
         shared_data++; // 访问和修改共享数据
-        cout << "Thread " << std::this_thread::get_id() << " incremented shared_data to " << shared_data << endl;
+        cout << "Thread id:" << std::this_thread::get_id() << " incremented shared_data to " << shared_data << endl;
         mtx.unlock(); // 释放互斥量
     }
 }
@@ -41,6 +41,9 @@ int main()
     std::thread t2(increment);
 
     t1.join();
+    
+    std::cout << "main running." << std::endl;
+
     t2.join();
 
     std::cout << "Final value of shared_data: " << shared_data << std::endl;
