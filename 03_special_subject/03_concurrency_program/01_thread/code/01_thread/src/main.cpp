@@ -1,63 +1,57 @@
 /*****************************************************************************
  * | @file    : main.c
  * | @author  : liubo
- * | @version : V1.0.0
- * | @date    : 2024-09-01
- * --------------
- * | @brief   : main
+ * --------------------------------------
+ * | @version  @date
+ * |  V1.0.0    2024-09-01
+ * |  V1.0.0    2025-04-22
+ * ---------------------------------------
+ * | @brief   : tread join test
  ******************************************************************************/
-#include <iostream>  // 包含输入和输出操作
-#include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
-#include <thread>    //必须包含<thread>头文件
+#include <stdio.h>  // C语言的标准库，包含C语言流操作 printf等
+#include <iostream> // 包含输入和输出操作
+#include <string.h> // C语言的标准库，包含字符串处理操作 strcpy等
+#include <unistd.h> // pause()头文件
 
-
-#include <unistd.h>
-
-using namespace std;
+#include <thread>
+#include <chrono>
 
 using std::cin;
 using std::cout;
 using std::endl;
 
-void pauseThread(int n)
+void pause_thread(int n)
 {
-    sleep(n);
-    std::cout << "pause of " << n << " seconds ended" << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(n));
+    std::cout << "暂停 " << n << " 秒结束\n";
 }
 
-/*****************************************************************************
- * | @fn     : XXXX
- * | @param  : - XXX XXX
- * |           - XXX XXX
- * |           - XXX XXX
- * | @return :
- * --------------
- * | @brief  : XXX
- * |           XXX
- ******************************************************************************/
 int main()
 {
-    printf("----------------begain------------------\n");
+    printf("--------------------begain-------------------\n");
 
     cout << "Run Main Thread" << endl;
 
-    cout << "spawing 3 threads..." << endl;
-    std::thread t1(pauseThread, 5);   // 线程这时候就已经开始启动
-    std::thread t2(pauseThread, 10);  // 线程这时候就已经开始启动
-    std::thread t3(pauseThread, 15);  // 线程这时候就已经开始启动
-    cout << "Done spawning threads. Now wait for them to join: " << endl;
+    std::cout << "生成三个线程...\n";
+    std::thread t1(pause_thread, 1); // 线程这时候就已经开始启动
+    std::thread t2(pause_thread, 2); // 线程这时候就已经开始启动
+    std::thread t3(pause_thread, 3); // 线程这时候就已经开始启动
+
+    std::cout << "线程已经生成，等待加入...:\n";
     t1.join();
     t2.join();
     t3.join();
-    // 等待 threads 结束
-    cout << "All all threads finished !" << endl;
 
-    printf("-----------------end-------------------\n");
+    // 主线程等待三个线程结束后继续运行
+    std::cout << "所有线程加入!\n";
+
+    printf("--------------------end----------------------\n");
+    // cin.get();
     // getchar();
+    // pause();
     return EXIT_SUCCESS;
 }
 
 /*****************************************************************************
  * end of file
  ******************************************************************************/
-
