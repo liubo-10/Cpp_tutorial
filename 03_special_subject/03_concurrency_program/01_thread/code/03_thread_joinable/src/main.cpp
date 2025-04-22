@@ -42,12 +42,15 @@ int main()
     cout << "线程已经生成，等待加入...:\n";
 
     t1.join();
-
+    t2.detach();
+    
     cout << "joinable t1:" << t1.joinable() << endl;
     cout << "joinable t2:" << t2.joinable() << endl;
 
     // 主线程等待三个线程结束后继续运行
     std::cout << "所有线程加入!\n";
+
+    pause_thread(5); // 暂停5秒
 
     printf("--------------------end----------------------\n");
     // cin.get();
