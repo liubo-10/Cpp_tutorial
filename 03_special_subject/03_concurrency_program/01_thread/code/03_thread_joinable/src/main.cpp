@@ -34,7 +34,7 @@ int main()
 
     std::cout << "生成三个线程...\n";
     std::thread t1(pause_thread, 1); // 线程这时候就已经开始启动
-    std::thread t2(pause_thread, 2); // 线程这时候就已经开始启动
+    std::thread t2(pause_thread, 3); // 线程这时候就已经开始启动
 
     cout << "joinable t1:" << t1.joinable() << endl;
     cout << "joinable t2:" << t2.joinable() << endl;
@@ -43,12 +43,9 @@ int main()
 
     t1.join();
     t2.detach();
-    
+
     cout << "joinable t1:" << t1.joinable() << endl;
     cout << "joinable t2:" << t2.joinable() << endl;
-
-    // 主线程等待三个线程结束后继续运行
-    std::cout << "所有线程加入!\n";
 
     pause_thread(5); // 暂停5秒
 
