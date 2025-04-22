@@ -39,9 +39,10 @@ int main()
     cout << "joinable t1:" << t1.joinable() << endl;
     cout << "joinable t2:" << t2.joinable() << endl;
 
-    cout << "线程已经生成，等待加入...:\n";
-
+    cout << "t1.join:\n";
     t1.join();
+
+    cout << "t2.detach:\n";
     t2.detach();
 
     cout << "joinable t1:" << t1.joinable() << endl;
