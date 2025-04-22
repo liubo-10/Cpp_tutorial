@@ -195,13 +195,7 @@ std::thread thread_obj(&Base::foo, params);
 
 
 
-
-
-
-
-
-
-# thread接口join
+# join()
 
 join()函数调用后主线程都要一直等待 thread 对象关联的线程执行完毕，然后再继续执行主线程或其他调用join()的线程。
 
@@ -277,13 +271,19 @@ Run Main Thread
 --------------------end----------------------
 ```
 
-std::cout << "所有线程加入!\n"; 词语句被阻塞等待三个线程执行完毕在执行.
+std::cout << "所有线程加入!\n"; 此词语句被阻塞等待三个线程执行完毕在执行.
 
 
 
-# thread接口detach
+# detach()
 
 detach()函数调用后会把主线程和新线程分离开，新线程的事情不影响主线程做事，后台自动回收。
+
+
+
+行为：
+分离状态：调用detach()后，std::thread对象与实际线程解绑，线程变为“分离状态”（detached state）。
+资源管理：在分离状态下，线程在完成后会自行释放资源，不需要显示调用join()或其他操作。
 
 
 
@@ -295,58 +295,67 @@ detach()函数调用后会把主线程和新线程分离开，新线程的事情
 
 
 
+示例
 
+```c++
 
+int main()
+{
+    printf("--------------------begain-------------------\n");
 
+    cout << "Run Main Thread" << endl;
 
+    std::cout << "生成三个线程...\n";
+    std::thread t1(pause_thread, 1); // 线程这时候就已经开始启动
+    std::thread t2(pause_thread, 2); // 线程这时候就已经开始启动
+    std::thread t3(pause_thread, 3); // 线程这时候就已经开始启动
 
+    std::cout << "线程已经生成，等待分离...:\n";
+    t1.detach();
+    t2.detach();
+    t3.detach();
 
+    std::cout << "所有线程分离!\n";
 
+    // 给被分离线程5秒时间完成，但线程不一定完成!
+    pause_thread(5); // 暂停5秒
 
+    printf("--------------------end----------------------\n");
+    // cin.get();
+    // getchar();
+    // pause();
+    return EXIT_SUCCESS;
+}
+```
 
+结果
 
 ```
 --------------------begain-------------------
 Run Main Thread
 生成三个线程...
-线程已经生成，等待加入...:
+线程已经生成，等待分离...:
+所有线程分离!
 
 暂停 1 秒结束
 暂停 2 秒结束
 暂停 3 秒结束
-所有线程加入!
+暂停 5 秒结束
 --------------------end----------------------
 ```
 
+std::cout << "所有线程分离!\n"; 词语句不会被阻塞,直接执行.
+
+不同的系统有不同的现象：
+
+- windows:如果主线程退出了，那么系统会自动回收该进程的所有资源，包括分离出去的线程对象。
+- Linux:如果主线程退出了，被分离出去的线程对象会继续运行，结束时自动销毁线程资源。
 
 
 
+# joinable()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+joinable()函数的作用是确认当前线程是否可以join()，如果joinable()函数的返回值为true，则该线程尚未通过join()终止或通过detach()分离。这意味着可以调用join()。这可以防止多次调用join()函数的错误。
 
 
 
@@ -370,32 +379,10 @@ Run Main Thread
 
 版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
 1. https://blog.csdn.net/WangPaiFeiXingYuan/article/details/131022142
-1. 
-
-
-
-
-
-
-
-一、https://blog.csdn.net/jianmo1993/article/details/134217076
-
-
-
-
-
-二、 
-三、 
-
-
-
-原文链接：https://blog.csdn.net/qaaaaaaz/article/details/130794725
-
-
-
-
-
-原文链接：https://blog.csdn.net/LeoLei8060/article/details/139476548
+1. https://blog.csdn.net/WangPaiFeiXingYuan/article/details/131022299
+1. https://blog.csdn.net/jianmo1993/article/details/134217076
+1. https://blog.csdn.net/qaaaaaaz/article/details/130794725
+1. https://blog.csdn.net/LeoLei8060/article/details/139476548
 
 
 
