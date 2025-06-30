@@ -425,6 +425,15 @@ joinable t2:0
 
 
 
+死锁与活锁的区别，死锁与饥饿的区别？
+死锁和活锁都是多线程并发编程中的常见问题，它们都会导致线程无法继续执行，但二者的原因和表现略有不同。
+死锁是指两个或多个线程在等待对方释放资源的状态下陷入了无限等待的情况。简单来说，就是多个线程互相持有对方所需的资源，导致互相等待无法继续执行。死锁通常是在并发环境下，通过不当的锁使用导致的，需要谨慎避免。
+而活锁是指线程一直在运行，但却没有取得进展，看上去像是一直在忙碌，但实际上没有做任何有意义的工作。活锁通常是由于线程间相互协调不当导致的，例如两个线程都主动放弃锁，希望让对方先执行，结果导致两个线程一直在轮流放弃锁，最终无法正常执行。
+死锁和饥饿的区别在于，死锁是多个线程互相等待对方所需的资源而导致无限等待，而饥饿是指某个线程无法获取所需的资源而无法继续执行。死锁是由于资源的相互依赖导致的，而饥饿则是因为资源分配不均导致的，一个线程始终无法获取所需的资源而一直无法执行。解决死锁和饥饿问题的方法也不同，需要根据具体情况采取不同的措施。
+
+
+
+
 
 
 
@@ -443,10 +452,11 @@ joinable t2:0
 
 版权声明：本文参考了其他资料和CSDN博主的文章，遵循CC 4.0 BY-SA版权协议，现附上原文出处链接及本声明。
 1. https://blog.csdn.net/WangPaiFeiXingYuan/article/details/131022142
-1. https://blog.csdn.net/WangPaiFeiXingYuan/article/details/131022299
-1. https://blog.csdn.net/jianmo1993/article/details/134217076
-1. https://blog.csdn.net/qaaaaaaz/article/details/130794725
-1. https://blog.csdn.net/LeoLei8060/article/details/139476548
+2. https://blog.csdn.net/WangPaiFeiXingYuan/article/details/131022299
+3. https://blog.csdn.net/jianmo1993/article/details/134217076
+4. https://blog.csdn.net/qaaaaaaz/article/details/130794725
+5. https://blog.csdn.net/LeoLei8060/article/details/139476548
+6. https://blog.csdn.net/weixin_50503886/article/details/129467956
 
 
 
