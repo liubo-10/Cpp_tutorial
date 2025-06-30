@@ -24,8 +24,8 @@ using std::endl;
 
 int* sort(int array[], int size)
 {
-    for (int i = 0; i < size; i++) {
-        for (int j = i; j < size - 1; j++) {
+    for (int i = size; i > 0; i--) {
+        for (int j = 0; j < i - 1; j++) {
             int temp = 0;
             if (array[j] > array[j + 1]) {
                 temp         = array[j + 1];
