@@ -59,9 +59,9 @@ int main()
 
     int arry2[] = {2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19};
 
-    sort(arry1, 11);
+    sort(arry2, 11);
     for (int i = 0; i < 11; i++) {
-        cout << arry1[i] << " ";
+        cout << arry2[i] << " ";
     }
     cout << "\n";
 
