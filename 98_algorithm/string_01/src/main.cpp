@@ -39,15 +39,15 @@ int main()
     printf("--------------------begain-------------------\n");
     string s = "Hello";
 
-    cout << char_change(s);
+    cout << char_change(s) << endl;
 
     s = "TesT8";
 
-    cout << char_change(s);
+    cout << char_change(s) << endl;
 
     s = "12345abcde";
 
-    cout << char_change(s);
+    cout << char_change(s) << endl;
 
     printf("--------------------end----------------------\n");
     // cin.get();
