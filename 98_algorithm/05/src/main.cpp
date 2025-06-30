@@ -42,16 +42,16 @@ int main()
     printf("--------------------begain-------------------\n");
 
     int arry[] = {589, 27, 0, 9, 26};
-
-    cout << sort(arry, 5) << endl;
+    int* result = sort(arry, 5);
+    cout << result << endl;
 
     int arry1[] = {9, 8 ,7, 6, 5, 4, 3 ,2, 1, 0};
-
-    cout << sort(arry1, 10) << endl;
+    int* result  = sort(arry1, 10);
+    cout << result << endl;
 
     int arry2[] = {2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19};
-
-    cout << sort(arry1, 11) << endl;
+    int* result  = sort(arry2, 11);
+    cout << result << endl;
 
     printf("--------------------end----------------------\n");
     // cin.get();
