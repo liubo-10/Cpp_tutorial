@@ -43,15 +43,15 @@ int main()
 
     int arry[] = {589, 27, 0, 9, 26};
     int* result = sort(arry, 5);
-    cout << result << endl;
+    cout << result[5] << endl;
 
     int arry1[] = {9, 8 ,7, 6, 5, 4, 3 ,2, 1, 0};
     result  = sort(arry1, 10);
-    cout << result << endl;
+    cout << result[10] << endl;
 
     int arry2[] = {2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19};
     result  = sort(arry2, 11);
-    cout << result << endl;
+    cout << result[11] << endl;
 
     printf("--------------------end----------------------\n");
     // cin.get();
