@@ -46,11 +46,11 @@ int main()
     cout << result << endl;
 
     int arry1[] = {9, 8 ,7, 6, 5, 4, 3 ,2, 1, 0};
-    int* result  = sort(arry1, 10);
+    result  = sort(arry1, 10);
     cout << result << endl;
 
     int arry2[] = {2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19};
-    int* result  = sort(arry2, 11);
+    result  = sort(arry2, 11);
     cout << result << endl;
 
     printf("--------------------end----------------------\n");
