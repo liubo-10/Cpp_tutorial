@@ -43,6 +43,7 @@ int main()
     printf("--------------------begain-------------------\n");
 
     cout << D_to_O(7) << endl;
+    cout << D_to_O(10) << endl;
     cout << D_to_O(15) << endl;
     cout << D_to_O(585) << endl;
 
