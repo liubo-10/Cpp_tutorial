@@ -11,6 +11,7 @@
 #include <iostream>  // 包含输入和输出操作
 #include <string.h>  // C语言的标准库，包含字符串处理操作 strcpy等
 #include <unistd.h>  // pause()头文件
+#include <cmath>
 
 // #include "XXX.hpp"
 
@@ -28,12 +29,12 @@ int D_to_O(int num)
     int result = low;
 
     while (high > 8) {
-        low  = (high % 8) * 10 * power + low;
+        low  = (high % 8) * pow(10, power) + low;
         high = high / 8;
         power++;
     }
 
-    result = high * power * 10 + low;
+    result = high * pow(10, power) + low;
     return result;
 }
 
