@@ -38,3 +38,86 @@ freeRTOS  1：项目
 接触过
 6: 是否接触过Lora，大概多少个项目？
 用过 1个项目
+
+
+
+
+
+
+
+80.   下面程序期望得到调用的函数名称及行号，并打印出来。     
+char g_acStrBuf[128];    
+void getGlobalAddr(char *pstr)     
+{         
+    pstr = g_acStrBuf;     
+}     
+
+void  setFuncName (char *pstr, char *pszFunc, int iHint)     
+{         
+    sprintf(pstr, "%s:%d", pszFunc, iHint);     
+}
+
+int main()     
+{
+    char *str = NULL;         
+    getGlobalAddr(str);         
+    setFuncName(str, __FUNCTION__, __LINE__);         
+    printf("str = %s\n", str);         
+    return 0;     
+}
+
+下面说法正确的是（）  
+A.sprintf(pstr, "%s:%d", pszFunc, iHint);改为 snprintf(pstr, sizeof(pstr), "%s:%d", pszFunc, iHint);更安全。
+B.调用函数时，局部变量 pstr 存在于栈中。
+C.调用 getGlobalAddr 后 str 变量的内容还为空。
+D.对 pstr 强制类型转换错误。
+答案：ABC
+
+
+
+
+
+
+81.   下面代码申请预留内存，并进行格式化和填充初值，存在的错误有哪些（）
+    VOID    pageMapAllocMemAndAdd2List(IN VOID *pPageMap)    
+    {       
+        PAGE_MAP_S    *pstPageMap     = (PAGE_MAP_S *)pPageMap; 
+        U32           uiPagesLen      = 0;           
+        /* do something */        ......        
+       BASE_SpinLock(&(pstPageMap->stSpinLock));        
+       uiPagesLen = uiPageNum * sizeof(VOID*);        
+       pstPageMap->ppMem = (VOID**)Base_MemAlloc(uiPagesLen, MPI_MEM_NOSLEEP);     
+          if (RET_OK != FormatMem(pstPageMap->ppMem))       
+        {            return;        }       
+        if (RET_OK != InitMem(pstPageMap->ppMem))     
+          {            Base_MemFree(pstPageMap->ppMem);         
+          return;       
+        }        
+       SNAS_ListAddTail(&(pstPageMap->stList), &(g_stListHead));      
+         /* 链表操作完毕，释放锁 */       
+        BASE_SpinUnLock(&(pstPageMap->stSpinLock));      
+         ......        
+       return;   
+    }     
+
+A.申请内存后，未对申请内存做判空处理，格式化内存失败未回收申请的内存。
+B.初始化内存失败回收内存，未对引用的指针赋空，可能导致函数调用者可能误用已释放的内存。
+C.类似malloc申请内存耗时的操作不要放在 spinlock 锁内。
+D.格式化结构内存失败等异常没有 spin_unlock 锁。
+答案：ABD
+
+
+
+
+86.   设有以下定义     int a=0;     double b=1.25;     char c='A';     #define d 2     则下面语句中正确的是（  ）。       
+A.a++;
+B.b++;
+C.c++;
+D.d++;
+答案：ABC
+
+
+
+
+94. 有以下程序  　　{&nbsp;int&nbsp;a，b，d=25;  　　a=d／10％9;  　　b=a&&(-1);  　　printf(”％d，％d＼n”，a，b);  　　}  　　程序运行后的输出结果是[$$##$$] 
+答案：2,l
