@@ -20,12 +20,12 @@ using std::endl;
 
 int main()
 {
-    cout << " --------------------begain-------------------- " << endl;
+    cout << " -------------------- begain -------------------- " << endl;
     /**
      * write your code here
      **/
 
-    cout << " --------------------end-------------------- " << endl;
+    cout << " -------------------- end -------------------- " << endl;
     // cin.get();
     // getchar();
     // pause();
