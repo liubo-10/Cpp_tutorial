@@ -1,9 +1,10 @@
 # tutorial_template
+
 ---
 
-* 👋 Hi, I’m liubo
-* 👀 I’m interested in harmony
-* 🌱 I’m currently learning harmony
+* 👋 Hi, I’m
+* 👀 I’m interested in
+* 🌱 I’m currently learning
 * 💞️ I’m looking to collaborate on ...
 * 📫 How to reach me ...
 * 📇 sssssdsdsdsdsdsdasd

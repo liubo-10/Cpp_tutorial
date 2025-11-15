@@ -14,13 +14,63 @@
 
 #include "stdbool.h"
 
-
 void XXX(void);
 bool XXX(void);
 bool XXX(void);
 
-#endif  // #ifndef _XXX_HPP_
+#endif // #ifndef _XXX_HPP_
 
 /*****************************************************************************
  * end of file
  ******************************************************************************/
+
+cout << " -------------------- begain -------------------- " << endl;
+
+// 1. 重载[]运算符，n是下标
+// char &operator[](int n);
+string s1("hello, world");
+cout << "s1:" << s1 << endl;
+
+s1[0] = 'H'; //将字符串第1个元素改为H
+cout << "s1:" << s1 << endl;
+
+s1[7] = 'W'; //将字符串第8个元素改为H
+cout << "s1:" << s1 << endl;
+
+cout << " ---------------------------------------- " << endl;
+
+// 2. 通过at方法获取下标为n的元素
+// char &at(int n);
+
+string s2("hello, world");
+cout << "s2:" << s2 << endl;
+
+s2.at(0) = 'H'; //将字符串第1个元素改为H
+cout << "s2:" << s2 << endl;
+
+s2.at(7) = 'W'; //将字符串第8个元素改为H
+cout << "s2:" << s2 << endl;
+
+cout << " ---------------------------------------- " << endl;
+
+// 字符串的取值和修改操作之at方法和重载operator[]方法的区别
+
+// 使用重载operator[]运算符方法，下标越界不会抛出异常
+try {
+    s1[100] = 'H';                    //数组下标访问越界，使用operator[]方法不会抛出异常
+} catch (std::exception &str) {       //接收来自try的异常
+    cout << "string [] 测试" << endl; // 不会打印
+    cout << str.what() << endl;       // 不会打印
+}
+
+cout << " ---------------------------------------- " << endl;
+
+// 使用at方法，下标越界会抛出异常
+try {
+    s2.at(100) = 'H';                   //抛出异常，程序不会终止
+} catch (std::exception &str) {         //接收来自try的异常
+    cout << "string at() 测试" << endl; //会打印
+    cout << str.what() << endl;         //会打印
+}
+
+cout << " -------------------- end -------------------- " << endl;
