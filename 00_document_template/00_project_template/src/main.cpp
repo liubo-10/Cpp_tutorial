@@ -7,10 +7,10 @@
  * ---------------------------------------
  * | @brief   : main template
  ******************************************************************************/
-#include <stdio.h>   // C语言的标准库，包含C语言流操作 printf等
-#include <iostream>  // 包含输入和输出操作
-#include <string.h>  // C语言的标准库，包含字符串处理操作 strcpy等
-#include <unistd.h>  // pause()头文件
+#include <stdio.h>  // C语言的标准库，包含C语言流操作 printf等
+#include <iostream> // 包含输入和输出操作
+#include <string.h> // C语言的标准库，包含字符串处理操作 strcpy等
+#include <unistd.h> // pause()头文件
 
 // #include "XXX.hpp"
 
@@ -21,6 +21,9 @@ using std::endl;
 int main()
 {
     cout << " -------------------- begain -------------------- " << endl;
+
+    cout << __FILE__ << endl;
+
     /**
      * write your code here
      **/
@@ -45,3 +48,16 @@ int main()
 /*****************************************************************************
  * end of file
  ******************************************************************************/
+
+// result
+/* --------------------begain-------------------
+vector_1: 
+vector_2: 0 0 0 0 0 0 0 0 0 0 
+vector_3: 1 1 1 1 1 1 1 1 1 1 
+vector_4: 1 1 1 1 1 1 1 1 1 1 
+vector_5: 0 1 2 3 4 5 6 7 8 9 
+vector_6: 0 1 2 3 4 
+vectora6: 0 1 2 3 4 5 6 7 8 9 
+vector_7: -1 0 3 5 7 9 
+vectora7: 1 0 -3 -5 -7 -9 
+--------------------end---------------------- */
